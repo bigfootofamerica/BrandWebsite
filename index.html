@@ -3,221 +3,293 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Bigfoot of America</title>
+<title>Bigfoot of America — AI Influencer & Brand Partner</title>
 <style>
-  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;900&family=Bebas+Neue&display=swap');
+
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
   :root {
-    --gold: #C9A84C;
-    --gold-light: #F0D080;
-    --black: #0A0A0A;
+    --green: #2D5A27;
+    --green-light: #3D7A35;
+    --green-pale: #EBF2EA;
+    --teal: #3A8C8C;
+    --teal-pale: #E8F4F4;
     --white: #FFFFFF;
-    --gray: #1A1A1A;
-    --gray-text: #999;
+    --off-white: #F7F7F5;
+    --light-gray: #F0F0ED;
+    --border: #E2E2DE;
+    --text: #1A1A1A;
+    --text-mid: #555555;
+    --text-light: #888888;
     --font: 'Inter', sans-serif;
+    --font-display: 'Bebas Neue', sans-serif;
   }
+
   html { scroll-behavior: smooth; }
-  body { font-family: var(--font); background: var(--black); color: var(--white); min-height: 100vh; overflow-x: hidden; }
+  body { font-family: var(--font); background: var(--white); color: var(--text); overflow-x: hidden; }
 
-  /* NAV */
+  /* ── NAV ── */
   nav {
-    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    position: fixed; top: 0; left: 0; right: 0; z-index: 200;
     display: flex; align-items: center; justify-content: space-between;
-    padding: 1.25rem 2.5rem;
-    border-bottom: 0.5px solid rgba(201,168,76,0.15);
-    background: rgba(10,10,10,0.95);
-    backdrop-filter: blur(8px);
+    padding: 1.1rem 3rem;
+    background: rgba(255,255,255,0.97);
+    border-bottom: 1px solid var(--border);
+    backdrop-filter: blur(12px);
   }
-  .nav-logo { font-size: 15px; font-weight: 700; letter-spacing: 0.12em; color: var(--white); text-transform: uppercase; text-decoration: none; }
-  .nav-logo span { color: var(--gold); }
-  .nav-links { display: flex; gap: 1.75rem; list-style: none; }
-  .nav-links a { font-size: 12px; font-weight: 500; letter-spacing: 0.08em; color: var(--gray-text); text-decoration: none; text-transform: uppercase; transition: color 0.2s; }
-  .nav-links a:hover { color: var(--gold); }
-  .nav-cta { font-size: 12px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--black); background: var(--gold); border: none; padding: 0.6rem 1.4rem; border-radius: 2px; cursor: pointer; text-decoration: none; transition: background 0.2s; }
-  .nav-cta:hover { background: var(--gold-light); }
+  .nav-logo { font-family: var(--font-display); font-size: 22px; letter-spacing: 0.08em; color: var(--text); text-decoration: none; }
+  .nav-logo span { color: var(--green); }
+  .nav-links { display: flex; gap: 2rem; list-style: none; }
+  .nav-links a { font-size: 12px; font-weight: 500; letter-spacing: 0.1em; color: var(--text-light); text-decoration: none; text-transform: uppercase; transition: color 0.2s; }
+  .nav-links a:hover { color: var(--text); }
+  .nav-actions { display: flex; gap: 0.75rem; align-items: center; }
+  .btn-outline { font-size: 12px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--green); background: transparent; border: 1.5px solid var(--green); padding: 0.55rem 1.25rem; border-radius: 3px; cursor: pointer; text-decoration: none; transition: all 0.2s; }
+  .btn-outline:hover { background: var(--green); color: var(--white); }
+  .btn-green { font-size: 12px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--white); background: var(--green); border: 1.5px solid var(--green); padding: 0.55rem 1.25rem; border-radius: 3px; cursor: pointer; text-decoration: none; transition: all 0.2s; }
+  .btn-green:hover { background: var(--green-light); border-color: var(--green-light); }
 
-  /* HERO */
-  .hero { min-height: 100vh; display: flex; align-items: center; justify-content: center; flex-direction: column; text-align: center; padding: 8rem 2rem 4rem; position: relative; overflow: hidden; }
-  .hero-bg-line { position: absolute; top: 0; left: 50%; transform: translateX(-50%); width: 1px; height: 100%; background: linear-gradient(to bottom, transparent, rgba(201,168,76,0.12), transparent); pointer-events: none; }
-  .hero-eyebrow { font-size: 11px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); margin-bottom: 1.5rem; }
-  .hero-image-slot { width: 280px; height: 360px; border: 1.5px dashed rgba(201,168,76,0.35); border-radius: 4px; display: flex; flex-direction: column; align-items: center; justify-content: center; margin: 0 auto 3rem; gap: 0.75rem; color: rgba(201,168,76,0.5); font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; background: rgba(201,168,76,0.03); }
-  .hero-title { font-size: clamp(3rem, 8vw, 6.5rem); font-weight: 900; line-height: 0.95; letter-spacing: -0.02em; text-transform: uppercase; margin-bottom: 1.5rem; }
-  .hero-title .line-gold { color: var(--gold); display: block; }
-  .line-america {
-    display: block;
-    background: linear-gradient(90deg, #B22234 0%, #B22234 33%, #FFFFFF 33%, #FFFFFF 66%, #3C3B6E 66%, #3C3B6E 100%);
+  /* ── HERO ── */
+  .hero {
+    min-height: 100vh;
+    display: grid; grid-template-columns: 1fr 1fr;
+    align-items: center;
+    padding: 8rem 3rem 4rem;
+    gap: 4rem;
+    max-width: 1200px; margin: 0 auto;
+  }
+  .hero-text { display: flex; flex-direction: column; gap: 1.5rem; }
+  .hero-badge {
+    display: inline-flex; align-items: center; gap: 0.5rem;
+    font-size: 11px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase;
+    color: var(--green); border: 1.5px solid rgba(45,90,39,0.25);
+    padding: 0.4rem 1rem; border-radius: 100px;
+    background: var(--green-pale); width: fit-content;
+  }
+  .hero-badge-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--green); animation: blink 1.5s ease-in-out infinite; }
+  @keyframes blink { 0%,100%{opacity:1;} 50%{opacity:0.3;} }
+  .hero-title {
+    font-family: var(--font-display);
+    font-size: clamp(4rem, 7vw, 7rem);
+    line-height: 0.92; letter-spacing: 0.03em;
+    color: var(--text);
+  }
+  .hero-title .word-of { color: var(--green); }
+  .hero-title .word-america {
+    background: linear-gradient(90deg, #B22234, #B22234 33%, #1A1A1A 33%, #1A1A1A 66%, #3C3B6E 66%);
     background-size: 200% auto;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    animation: flagwave 3s linear infinite;
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+    animation: flagwave 4s linear infinite;
   }
-  @keyframes flagwave {
-    0% { background-position: 0% center; }
-    100% { background-position: 200% center; }
+  @keyframes flagwave { 0%{background-position:0% center;} 100%{background-position:200% center;} }
+  .hero-sub { font-size: 16px; font-weight: 400; color: var(--text-mid); line-height: 1.75; max-width: 480px; }
+  .hero-sub strong { color: var(--text); font-weight: 600; }
+  .hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; margin-top: 0.5rem; }
+  .btn-lg { font-size: 13px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; padding: 0.95rem 2.25rem; border-radius: 3px; cursor: pointer; text-decoration: none; transition: all 0.2s; display: inline-block; }
+  .btn-lg.green { color: var(--white); background: var(--green); border: 1.5px solid var(--green); }
+  .btn-lg.green:hover { background: var(--green-light); transform: translateY(-1px); }
+  .btn-lg.outline { color: var(--text); background: transparent; border: 1.5px solid var(--border); }
+  .btn-lg.outline:hover { border-color: var(--text); transform: translateY(-1px); }
+  .hero-image {
+    position: relative; border-radius: 12px; overflow: hidden;
+    aspect-ratio: 4/5; background: var(--light-gray);
+    border: 1px solid var(--border);
+    box-shadow: 0 20px 60px rgba(0,0,0,0.1);
   }
-
-  /* SCROLL FADE IN */
-  .fade-in { opacity: 0; transform: translateY(30px); transition: opacity 0.7s ease, transform 0.7s ease; }
-  .fade-in.visible { opacity: 1; transform: translateY(0); }
-
-  /* HERO IMAGE PULSE */
-  .hero-image-slot { animation: pulse-border 2.5s ease-in-out infinite; }
-  @keyframes pulse-border {
-    0%, 100% { box-shadow: 0 0 0 0 rgba(201,168,76,0.15); }
-    50% { box-shadow: 0 0 24px 6px rgba(201,168,76,0.15); }
+  .hero-image img { width: 100%; height: 100%; object-fit: cover; object-position: center top; }
+  .hero-image-badge {
+    position: absolute; bottom: 1.5rem; left: 1.5rem;
+    background: rgba(255,255,255,0.95); backdrop-filter: blur(8px);
+    border: 1px solid var(--border); border-radius: 8px;
+    padding: 0.75rem 1.25rem;
+    display: flex; flex-direction: column; gap: 0.2rem;
   }
+  .hero-image-badge-num { font-family: var(--font-display); font-size: 22px; color: var(--green); letter-spacing: 0.04em; }
+  .hero-image-badge-label { font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-light); }
 
-  /* STAT COUNT ANIMATION */
-  .stat-number { transition: transform 0.3s ease; }
-  .stat:hover .stat-number { transform: scale(1.08); }
+  /* ── MARQUEE ── */
+  .marquee-wrap { overflow: hidden; padding: 0.85rem 0; background: var(--green); }
+  .marquee-track { display: flex; gap: 2.5rem; white-space: nowrap; animation: marquee 30s linear infinite; width: max-content; }
+  .marquee-item { font-size: 11px; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(255,255,255,0.7); display: flex; align-items: center; gap: 1rem; }
+  .marquee-dot { width: 3px; height: 3px; border-radius: 50%; background: rgba(255,255,255,0.5); }
+  @keyframes marquee { from{transform:translateX(0);} to{transform:translateX(-50%);} }
 
-  /* ACCOUNT CARD ENHANCED HOVER */
-  .account-card { transition: border-color 0.2s, color 0.2s, transform 0.2s, background 0.2s; }
-  .account-card:hover { transform: translateY(-2px); background: rgba(201,168,76,0.06); }
-
-  /* MARQUEE GLOW */
-  .marquee-dot { animation: dot-pulse 1.5s ease-in-out infinite; }
-  @keyframes dot-pulse {
-    0%, 100% { opacity: 1; transform: scale(1); }
-    50% { opacity: 0.4; transform: scale(0.6); }
-  }
-
-  /* BUTTON ANIMATION */
-  .btn-primary { transition: background 0.2s, transform 0.15s; }
-  .btn-primary:hover { transform: translateY(-1px); }
-  .btn-primary:active { transform: translateY(0); }
-
-  /* SIGHTING SLOT HOVER */
-  .sighting-slot { transition: border-color 0.2s, background 0.2s, transform 0.2s; cursor: pointer; }
-  .sighting-slot:hover { border-color: rgba(201,168,76,0.6); background: rgba(201,168,76,0.06); transform: scale(1.02); }
-
-  /* TESTIMONIAL CARD HOVER */
-  .testimonial-card { transition: border-color 0.2s, transform 0.2s; }
-  .testimonial-card:hover { border-color: rgba(201,168,76,0.3); transform: translateY(-3px); }
-  .hero-subtitle { font-size: clamp(1rem, 2vw, 1.2rem); font-weight: 400; color: var(--gray-text); max-width: 520px; line-height: 1.65; margin-bottom: 3rem; }
-  .hero-actions { display: flex; gap: 1rem; align-items: center; flex-wrap: wrap; justify-content: center; }
-  .btn-primary { font-size: 13px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--black); background: var(--gold); border: none; padding: 1rem 2.5rem; border-radius: 2px; cursor: pointer; text-decoration: none; transition: background 0.2s; display: inline-block; }
-  .btn-primary:hover { background: var(--gold-light); }
-  .btn-secondary { font-size: 13px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: var(--gray-text); background: transparent; border: 0.5px solid rgba(255,255,255,0.15); padding: 1rem 2.5rem; border-radius: 2px; cursor: pointer; text-decoration: none; transition: border-color 0.2s, color 0.2s; display: inline-block; }
-  .btn-secondary:hover { color: var(--white); border-color: rgba(255,255,255,0.4); }
-
-  /* MARQUEE */
-  .marquee-wrap { overflow: hidden; border-top: 0.5px solid rgba(255,255,255,0.07); border-bottom: 0.5px solid rgba(255,255,255,0.07); padding: 1rem 0; background: var(--gray); }
-  .marquee-track { display: flex; gap: 3rem; white-space: nowrap; animation: marquee 22s linear infinite; width: max-content; }
-  .marquee-item { font-size: 11px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gray-text); display: flex; align-items: center; gap: 1rem; }
-  .marquee-dot { width: 4px; height: 4px; border-radius: 50%; background: var(--gold); flex-shrink: 0; }
-  @keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
-
-  /* STATS */
-  .stats { display: grid; grid-template-columns: repeat(3, 1fr); border-bottom: 0.5px solid rgba(255,255,255,0.07); }
-  .stat { padding: 3rem 2rem; text-align: center; border-right: 0.5px solid rgba(255,255,255,0.07); }
+  /* ── STATS ── */
+  .stats { display: grid; grid-template-columns: repeat(3,1fr); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); background: var(--white); }
+  .stat { padding: 3rem 2rem; text-align: center; border-right: 1px solid var(--border); }
   .stat:last-child { border-right: none; }
-  .stat-number { font-size: clamp(2rem, 5vw, 3.5rem); font-weight: 900; color: var(--gold); letter-spacing: -0.02em; margin-bottom: 0.5rem; }
-  .stat-label { font-size: 12px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gray-text); }
+  .stat-number { font-family: var(--font-display); font-size: clamp(2.5rem, 5vw, 4rem); color: var(--green); letter-spacing: 0.04em; margin-bottom: 0.4rem; transition: transform 0.3s; }
+  .stat:hover .stat-number { transform: scale(1.05); }
+  .stat-label { font-size: 11px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--text-light); }
 
-  /* SECTION COMMON */
-  .section-eyebrow { font-size: 11px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); }
-  .section-title { font-size: clamp(1.75rem, 4vw, 2.5rem); font-weight: 900; line-height: 1.05; letter-spacing: -0.01em; text-transform: uppercase; }
-  .section-body { font-size: 15px; line-height: 1.75; color: var(--gray-text); }
+  /* ── SHARED ── */
+  .section-wrap { max-width: 1000px; margin: 0 auto; padding: 6rem 2rem; }
+  .section-eyebrow { font-size: 11px; font-weight: 700; letter-spacing: 0.22em; text-transform: uppercase; color: var(--green); margin-bottom: 0.6rem; }
+  .section-title { font-family: var(--font-display); font-size: clamp(2rem, 4vw, 3.2rem); letter-spacing: 0.04em; line-height: 1; margin-bottom: 1rem; color: var(--text); }
+  .section-body { font-size: 15px; line-height: 1.8; color: var(--text-mid); }
 
-  /* ABOUT */
-  .about { max-width: 900px; margin: 0 auto; padding: 6rem 2rem; display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; }
-  .about-image-slot { width: 100%; aspect-ratio: 3/4; border: 1.5px dashed rgba(201,168,76,0.35); border-radius: 4px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 0.75rem; color: rgba(201,168,76,0.5); font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; background: rgba(201,168,76,0.03); }
-  .about-text { display: flex; flex-direction: column; gap: 1.5rem; }
+  /* ── ABOUT ── */
+  .about-section { background: var(--off-white); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+  .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center; }
+  .about-image { border-radius: 10px; overflow: hidden; aspect-ratio: 4/5; background: var(--light-gray); border: 1px solid var(--border); box-shadow: 0 8px 30px rgba(0,0,0,0.08); }
+  .about-image img { width: 100%; height: 100%; object-fit: cover; object-position: center top; }
+  .about-image-placeholder { width:100%; height:100%; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:0.6rem; color:var(--text-light); font-size:11px; letter-spacing:0.1em; text-transform:uppercase; }
+  .about-text { display:flex; flex-direction:column; gap:1.25rem; }
 
-  /* SOCIAL */
-  .social-section { padding: 6rem 2rem; border-top: 0.5px solid rgba(255,255,255,0.07); }
-  .social-section-inner { max-width: 900px; margin: 0 auto; }
-  .social-header { text-align: center; margin-bottom: 3.5rem; display: flex; flex-direction: column; gap: 0.75rem; }
-  .platform-group { margin-bottom: 3rem; }
-  .platform-label { font-size: 11px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); border-bottom: 0.5px solid rgba(201,168,76,0.2); padding-bottom: 0.75rem; margin-bottom: 1.25rem; display: flex; align-items: center; gap: 0.6rem; }
-  .accounts-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 0.75rem; }
-  .account-card { display: flex; align-items: center; gap: 0.75rem; padding: 0.9rem 1.1rem; border: 0.5px solid rgba(255,255,255,0.1); border-radius: 4px; text-decoration: none; color: var(--white); font-size: 13px; font-weight: 500; transition: border-color 0.2s, color 0.2s; background: rgba(255,255,255,0.02); }
-  .account-card:hover { border-color: var(--gold); color: var(--gold); }
-  .account-handle { font-size: 11px; color: var(--gray-text); margin-top: 1px; }
-  .account-info { display: flex; flex-direction: column; }
-  .account-name { font-size: 13px; font-weight: 600; }
+  /* ── OFFER ── */
+  .offer-section { background: var(--white); border-bottom: 1px solid var(--border); }
+  .offer-header { text-align:center; margin-bottom:3.5rem; }
+  .offer-header .section-body { margin:0 auto; max-width:520px; }
+  .offer-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(210px,1fr)); gap:1.25rem; }
+  .offer-card { background: var(--off-white); border:1.5px solid var(--border); border-radius:8px; padding:2rem 1.5rem; transition:all 0.25s; }
+  .offer-card:hover { border-color: var(--green); transform:translateY(-4px); box-shadow:0 12px 30px rgba(45,90,39,0.08); }
+  .offer-icon { font-size:28px; margin-bottom:1rem; }
+  .offer-title { font-size:13px; font-weight:700; letter-spacing:0.06em; text-transform:uppercase; margin-bottom:0.6rem; color:var(--text); }
+  .offer-desc { font-size:13px; line-height:1.7; color:var(--text-mid); }
 
-  /* TESTIMONIALS */
-  .testimonials { background: var(--gray); padding: 6rem 2rem; border-top: 0.5px solid rgba(255,255,255,0.07); border-bottom: 0.5px solid rgba(255,255,255,0.07); }
-  .testimonials-inner { max-width: 900px; margin: 0 auto; }
-  .testimonials-header { text-align: center; margin-bottom: 3rem; display: flex; flex-direction: column; gap: 0.75rem; }
-  .testimonials-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.25rem; margin-bottom: 2.5rem; }
-  .testimonial-card { background: rgba(255,255,255,0.03); border: 0.5px solid rgba(255,255,255,0.08); border-radius: 4px; padding: 1.5rem; display: flex; flex-direction: column; gap: 1rem; }
-  .testimonial-stars { color: var(--gold); font-size: 14px; letter-spacing: 2px; }
-  .testimonial-text { font-size: 14px; line-height: 1.7; color: #ccc; font-style: italic; }
-  .testimonial-author { font-size: 12px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--gray-text); }
-  .testimonial-city { font-size: 11px; color: var(--gold); margin-top: 2px; }
-  .testimonials-cta { text-align: center; }
-  .testimonials-note { font-size: 13px; color: var(--gray-text); margin-top: 1rem; }
+  /* ── CITIES ── */
+  .cities-section { background: var(--off-white); border-bottom: 1px solid var(--border); }
+  .cities-header { text-align:center; margin-bottom:3rem; }
+  .cities-scroll { overflow:hidden; position:relative; }
+  .cities-scroll::before,.cities-scroll::after { content:''; position:absolute; top:0; bottom:0; width:80px; z-index:2; pointer-events:none; }
+  .cities-scroll::before { left:0; background:linear-gradient(to right, var(--off-white), transparent); }
+  .cities-scroll::after { right:0; background:linear-gradient(to left, var(--off-white), transparent); }
+  .cities-track { display:flex; gap:0.75rem; white-space:nowrap; animation:marquee 40s linear infinite; width:max-content; padding:0.5rem 0; }
+  .cities-track2 { animation-direction:reverse; animation-duration:35s; }
+  .city-tag { font-size:12px; font-weight:500; letter-spacing:0.06em; text-transform:uppercase; color:var(--text-mid); border:1px solid var(--border); padding:0.5rem 1rem; border-radius:100px; background:var(--white); transition:all 0.2s; white-space:nowrap; }
+  .city-tag:hover { border-color:var(--green); color:var(--green); background:var(--green-pale); }
 
-  /* SIGHTINGS */
-  .sightings { padding: 6rem 2rem; border-top: 0.5px solid rgba(255,255,255,0.07); }
-  .sightings-inner { max-width: 900px; margin: 0 auto; }
-  .sightings-header { text-align: center; margin-bottom: 3rem; display: flex; flex-direction: column; gap: 0.75rem; }
-  .sightings-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin-bottom: 2.5rem; }
-  .sighting-slot { aspect-ratio: 1; border: 1.5px dashed rgba(201,168,76,0.25); border-radius: 4px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 0.5rem; color: rgba(201,168,76,0.4); font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; background: rgba(201,168,76,0.02); }
-  .sighting-slot svg { opacity: 0.35; }
-  .sightings-cta { text-align: center; display: flex; flex-direction: column; align-items: center; gap: 1rem; }
-  .sightings-note { font-size: 13px; color: var(--gray-text); max-width: 420px; text-align: center; line-height: 1.6; }
+  /* ── WORK WITH US ── */
+  .work-section { background: var(--green); }
+  .work-inner { display:grid; grid-template-columns:1fr 1fr; gap:5rem; align-items:start; }
+  .work-text { display:flex; flex-direction:column; gap:1.25rem; }
+  .work-text .section-eyebrow { color:rgba(255,255,255,0.6); }
+  .work-text .section-title { color:var(--white); }
+  .work-text .section-body { color:rgba(255,255,255,0.75); }
+  .work-list { list-style:none; display:flex; flex-direction:column; gap:0.75rem; margin-top:0.5rem; }
+  .work-list li { font-size:14px; color:rgba(255,255,255,0.8); display:flex; align-items:center; gap:0.75rem; line-height:1.5; }
+  .work-list li::before { content:''; width:6px; height:6px; border-radius:50%; background:rgba(255,255,255,0.5); flex-shrink:0; }
+  .contact-card { background:var(--white); border-radius:10px; padding:2.5rem; display:flex; flex-direction:column; gap:1.5rem; box-shadow:0 20px 50px rgba(0,0,0,0.15); }
+  .contact-card-title { font-size:17px; font-weight:700; color:var(--text); }
+  .contact-card-sub { font-size:13px; color:var(--text-mid); line-height:1.65; }
+  .contact-email { display:flex; align-items:center; gap:0.75rem; padding:1rem 1.25rem; background:var(--green-pale); border:1.5px solid rgba(45,90,39,0.2); border-radius:6px; font-size:14px; font-weight:600; color:var(--green); text-decoration:none; transition:all 0.2s; }
+  .contact-email:hover { background:rgba(45,90,39,0.12); }
+  .contact-divider { display:flex; align-items:center; gap:1rem; color:var(--text-light); font-size:11px; letter-spacing:0.1em; text-transform:uppercase; }
+  .contact-divider::before,.contact-divider::after { content:''; flex:1; height:1px; background:var(--border); }
+  .contact-social { display:flex; gap:0.75rem; flex-wrap:wrap; }
+  .contact-social-btn { flex:1; text-align:center; font-size:12px; font-weight:600; letter-spacing:0.06em; text-transform:uppercase; color:var(--text); background:transparent; border:1.5px solid var(--border); padding:0.65rem 1rem; border-radius:4px; text-decoration:none; transition:all 0.2s; }
+  .contact-social-btn:hover { border-color:var(--green); color:var(--green); background:var(--green-pale); }
+  .contact-note { font-size:12px; color:var(--text-light); text-align:center; line-height:1.6; }
 
-  /* SHOP CTA */
-  .shop-cta { padding: 7rem 2rem; text-align: center; max-width: 700px; margin: 0 auto; }
-  .shop-cta-title { font-size: clamp(2rem, 6vw, 4rem); font-weight: 900; text-transform: uppercase; letter-spacing: -0.02em; line-height: 1; margin-bottom: 1.25rem; }
-  .shop-cta-title span { color: var(--gold); }
-  .shop-cta-sub { font-size: 15px; color: var(--gray-text); margin-bottom: 2.5rem; line-height: 1.65; }
+  /* ── SIGHTINGS ── */
+  .sightings-section { background:var(--white); border-bottom:1px solid var(--border); }
+  .sightings-header { text-align:center; margin-bottom:3rem; }
+  .sightings-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:1rem; margin-bottom:2.5rem; }
+  .sighting-slot { aspect-ratio:1; border:1.5px dashed var(--border); border-radius:8px; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:0.5rem; color:var(--text-light); font-size:11px; letter-spacing:0.08em; text-transform:uppercase; background:var(--off-white); transition:all 0.2s; cursor:pointer; }
+  .sighting-slot:hover { border-color:var(--green); background:var(--green-pale); color:var(--green); transform:scale(1.02); }
+  .sightings-cta { text-align:center; display:flex; flex-direction:column; align-items:center; gap:0.75rem; }
+  .sightings-note { font-size:13px; color:var(--text-light); max-width:400px; line-height:1.6; }
 
-  /* FOOTER */
-  footer { border-top: 0.5px solid rgba(255,255,255,0.07); padding: 2rem 2.5rem; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem; background: var(--gray); }
-  .footer-logo { font-size: 13px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--white); text-decoration: none; }
-  .footer-logo span { color: var(--gold); }
-  .footer-copy { font-size: 12px; color: var(--gray-text); }
-  .footer-links { display: flex; gap: 1.5rem; list-style: none; }
-  .footer-links a { font-size: 12px; color: var(--gray-text); text-decoration: none; letter-spacing: 0.08em; text-transform: uppercase; transition: color 0.2s; }
-  .footer-links a:hover { color: var(--gold); }
+  /* ── TESTIMONIALS ── */
+  .testimonials-section { background:var(--off-white); border-bottom:1px solid var(--border); }
+  .testimonials-header { text-align:center; margin-bottom:3rem; }
+  .testimonials-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:1.25rem; margin-bottom:2.5rem; }
+  .testimonial-card { background:var(--white); border:1px solid var(--border); border-radius:8px; padding:1.75rem; display:flex; flex-direction:column; gap:1rem; transition:all 0.2s; }
+  .testimonial-card:hover { border-color:var(--green); transform:translateY(-3px); box-shadow:0 8px 24px rgba(45,90,39,0.08); }
+  .testimonial-stars { color:var(--green); font-size:13px; letter-spacing:3px; }
+  .testimonial-text { font-size:14px; line-height:1.75; color:var(--text-mid); font-style:italic; }
+  .testimonial-author { font-size:12px; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:var(--text); }
+  .testimonial-city { font-size:11px; color:var(--green); margin-top:2px; }
+  .testimonials-cta { text-align:center; }
 
-  @media (max-width: 640px) {
-    nav { padding: 1rem 1.25rem; }
-    .nav-links { display: none; }
-    .about { grid-template-columns: 1fr; gap: 2rem; }
-    .sightings-grid { grid-template-columns: repeat(2, 1fr); }
-    .stats { grid-template-columns: 1fr; }
-    .stat { border-right: none; border-bottom: 0.5px solid rgba(255,255,255,0.07); }
+  /* ── SOCIAL ── */
+  .social-section { background:var(--white); border-bottom:1px solid var(--border); }
+  .social-header { text-align:center; margin-bottom:3.5rem; }
+  .platform-group { margin-bottom:2.5rem; }
+  .platform-label { font-size:11px; font-weight:700; letter-spacing:0.18em; text-transform:uppercase; color:var(--green); border-bottom:1px solid var(--border); padding-bottom:0.75rem; margin-bottom:1rem; display:flex; align-items:center; gap:0.5rem; }
+  .accounts-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:0.75rem; }
+  .account-card { display:flex; align-items:center; gap:0.75rem; padding:0.9rem 1.1rem; border:1px solid var(--border); border-radius:6px; text-decoration:none; color:var(--text); transition:all 0.2s; background:var(--off-white); }
+  .account-card:hover { border-color:var(--green); color:var(--green); transform:translateY(-2px); background:var(--green-pale); }
+  .account-info { display:flex; flex-direction:column; }
+  .account-name { font-size:13px; font-weight:600; }
+  .account-handle { font-size:11px; color:var(--text-light); margin-top:1px; }
+
+  /* ── MERCH CTA ── */
+  .merch-cta { background:var(--off-white); border-top:1px solid var(--border); padding:7rem 2rem; text-align:center; }
+  .merch-cta-title { font-family:var(--font-display); font-size:clamp(3rem,7vw,5.5rem); letter-spacing:0.04em; line-height:0.95; margin-bottom:1.25rem; color:var(--text); }
+  .merch-cta-title span { color:var(--green); }
+  .merch-cta-sub { font-size:15px; color:var(--text-mid); margin-bottom:2.5rem; line-height:1.7; max-width:480px; margin-left:auto; margin-right:auto; }
+
+  /* ── FOOTER ── */
+  footer { background:var(--text); padding:2.5rem 3rem; display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:1rem; }
+  .footer-logo { font-family:var(--font-display); font-size:20px; letter-spacing:0.06em; color:var(--white); text-decoration:none; }
+  .footer-logo span { color:var(--green-light); }
+  .footer-links { display:flex; gap:1.5rem; list-style:none; }
+  .footer-links a { font-size:12px; color:rgba(255,255,255,0.5); text-decoration:none; letter-spacing:0.08em; text-transform:uppercase; transition:color 0.2s; }
+  .footer-links a:hover { color:var(--white); }
+  .footer-copy { font-size:12px; color:rgba(255,255,255,0.4); }
+
+  /* ── ANIMATIONS ── */
+  .fade-in { opacity:0; transform:translateY(24px); transition:opacity 0.75s ease, transform 0.75s ease; }
+  .fade-in.visible { opacity:1; transform:translateY(0); }
+
+  @media(max-width:768px) {
+    nav { padding:1rem 1.25rem; }
+    .nav-links { display:none; }
+    .hero { grid-template-columns:1fr; padding:7rem 1.5rem 3rem; gap:2.5rem; }
+    .about-grid,.work-inner { grid-template-columns:1fr; gap:2.5rem; }
+    .sightings-grid { grid-template-columns:repeat(2,1fr); }
+    .stats { grid-template-columns:1fr; }
+    .stat { border-right:none; border-bottom:1px solid var(--border); }
   }
 </style>
 </head>
 <body>
 
+<!-- NAV -->
 <nav>
   <a href="#" class="nav-logo">Bigfoot<span>.</span></a>
   <ul class="nav-links">
     <li><a href="#about">About</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#cities">Reach</a></li>
+    <li><a href="#work">Work With Us</a></li>
     <li><a href="#sightings">Sightings</a></li>
-    <li><a href="#testimonials">Reviews</a></li>
     <li><a href="#follow">Follow</a></li>
-    <li><a href="https://bigfootofamerica.myshopify.com/">Merch</a></li>
   </ul>
-  <a href="https://bigfootofamerica.myshopify.com/" class="nav-cta">Shop Now</a>
+  <div class="nav-actions">
+    <a href="#work" class="btn-outline">Partner With Us</a>
+    <a href="https://bigfootofamerica.myshopify.com/" class="btn-green">Shop Merch</a>
+  </div>
 </nav>
 
 <!-- HERO -->
-<section class="hero">
-  <div class="hero-bg-line"></div>
-  <p class="hero-eyebrow">The Legend is Real</p>
-  <div class="hero-image-slot">
-    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
-    <span>Hero image here</span>
-  </div>
-  <h1 class="hero-title">
-    Bigfoot
-    <span class="line-gold">of</span>
-    <span class="line-america">America</span>
-  </h1>
-  <p class="hero-subtitle">Your favorite AI influencer reviewing cities, roasting locals, and repping the culture — one sighting at a time.</p>
-  <div class="hero-actions">
-    <a href="https://bigfootofamerica.myshopify.com/" class="btn-primary">Shop the Merch</a>
-    <a href="#about" class="btn-secondary">Who is BF?</a>
+<section style="background:var(--white); border-bottom:1px solid var(--border);">
+  <div class="hero">
+    <div class="hero-text">
+      <div class="hero-badge"><span class="hero-badge-dot"></span> AI Influencer & Brand Partner</div>
+      <h1 class="hero-title">
+        BIGFOOT<br>
+        <span class="word-of">OF</span><br>
+        <span class="word-america">AMERICA</span>
+      </h1>
+      <p class="hero-sub">The <strong>AI influencer</strong> taking cities by storm — reviewing restaurants, hyping local businesses, and making millions laugh across TikTok, Instagram & Facebook.</p>
+      <div class="hero-actions">
+        <a href="#work" class="btn-lg green">Partner With Us</a>
+        <a href="https://bigfootofamerica.myshopify.com/" class="btn-lg outline">Shop Merch</a>
+      </div>
+    </div>
+    <div class="hero-image">
+      <img src="IMG_7858.jpg" alt="Bigfoot of America" onerror="this.style.display='none'; this.parentElement.querySelector('.hero-image-placeholder').style.display='flex';" />
+      <div class="hero-image-placeholder" style="display:none; width:100%; height:100%; flex-direction:column; align-items:center; justify-content:center; gap:0.6rem; color:var(--text-light); font-size:11px; letter-spacing:0.1em; text-transform:uppercase;">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+        <span>BF Photo Here</span>
+      </div>
+      <div class="hero-image-badge">
+        <div class="hero-image-badge-num">200K+</div>
+        <div class="hero-image-badge-label">Followers</div>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -225,24 +297,24 @@
 <div class="marquee-wrap">
   <div class="marquee-track">
     <span class="marquee-item">City Reviews <span class="marquee-dot"></span></span>
-    <span class="marquee-item">Restaurant Collabs <span class="marquee-dot"></span></span>
-    <span class="marquee-item">Millions of Views <span class="marquee-dot"></span></span>
+    <span class="marquee-item">Restaurant Features <span class="marquee-dot"></span></span>
+    <span class="marquee-item">Brand Partnerships <span class="marquee-dot"></span></span>
     <span class="marquee-item">TikTok <span class="marquee-dot"></span></span>
     <span class="marquee-item">Instagram <span class="marquee-dot"></span></span>
     <span class="marquee-item">Facebook <span class="marquee-dot"></span></span>
-    <span class="marquee-item">West Coast <span class="marquee-dot"></span></span>
-    <span class="marquee-item">Florida <span class="marquee-dot"></span></span>
-    <span class="marquee-item">North Carolina <span class="marquee-dot"></span></span>
+    <span class="marquee-item">200K+ Followers <span class="marquee-dot"></span></span>
+    <span class="marquee-item">Millions of Views <span class="marquee-dot"></span></span>
+    <span class="marquee-item">100+ Businesses <span class="marquee-dot"></span></span>
     <span class="marquee-item">Bigfoot of America <span class="marquee-dot"></span></span>
     <span class="marquee-item">City Reviews <span class="marquee-dot"></span></span>
-    <span class="marquee-item">Restaurant Collabs <span class="marquee-dot"></span></span>
-    <span class="marquee-item">Millions of Views <span class="marquee-dot"></span></span>
+    <span class="marquee-item">Restaurant Features <span class="marquee-dot"></span></span>
+    <span class="marquee-item">Brand Partnerships <span class="marquee-dot"></span></span>
     <span class="marquee-item">TikTok <span class="marquee-dot"></span></span>
     <span class="marquee-item">Instagram <span class="marquee-dot"></span></span>
     <span class="marquee-item">Facebook <span class="marquee-dot"></span></span>
-    <span class="marquee-item">West Coast <span class="marquee-dot"></span></span>
-    <span class="marquee-item">Florida <span class="marquee-dot"></span></span>
-    <span class="marquee-item">North Carolina <span class="marquee-dot"></span></span>
+    <span class="marquee-item">200K+ Followers <span class="marquee-dot"></span></span>
+    <span class="marquee-item">Millions of Views <span class="marquee-dot"></span></span>
+    <span class="marquee-item">100+ Businesses <span class="marquee-dot"></span></span>
     <span class="marquee-item">Bigfoot of America <span class="marquee-dot"></span></span>
   </div>
 </div>
@@ -250,301 +322,283 @@
 <!-- STATS -->
 <section class="stats fade-in">
   <div class="stat">
-    <div class="stat-number">200K+</div>
-    <div class="stat-label">Followers</div>
+    <div class="stat-number" id="stat-followers">200K+</div>
+    <div class="stat-label">Total Followers</div>
   </div>
   <div class="stat">
-    <div class="stat-number">100+</div>
+    <div class="stat-number" id="stat-businesses">100+</div>
     <div class="stat-label">Businesses Worked With</div>
   </div>
   <div class="stat">
-    <div class="stat-number">Millions</div>
+    <div class="stat-number" id="stat-views">Millions</div>
     <div class="stat-label">of Views</div>
   </div>
 </section>
 
 <!-- ABOUT -->
-<section class="about fade-in" id="about">
-  <div class="about-image-slot">
-    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
-    <span>BF photo here</span>
+<section class="about-section fade-in" id="about">
+  <div class="section-wrap">
+    <div class="about-grid">
+      <div class="about-image">
+        <img src="IMG_7858.jpg" alt="Bigfoot of America" onerror="this.style.display='none';" />
+      </div>
+      <div class="about-text">
+        <p class="section-eyebrow">Who is Bigfoot of America?</p>
+        <h2 class="section-title">The Legend That Brands Trust</h2>
+        <p class="section-body">Bigfoot of America is an AI-powered influencer with a massive and loyal following across TikTok, Instagram, and Facebook. Known for city reviews, restaurant features, and relatable humor, BF connects with real people in real cities.</p>
+        <p class="section-body" style="margin-top:0.5rem;">With 100+ successful brand partnerships and millions of views, BF doesn't just create content — he drives real attention and real foot traffic to the businesses he works with.</p>
+        <div style="display:flex;gap:1rem;flex-wrap:wrap;margin-top:0.5rem;">
+          <a href="#work" class="btn-lg green">Work With BF</a>
+          <a href="https://bigfootofamerica.myshopify.com/" class="btn-lg outline">Shop Merch</a>
+        </div>
+      </div>
+    </div>
   </div>
-  <div class="about-text">
-    <p class="section-eyebrow">Who is BF?</p>
-    <h2 class="section-title">The Realest Legend in the Game</h2>
-    <p class="section-body">Bigfoot of America is the AI influencer taking the internet by storm — hitting every city, reviewing local restaurants, hyping up businesses, and making everyone laugh along the way.</p>
-    <p class="section-body">Bucket hat. Open button-down. Gold BF chain. You'll know him when you see him.</p>
-    <a href="https://bigfootofamerica.myshopify.com/" class="btn-primary" style="align-self: flex-start;">Shop the Merch</a>
+</section>
+
+<!-- WHAT WE OFFER -->
+<section class="offer-section fade-in" id="services">
+  <div class="section-wrap">
+    <div class="offer-header">
+      <p class="section-eyebrow">What We Offer</p>
+      <h2 class="section-title">Content That Converts</h2>
+      <p class="section-body">From restaurants to retail, BF brings authentic engagement that gets people through the door and talking online.</p>
+    </div>
+    <div class="offer-grid">
+      <div class="offer-card">
+        <div class="offer-icon">🍽️</div>
+        <div class="offer-title">Restaurant Reviews</div>
+        <div class="offer-desc">BF visits your restaurant, creates an entertaining review, and shares it to hundreds of thousands of followers. Real food, real reactions, real traffic.</div>
+      </div>
+      <div class="offer-card">
+        <div class="offer-icon">🏙️</div>
+        <div class="offer-title">City Features</div>
+        <div class="offer-desc">We cover cities, neighborhoods, and local culture. Perfect for tourism boards, city events, and local businesses wanting exposure to a wider audience.</div>
+      </div>
+      <div class="offer-card">
+        <div class="offer-icon">📱</div>
+        <div class="offer-title">Social Media Promos</div>
+        <div class="offer-desc">Dedicated posts, stories, and reels across TikTok, Instagram, and Facebook promoting your brand to an engaged, loyal following.</div>
+      </div>
+      <div class="offer-card">
+        <div class="offer-icon">🤝</div>
+        <div class="offer-title">Brand Partnerships</div>
+        <div class="offer-desc">Long-term partnerships for products and services. BF integrates your brand naturally into content that performs and audiences actually enjoy watching.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CITIES -->
+<section class="cities-section fade-in" id="cities">
+  <div class="section-wrap">
+    <div class="cities-header">
+      <p class="section-eyebrow">Geographic Reach</p>
+      <h2 class="section-title">Cities We've Hit</h2>
+      <p class="section-body" style="margin:0 auto;max-width:520px;">From Florida to California, North Carolina to the Bahamas — BF has covered the country and keeps expanding.</p>
+    </div>
+  </div>
+  <div class="cities-scroll">
+    <div class="marquee-track cities-track">
+      <span class="city-tag">Fort Myers, FL</span><span class="city-tag">Naples, FL</span><span class="city-tag">Cape Coral, FL</span><span class="city-tag">Punta Gorda, FL</span><span class="city-tag">Sarasota, FL</span><span class="city-tag">Orlando, FL</span><span class="city-tag">Gainesville, FL</span><span class="city-tag">Pensacola, FL</span><span class="city-tag">Tallahassee, FL</span><span class="city-tag">Key West, FL</span><span class="city-tag">Palm Beach, FL</span><span class="city-tag">Palm Bay, FL</span><span class="city-tag">St. Augustine, FL</span><span class="city-tag">Titusville, FL</span><span class="city-tag">Oviedo, FL</span><span class="city-tag">Largo, FL</span><span class="city-tag">Lake Mary, FL</span><span class="city-tag">Deltona, FL</span><span class="city-tag">Apopka, FL</span><span class="city-tag">Leesburg, FL</span><span class="city-tag">Margate, FL</span><span class="city-tag">Davie, FL</span><span class="city-tag">Edgewater, FL</span><span class="city-tag">Gulf Shores, AL</span><span class="city-tag">Panama City, FL</span><span class="city-tag">Mexico Beach, FL</span>
+      <span class="city-tag">Fort Myers, FL</span><span class="city-tag">Naples, FL</span><span class="city-tag">Cape Coral, FL</span><span class="city-tag">Punta Gorda, FL</span><span class="city-tag">Sarasota, FL</span><span class="city-tag">Orlando, FL</span><span class="city-tag">Gainesville, FL</span><span class="city-tag">Pensacola, FL</span><span class="city-tag">Tallahassee, FL</span><span class="city-tag">Key West, FL</span>
+    </div>
+  </div>
+  <div style="height:0.75rem;"></div>
+  <div class="cities-scroll">
+    <div class="marquee-track cities-track cities-track2">
+      <span class="city-tag">Temecula, CA</span><span class="city-tag">Hemet, CA</span><span class="city-tag">North Carolina</span><span class="city-tag">The Bahamas</span><span class="city-tag">Altamonte, FL</span><span class="city-tag">LaBelle, FL</span><span class="city-tag">Lehigh Acres, FL</span><span class="city-tag">Palmetto, FL</span><span class="city-tag">Lady Lake, FL</span><span class="city-tag">Port St. Joe, FL</span><span class="city-tag">Rockledge, FL</span><span class="city-tag">Osceola County, FL</span><span class="city-tag">Lake Wales, FL</span><span class="city-tag">St. Cloud, FL</span><span class="city-tag">Ponce de Leon, FL</span><span class="city-tag">FIU Miami</span><span class="city-tag">University of Florida</span><span class="city-tag">Port Charlotte, FL</span>
+      <span class="city-tag">Temecula, CA</span><span class="city-tag">Hemet, CA</span><span class="city-tag">North Carolina</span><span class="city-tag">The Bahamas</span><span class="city-tag">Altamonte, FL</span><span class="city-tag">LaBelle, FL</span><span class="city-tag">Lehigh Acres, FL</span><span class="city-tag">Palmetto, FL</span>
+    </div>
+  </div>
+  <div style="height:4rem;"></div>
+</section>
+
+<!-- WORK WITH US -->
+<section class="work-section fade-in" id="work">
+  <div class="section-wrap">
+    <div class="work-inner">
+      <div class="work-text">
+        <p class="section-eyebrow">Partner With Us</p>
+        <h2 class="section-title">Let's Put Your Business on the Map</h2>
+        <p class="section-body">Whether you're a restaurant, retail shop, brand, or city organization — BF brings authentic, entertaining content that gets people talking and showing up.</p>
+        <ul class="work-list">
+          <li>Restaurant & food business features</li>
+          <li>City & tourism promotions</li>
+          <li>Product & brand integrations</li>
+          <li>Social media campaigns across 3 platforms</li>
+          <li>Regional targeting across FL, NC, CA & more</li>
+          <li>Packages available for any budget</li>
+        </ul>
+      </div>
+      <div class="contact-card">
+        <div class="contact-card-title">Ready to Work Together?</div>
+        <div class="contact-card-sub">Reach out directly and we'll get back to you within 24 hours to discuss your goals and put together a custom package.</div>
+        <a href="mailto:bigfootofamerica@gmail.com" class="contact-email">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          bigfootofamerica@gmail.com
+        </a>
+        <div class="contact-divider">or find us on social</div>
+        <div class="contact-social">
+          <a href="https://www.tiktok.com/@bigfootofamerica" class="contact-social-btn" target="_blank" rel="noopener">TikTok</a>
+          <a href="https://www.instagram.com/bigfootofamerica" class="contact-social-btn" target="_blank" rel="noopener">Instagram</a>
+          <a href="https://www.facebook.com/bigfootofamerica" class="contact-social-btn" target="_blank" rel="noopener">Facebook</a>
+        </div>
+        <p class="contact-note">We've worked with 100+ restaurants, brands, and local businesses. Let's add yours to the list.</p>
+      </div>
+    </div>
   </div>
 </section>
 
 <!-- SIGHTINGS -->
-<section class="sightings fade-in" id="sightings">
-  <div class="sightings-inner">
+<section class="sightings-section fade-in" id="sightings">
+  <div class="section-wrap">
     <div class="sightings-header">
       <p class="section-eyebrow">Fan Gallery</p>
       <h2 class="section-title">Bigfoot Sightings</h2>
-      <p class="section-body" style="max-width:500px; margin: 0 auto;">Caught wearing the merch? You might just be the next confirmed sighting. Submit your photo and rep the legend.</p>
+      <p class="section-body" style="margin:0 auto;max-width:480px;">Caught wearing the merch? Submit your photo and you might just be the next confirmed sighting.</p>
     </div>
     <div class="sightings-grid">
-      <div class="sighting-slot">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
-        <span>Sighting #1</span>
-      </div>
-      <div class="sighting-slot">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
-        <span>Sighting #2</span>
-      </div>
-      <div class="sighting-slot">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
-        <span>Sighting #3</span>
-      </div>
-      <div class="sighting-slot">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
-        <span>Sighting #4</span>
-      </div>
-      <div class="sighting-slot">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
-        <span>Sighting #5</span>
-      </div>
-      <div class="sighting-slot">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
-        <span>Could be you</span>
-      </div>
+      <div class="sighting-slot"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg><span>Sighting #1</span></div>
+      <div class="sighting-slot"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg><span>Sighting #2</span></div>
+      <div class="sighting-slot"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg><span>Sighting #3</span></div>
+      <div class="sighting-slot"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg><span>Sighting #4</span></div>
+      <div class="sighting-slot"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg><span>Sighting #5</span></div>
+      <div class="sighting-slot"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg><span>Could be you</span></div>
     </div>
     <div class="sightings-cta">
-      <a href="mailto:sightings@bigfootofamerica.com" class="btn-primary">Submit Your Sighting</a>
-      <p class="sightings-note">Email us your photo wearing BF merch and your city. Best sightings get featured right here.</p>
+      <a href="mailto:bigfootofamerica@gmail.com?subject=Bigfoot Sighting Submission" class="btn-lg green">Submit Your Sighting</a>
+      <p class="sightings-note">Email your photo in BF merch with your city. Best sightings get featured right here.</p>
     </div>
   </div>
 </section>
 
 <!-- TESTIMONIALS -->
-<section class="testimonials fade-in" id="testimonials">
-  <div class="testimonials-inner">
+<section class="testimonials-section fade-in" id="testimonials">
+  <div class="section-wrap">
     <div class="testimonials-header">
-      <p class="section-eyebrow">What the People Say</p>
+      <p class="section-eyebrow">What People Say</p>
       <h2 class="section-title">The Reviews Are In</h2>
     </div>
     <div class="testimonials-grid">
       <div class="testimonial-card">
         <div class="testimonial-stars">★★★★★</div>
-        <p class="testimonial-text">"I literally laughed out loud at every video. BF knows my city better than I do."</p>
-        <div>
-          <div class="testimonial-author">— Coming Soon</div>
-          <div class="testimonial-city">Your City, USA</div>
-        </div>
+        <p class="testimonial-text">"BF came through our restaurant and the video went crazy. We had people coming in all week saying they saw it on TikTok."</p>
+        <div><div class="testimonial-author">— Restaurant Owner</div><div class="testimonial-city">Southwest Florida</div></div>
       </div>
       <div class="testimonial-card">
         <div class="testimonial-stars">★★★★★</div>
-        <p class="testimonial-text">"The merch is fire. Wore the hoodie out and got stopped three times asking about it."</p>
-        <div>
-          <div class="testimonial-author">— Coming Soon</div>
-          <div class="testimonial-city">Your City, USA</div>
-        </div>
+        <p class="testimonial-text">"Honestly the best marketing we've done. Real people, real reactions — not some polished ad nobody watches."</p>
+        <div><div class="testimonial-author">— Local Business</div><div class="testimonial-city">North Carolina</div></div>
       </div>
       <div class="testimonial-card">
         <div class="testimonial-stars">★★★★★</div>
-        <p class="testimonial-text">"BF roasted my city and I've never felt more seen. Instant follow."</p>
-        <div>
-          <div class="testimonial-author">— Coming Soon</div>
-          <div class="testimonial-city">Your City, USA</div>
-        </div>
+        <p class="testimonial-text">"I laughed out loud at every video. BF knows my city better than I do and keeps it 100% real."</p>
+        <div><div class="testimonial-author">— Fan</div><div class="testimonial-city">Orlando, FL</div></div>
       </div>
     </div>
     <div class="testimonials-cta">
-      <a href="mailto:reviews@bigfootofamerica.com" class="btn-primary">Leave a Review</a>
-      <p class="testimonials-note">Send us your thoughts and you might end up on the wall of fame.</p>
+      <a href="mailto:bigfootofamerica@gmail.com?subject=Review" class="btn-lg outline">Leave a Review</a>
     </div>
   </div>
 </section>
 
-<!-- FOLLOW / SOCIAL -->
+<!-- FOLLOW -->
 <section class="social-section fade-in" id="follow">
-  <div class="social-section-inner">
+  <div class="section-wrap">
     <div class="social-header">
       <p class="section-eyebrow">Find the Legend</p>
       <h2 class="section-title">Follow the Sightings</h2>
-      <p class="section-body">BF is everywhere. Find your region and follow along.</p>
+      <p class="section-body" style="margin:0 auto;max-width:480px;">BF is everywhere. Find your region and follow along.</p>
     </div>
-
-    <!-- MAIN -->
     <div class="platform-group">
-      <div class="platform-label">
-        <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 15v-4H7l5-8v4h4l-5 8z"/></svg>
-        Main Account — @BigfootOfAmerica
-      </div>
+      <div class="platform-label">⚡ Main — @BigfootOfAmerica</div>
       <div class="accounts-grid">
-        <a href="https://www.instagram.com/bigfootofamerica" class="account-card" target="_blank" rel="noopener">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
-          <div class="account-info"><div class="account-name">Instagram</div><div class="account-handle">@BigfootOfAmerica</div></div>
-        </a>
-        <a href="https://www.facebook.com/bigfootofamerica" class="account-card" target="_blank" rel="noopener">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
-          <div class="account-info"><div class="account-name">Facebook</div><div class="account-handle">@BigfootOfAmerica</div></div>
-        </a>
-        <a href="https://www.tiktok.com/@bigfootofamerica" class="account-card" target="_blank" rel="noopener">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V8.75a8.17 8.17 0 0 0 4.78 1.52V6.82a4.85 4.85 0 0 1-1.01-.13z"/></svg>
-          <div class="account-info"><div class="account-name">TikTok</div><div class="account-handle">@BigfootOfAmerica</div></div>
-        </a>
-        <a href="https://www.lemon8-app.com/@bigfootofamerica" class="account-card" target="_blank" rel="noopener">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M8 12h8M12 8v8"/></svg>
-          <div class="account-info"><div class="account-name">Lemon8</div><div class="account-handle">@BigfootOfAmerica</div></div>
-        </a>
+        <a href="https://www.instagram.com/bigfootofamerica" class="account-card" target="_blank" rel="noopener"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg><div class="account-info"><div class="account-name">Instagram</div><div class="account-handle">@BigfootOfAmerica</div></div></a>
+        <a href="https://www.facebook.com/bigfootofamerica" class="account-card" target="_blank" rel="noopener"><svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg><div class="account-info"><div class="account-name">Facebook</div><div class="account-handle">@BigfootOfAmerica</div></div></a>
+        <a href="https://www.tiktok.com/@bigfootofamerica" class="account-card" target="_blank" rel="noopener"><svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V8.75a8.17 8.17 0 0 0 4.78 1.52V6.82a4.85 4.85 0 0 1-1.01-.13z"/></svg><div class="account-info"><div class="account-name">TikTok</div><div class="account-handle">@BigfootOfAmerica</div></div></a>
+        <a href="https://www.lemon8-app.com/@bigfootofamerica" class="account-card" target="_blank" rel="noopener"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M8 12h8M12 8v8"/></svg><div class="account-info"><div class="account-name">Lemon8</div><div class="account-handle">@BigfootOfAmerica</div></div></a>
       </div>
     </div>
-
-    <!-- WEST COAST -->
     <div class="platform-group">
-      <div class="platform-label">
-        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-        West Coast — @WestCoastBigfoot
-      </div>
+      <div class="platform-label">🌊 West Coast — @WestCoastBigfoot</div>
       <div class="accounts-grid">
-        <a href="https://www.instagram.com/westcoastbigfoot" class="account-card" target="_blank" rel="noopener">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
-          <div class="account-info"><div class="account-name">Instagram</div><div class="account-handle">@WestCoastBigfoot</div></div>
-        </a>
-        <a href="https://www.tiktok.com/@westcoastbigfoot" class="account-card" target="_blank" rel="noopener">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V8.75a8.17 8.17 0 0 0 4.78 1.52V6.82a4.85 4.85 0 0 1-1.01-.13z"/></svg>
-          <div class="account-info"><div class="account-name">TikTok</div><div class="account-handle">@WestCoastBigfoot</div></div>
-        </a>
+        <a href="https://www.instagram.com/westcoastbigfoot" class="account-card" target="_blank" rel="noopener"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg><div class="account-info"><div class="account-name">Instagram</div><div class="account-handle">@WestCoastBigfoot</div></div></a>
+        <a href="https://www.tiktok.com/@westcoastbigfoot" class="account-card" target="_blank" rel="noopener"><svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V8.75a8.17 8.17 0 0 0 4.78 1.52V6.82a4.85 4.85 0 0 1-1.01-.13z"/></svg><div class="account-info"><div class="account-name">TikTok</div><div class="account-handle">@WestCoastBigfoot</div></div></a>
       </div>
     </div>
-
-    <!-- FLORIDA -->
     <div class="platform-group">
-      <div class="platform-label">
-        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-        Florida — @BigfootOfFL
-      </div>
+      <div class="platform-label">🌴 Florida — @BigfootOfFL</div>
       <div class="accounts-grid">
-        <a href="https://www.instagram.com/pensacolabigfoot" class="account-card" target="_blank" rel="noopener">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
-          <div class="account-info"><div class="account-name">Instagram</div><div class="account-handle">@BigfootOfFL</div></div>
-        </a>
-        <a href="https://www.facebook.com/share/1Hrrpd6rRB/" class="account-card" target="_blank" rel="noopener">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
-          <div class="account-info"><div class="account-name">Facebook</div><div class="account-handle">@BigfootOfFL</div></div>
-        </a>
-        <a href="https://www.tiktok.com/@pensacola_bigfoot" class="account-card" target="_blank" rel="noopener">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V8.75a8.17 8.17 0 0 0 4.78 1.52V6.82a4.85 4.85 0 0 1-1.01-.13z"/></svg>
-          <div class="account-info"><div class="account-name">TikTok</div><div class="account-handle">@BigfootOfFL</div></div>
-        </a>
+        <a href="https://www.instagram.com/pensacolabigfoot" class="account-card" target="_blank" rel="noopener"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg><div class="account-info"><div class="account-name">Instagram</div><div class="account-handle">@BigfootOfFL</div></div></a>
+        <a href="https://www.facebook.com/share/1Hrrpd6rRB/" class="account-card" target="_blank" rel="noopener"><svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg><div class="account-info"><div class="account-name">Facebook</div><div class="account-handle">@BigfootOfFL</div></div></a>
+        <a href="https://www.tiktok.com/@pensacola_bigfoot" class="account-card" target="_blank" rel="noopener"><svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V8.75a8.17 8.17 0 0 0 4.78 1.52V6.82a4.85 4.85 0 0 1-1.01-.13z"/></svg><div class="account-info"><div class="account-name">TikTok</div><div class="account-handle">@BigfootOfFL</div></div></a>
       </div>
     </div>
-
-    <!-- NORTH CAROLINA -->
     <div class="platform-group">
-      <div class="platform-label">
-        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-        North Carolina — @BigfootOfNC
-      </div>
+      <div class="platform-label">🏔️ North Carolina — @BigfootOfNC</div>
       <div class="accounts-grid">
-        <a href="https://www.instagram.com/bigfootofnc" class="account-card" target="_blank" rel="noopener">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
-          <div class="account-info"><div class="account-name">Instagram</div><div class="account-handle">@BigfootOfNC</div></div>
-        </a>
-        <a href="https://www.facebook.com/share/1MyRPpcw7x/" class="account-card" target="_blank" rel="noopener">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
-          <div class="account-info"><div class="account-name">Facebook</div><div class="account-handle">@BigfootOfNC</div></div>
-        </a>
-        <a href="https://www.tiktok.com/@pensacola_bigfoot" class="account-card" target="_blank" rel="noopener">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V8.75a8.17 8.17 0 0 0 4.78 1.52V6.82a4.85 4.85 0 0 1-1.01-.13z"/></svg>
-          <div class="account-info"><div class="account-name">TikTok</div><div class="account-handle">@BigfootOfNC</div></div>
-        </a>
+        <a href="https://www.instagram.com/bigfootofnc" class="account-card" target="_blank" rel="noopener"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg><div class="account-info"><div class="account-name">Instagram</div><div class="account-handle">@BigfootOfNC</div></div></a>
+        <a href="https://www.facebook.com/share/1MyRPpcw7x/" class="account-card" target="_blank" rel="noopener"><svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg><div class="account-info"><div class="account-name">Facebook</div><div class="account-handle">@BigfootOfNC</div></div></a>
+        <a href="https://www.tiktok.com/@bigfootofnc" class="account-card" target="_blank" rel="noopener"><svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V8.75a8.17 8.17 0 0 0 4.78 1.52V6.82a4.85 4.85 0 0 1-1.01-.13z"/></svg><div class="account-info"><div class="account-name">TikTok</div><div class="account-handle">@BigfootOfNC</div></div></a>
       </div>
     </div>
-
   </div>
 </section>
 
-<!-- SHOP CTA -->
-<section class="shop-cta">
-  <h2 class="shop-cta-title">Rep the <span>Legend</span></h2>
-  <p class="shop-cta-sub">Tees, hoodies, hats, mugs and more. Official Bigfoot of America merch — printed and shipped straight to your door.</p>
-  <a href="https://bigfootofamerica.myshopify.com/" class="btn-primary">Shop Now →</a>
+<!-- MERCH CTA -->
+<section class="merch-cta fade-in">
+  <h2 class="merch-cta-title">Rep the <span>Legend</span></h2>
+  <p class="merch-cta-sub">Tees, hoodies, hats, mugs and more. Official Bigfoot of America merch — printed and shipped straight to your door.</p>
+  <a href="https://bigfootofamerica.myshopify.com/" class="btn-lg green">Shop Now →</a>
 </section>
 
+<!-- FOOTER -->
 <footer>
   <a href="#" class="footer-logo">Bigfoot<span>.</span></a>
   <ul class="footer-links">
-    <li><a href="https://bigfootofamerica.myshopify.com/">Shop</a></li>
     <li><a href="#about">About</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#cities">Reach</a></li>
+    <li><a href="#work">Partner</a></li>
     <li><a href="#sightings">Sightings</a></li>
-    <li><a href="#testimonials">Reviews</a></li>
-    <li><a href="#follow">Follow</a></li>
+    <li><a href="https://bigfootofamerica.myshopify.com/">Shop</a></li>
   </ul>
   <p class="footer-copy">© 2026 Bigfoot of America</p>
 </footer>
 
 <script>
-  // Scroll fade-in
   const observer = new IntersectionObserver((entries) => {
-    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); } });
-  }, { threshold: 0.1 });
+    entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: 0.08 });
   document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
 
-  // Animated stat counters
+  function easeOutQuart(t) { return 1 - Math.pow(1-t, 4); }
+  function animateCount(duration, onUpdate, onComplete) {
+    const start = performance.now();
+    function step(now) {
+      const progress = Math.min((now - start) / duration, 1);
+      onUpdate(easeOutQuart(progress));
+      if(progress < 1) requestAnimationFrame(step); else onComplete();
+    }
+    requestAnimationFrame(step);
+  }
+
   const statObserver = new IntersectionObserver((entries) => {
     entries.forEach(e => {
-      if (e.isIntersecting) {
-        const idx = [...document.querySelectorAll('.stat-number')].indexOf(e.target);
-
-        function easeOutQuart(t) { return 1 - Math.pow(1 - t, 4); }
-
-        function animateCount(duration, onUpdate, onComplete) {
-          const start = performance.now();
-          function step(now) {
-            const elapsed = now - start;
-            const progress = Math.min(elapsed / duration, 1);
-            const eased = easeOutQuart(progress);
-            onUpdate(eased);
-            if (progress < 1) requestAnimationFrame(step);
-            else onComplete();
-          }
-          requestAnimationFrame(step);
-        }
-
-        if (idx === 0) {
-          animateCount(3500, (eased) => {
-            const val = Math.round(eased * 200000);
-            e.target.textContent = Math.round(val / 1000) + 'K+';
-          }, () => { e.target.textContent = '200K+'; });
-        }
-
-        if (idx === 1) {
-          animateCount(3500, (eased) => {
-            e.target.textContent = Math.round(eased * 100) + '+';
-          }, () => { e.target.textContent = '100+'; });
-        }
-
-        if (idx === 2) {
-          animateCount(3000, (eased) => {
-            const val = eased * 10000000;
-            e.target.textContent = (val / 1000000).toFixed(1) + 'M';
-          }, () => {
-            e.target.style.transition = 'opacity 0.6s ease';
-            e.target.style.opacity = '0';
-            setTimeout(() => {
-              e.target.textContent = 'Millions';
-              e.target.style.opacity = '1';
-            }, 300);
-          });
-        }
-
-        statObserver.unobserve(e.target);
-      }
+      if(!e.isIntersecting) return;
+      const idx = [...document.querySelectorAll('.stat-number')].indexOf(e.target);
+      if(idx === 0) animateCount(3500, p => { e.target.textContent = Math.round(p*200)+'K+'; }, () => { e.target.textContent='200K+'; });
+      if(idx === 1) animateCount(3500, p => { e.target.textContent = Math.round(p*100)+'+'; }, () => { e.target.textContent='100+'; });
+      if(idx === 2) animateCount(3000, p => { e.target.textContent = (p*10).toFixed(1)+'M'; }, () => {
+        e.target.style.transition = 'opacity 0.6s ease';
+        e.target.style.opacity = '0';
+        setTimeout(() => { e.target.textContent='Millions'; e.target.style.opacity='1'; }, 300);
+      });
+      statObserver.unobserve(e.target);
     });
   }, { threshold: 0.5 });
   document.querySelectorAll('.stat-number').forEach(el => statObserver.observe(el));
-
-  // Parallax on hero
-  window.addEventListener('scroll', () => {
-    const hero = document.querySelector('.hero');
-    const scrolled = window.scrollY;
-    if (hero) hero.style.backgroundPositionY = scrolled * 0.3 + 'px';
-  });
 </script>
 </body>
 </html>
