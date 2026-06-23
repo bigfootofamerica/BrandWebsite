@@ -491,34 +491,46 @@
       if (e.isIntersecting) {
         const idx = [...document.querySelectorAll('.stat-number')].indexOf(e.target);
 
+        function easeOutQuart(t) { return 1 - Math.pow(1 - t, 4); }
+
+        function animateCount(duration, onUpdate, onComplete) {
+          const start = performance.now();
+          function step(now) {
+            const elapsed = now - start;
+            const progress = Math.min(elapsed / duration, 1);
+            const eased = easeOutQuart(progress);
+            onUpdate(eased);
+            if (progress < 1) requestAnimationFrame(step);
+            else onComplete();
+          }
+          requestAnimationFrame(step);
+        }
+
         if (idx === 0) {
-          // 200K+ followers
-          let count = 0;
-          const interval = setInterval(() => {
-            count += 5000;
-            if (count >= 200000) { count = 200000; clearInterval(interval); e.target.textContent = '200K+'; return; }
-            e.target.textContent = Math.round(count / 1000) + 'K+';
-          }, 20);
+          animateCount(3500, (eased) => {
+            const val = Math.round(eased * 200000);
+            e.target.textContent = Math.round(val / 1000) + 'K+';
+          }, () => { e.target.textContent = '200K+'; });
         }
 
         if (idx === 1) {
-          // 100+ businesses
-          let count = 0;
-          const interval = setInterval(() => {
-            count += 3;
-            if (count >= 100) { count = 100; clearInterval(interval); }
-            e.target.textContent = count + '+';
-          }, 20);
+          animateCount(3500, (eased) => {
+            e.target.textContent = Math.round(eased * 100) + '+';
+          }, () => { e.target.textContent = '100+'; });
         }
 
         if (idx === 2) {
-          // Count past 10M then say Millions
-          let count = 0;
-          const interval = setInterval(() => {
-            count += 300000;
-            if (count >= 10000000) { clearInterval(interval); e.target.textContent = 'Millions'; return; }
-            e.target.textContent = (count / 1000000).toFixed(1) + 'M';
-          }, 30);
+          animateCount(3000, (eased) => {
+            const val = eased * 10000000;
+            e.target.textContent = (val / 1000000).toFixed(1) + 'M';
+          }, () => {
+            e.target.style.transition = 'opacity 0.6s ease';
+            e.target.style.opacity = '0';
+            setTimeout(() => {
+              e.target.textContent = 'Millions';
+              e.target.style.opacity = '1';
+            }, 300);
+          });
         }
 
         statObserver.unobserve(e.target);
