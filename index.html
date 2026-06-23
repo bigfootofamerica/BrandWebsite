@@ -43,6 +43,58 @@
   .hero-image-slot { width: 280px; height: 360px; border: 1.5px dashed rgba(201,168,76,0.35); border-radius: 4px; display: flex; flex-direction: column; align-items: center; justify-content: center; margin: 0 auto 3rem; gap: 0.75rem; color: rgba(201,168,76,0.5); font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; background: rgba(201,168,76,0.03); }
   .hero-title { font-size: clamp(3rem, 8vw, 6.5rem); font-weight: 900; line-height: 0.95; letter-spacing: -0.02em; text-transform: uppercase; margin-bottom: 1.5rem; }
   .hero-title .line-gold { color: var(--gold); display: block; }
+  .line-america {
+    display: block;
+    background: linear-gradient(90deg, #B22234 0%, #B22234 33%, #FFFFFF 33%, #FFFFFF 66%, #3C3B6E 66%, #3C3B6E 100%);
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: flagwave 3s linear infinite;
+  }
+  @keyframes flagwave {
+    0% { background-position: 0% center; }
+    100% { background-position: 200% center; }
+  }
+
+  /* SCROLL FADE IN */
+  .fade-in { opacity: 0; transform: translateY(30px); transition: opacity 0.7s ease, transform 0.7s ease; }
+  .fade-in.visible { opacity: 1; transform: translateY(0); }
+
+  /* HERO IMAGE PULSE */
+  .hero-image-slot { animation: pulse-border 2.5s ease-in-out infinite; }
+  @keyframes pulse-border {
+    0%, 100% { box-shadow: 0 0 0 0 rgba(201,168,76,0.15); }
+    50% { box-shadow: 0 0 24px 6px rgba(201,168,76,0.15); }
+  }
+
+  /* STAT COUNT ANIMATION */
+  .stat-number { transition: transform 0.3s ease; }
+  .stat:hover .stat-number { transform: scale(1.08); }
+
+  /* ACCOUNT CARD ENHANCED HOVER */
+  .account-card { transition: border-color 0.2s, color 0.2s, transform 0.2s, background 0.2s; }
+  .account-card:hover { transform: translateY(-2px); background: rgba(201,168,76,0.06); }
+
+  /* MARQUEE GLOW */
+  .marquee-dot { animation: dot-pulse 1.5s ease-in-out infinite; }
+  @keyframes dot-pulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.4; transform: scale(0.6); }
+  }
+
+  /* BUTTON ANIMATION */
+  .btn-primary { transition: background 0.2s, transform 0.15s; }
+  .btn-primary:hover { transform: translateY(-1px); }
+  .btn-primary:active { transform: translateY(0); }
+
+  /* SIGHTING SLOT HOVER */
+  .sighting-slot { transition: border-color 0.2s, background 0.2s, transform 0.2s; cursor: pointer; }
+  .sighting-slot:hover { border-color: rgba(201,168,76,0.6); background: rgba(201,168,76,0.06); transform: scale(1.02); }
+
+  /* TESTIMONIAL CARD HOVER */
+  .testimonial-card { transition: border-color 0.2s, transform 0.2s; }
+  .testimonial-card:hover { border-color: rgba(201,168,76,0.3); transform: translateY(-3px); }
   .hero-subtitle { font-size: clamp(1rem, 2vw, 1.2rem); font-weight: 400; color: var(--gray-text); max-width: 520px; line-height: 1.65; margin-bottom: 3rem; }
   .hero-actions { display: flex; gap: 1rem; align-items: center; flex-wrap: wrap; justify-content: center; }
   .btn-primary { font-size: 13px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--black); background: var(--gold); border: none; padding: 1rem 2.5rem; border-radius: 2px; cursor: pointer; text-decoration: none; transition: background 0.2s; display: inline-block; }
@@ -159,7 +211,8 @@
   </div>
   <h1 class="hero-title">
     Bigfoot
-    <span class="line-gold">of America</span>
+    <span class="line-gold">of</span>
+    <span class="line-america">America</span>
   </h1>
   <p class="hero-subtitle">Your favorite AI influencer reviewing cities, roasting locals, and repping the culture — one sighting at a time.</p>
   <div class="hero-actions">
@@ -195,7 +248,7 @@
 </div>
 
 <!-- STATS -->
-<section class="stats">
+<section class="stats fade-in">
   <div class="stat">
     <div class="stat-number">200K+</div>
     <div class="stat-label">Followers</div>
@@ -211,7 +264,7 @@
 </section>
 
 <!-- ABOUT -->
-<section class="about" id="about">
+<section class="about fade-in" id="about">
   <div class="about-image-slot">
     <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
     <span>BF photo here</span>
@@ -226,7 +279,7 @@
 </section>
 
 <!-- SIGHTINGS -->
-<section class="sightings" id="sightings">
+<section class="sightings fade-in" id="sightings">
   <div class="sightings-inner">
     <div class="sightings-header">
       <p class="section-eyebrow">Fan Gallery</p>
@@ -267,7 +320,7 @@
 </section>
 
 <!-- TESTIMONIALS -->
-<section class="testimonials" id="testimonials">
+<section class="testimonials fade-in" id="testimonials">
   <div class="testimonials-inner">
     <div class="testimonials-header">
       <p class="section-eyebrow">What the People Say</p>
@@ -307,7 +360,7 @@
 </section>
 
 <!-- FOLLOW / SOCIAL -->
-<section class="social-section" id="follow">
+<section class="social-section fade-in" id="follow">
   <div class="social-section-inner">
     <div class="social-header">
       <p class="section-eyebrow">Find the Legend</p>
@@ -425,5 +478,61 @@
   <p class="footer-copy">© 2026 Bigfoot of America</p>
 </footer>
 
+<script>
+  // Scroll fade-in
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); } });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+  // Animated stat counters
+  const statObserver = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        const idx = [...document.querySelectorAll('.stat-number')].indexOf(e.target);
+
+        if (idx === 0) {
+          // 200K+ followers
+          let count = 0;
+          const interval = setInterval(() => {
+            count += 5000;
+            if (count >= 200000) { count = 200000; clearInterval(interval); e.target.textContent = '200K+'; return; }
+            e.target.textContent = Math.round(count / 1000) + 'K+';
+          }, 20);
+        }
+
+        if (idx === 1) {
+          // 100+ businesses
+          let count = 0;
+          const interval = setInterval(() => {
+            count += 3;
+            if (count >= 100) { count = 100; clearInterval(interval); }
+            e.target.textContent = count + '+';
+          }, 20);
+        }
+
+        if (idx === 2) {
+          // Count past 10M then say Millions
+          let count = 0;
+          const interval = setInterval(() => {
+            count += 300000;
+            if (count >= 10000000) { clearInterval(interval); e.target.textContent = 'Millions'; return; }
+            e.target.textContent = (count / 1000000).toFixed(1) + 'M';
+          }, 30);
+        }
+
+        statObserver.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.5 });
+  document.querySelectorAll('.stat-number').forEach(el => statObserver.observe(el));
+
+  // Parallax on hero
+  window.addEventListener('scroll', () => {
+    const hero = document.querySelector('.hero');
+    const scrolled = window.scrollY;
+    if (hero) hero.style.backgroundPositionY = scrolled * 0.3 + 'px';
+  });
+</script>
 </body>
 </html>
