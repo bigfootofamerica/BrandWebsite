@@ -492,20 +492,66 @@
       <p class="section-body" style="margin:0 auto;max-width:520px;">From Florida to California, North Carolina to the Bahamas — BF has covered the country and keeps expanding.</p>
     </div>
   </div>
-  <div class="cities-scroll">
-    <div class="marquee-track cities-track">
-      <span class="city-tag">Fort Myers, FL</span><span class="city-tag">Naples, FL</span><span class="city-tag">Cape Coral, FL</span><span class="city-tag">Punta Gorda, FL</span><span class="city-tag">Sarasota, FL</span><span class="city-tag">Orlando, FL</span><span class="city-tag">Gainesville, FL</span><span class="city-tag">Pensacola, FL</span><span class="city-tag">Tallahassee, FL</span><span class="city-tag">Key West, FL</span><span class="city-tag">Palm Beach, FL</span><span class="city-tag">Palm Bay, FL</span><span class="city-tag">St. Augustine, FL</span><span class="city-tag">Titusville, FL</span><span class="city-tag">Oviedo, FL</span><span class="city-tag">Largo, FL</span><span class="city-tag">Lake Mary, FL</span><span class="city-tag">Deltona, FL</span><span class="city-tag">Apopka, FL</span><span class="city-tag">Leesburg, FL</span><span class="city-tag">Margate, FL</span><span class="city-tag">Davie, FL</span><span class="city-tag">Edgewater, FL</span><span class="city-tag">Gulf Shores, AL</span><span class="city-tag">Panama City, FL</span><span class="city-tag">Mexico Beach, FL</span>
-      <span class="city-tag">Fort Myers, FL</span><span class="city-tag">Naples, FL</span><span class="city-tag">Cape Coral, FL</span><span class="city-tag">Punta Gorda, FL</span><span class="city-tag">Sarasota, FL</span><span class="city-tag">Orlando, FL</span><span class="city-tag">Gainesville, FL</span><span class="city-tag">Pensacola, FL</span><span class="city-tag">Tallahassee, FL</span><span class="city-tag">Key West, FL</span>
+  <div style="max-width:700px;margin:0 auto;padding:0 2rem 4rem;">
+    <div style="position:relative;width:100%;background:#c8e6f5;border-radius:12px;border:1px solid var(--border);overflow:hidden;">
+      <svg id="bf-map" viewBox="0 0 600 380" style="width:100%;display:block;">
+        <rect width="600" height="380" rx="12" fill="#c8e6f5"/>
+        <!-- US mainland -->
+        <path d="M 95,60 L 88,58 L 82,52 L 75,48 L 68,44 L 62,42 L 55,40 L 48,40 L 42,44 L 36,48 L 30,54 L 26,60 L 22,68 L 20,76 L 18,85 L 16,95 L 15,108 L 16,118 L 18,125 L 22,130 L 26,132 L 28,138 L 32,145 L 38,150 L 44,152 L 50,152 L 55,148 L 58,142 L 60,135 L 62,130 L 66,128 L 70,128 L 72,132 L 74,138 L 76,145 L 80,152 L 86,158 L 94,162 L 102,164 L 110,163 L 118,160 L 124,155 L 128,148 L 130,140 L 132,132 L 134,125 L 138,120 L 142,116 L 148,114 L 155,113 L 162,114 L 168,118 L 172,124 L 174,132 L 175,140 L 176,148 L 178,155 L 182,160 L 188,164 L 195,166 L 202,166 L 208,163 L 212,158 L 214,150 L 215,142 L 214,134 L 212,126 L 210,120 L 210,114 L 212,108 L 216,104 L 222,102 L 228,104 L 232,110 L 234,118 L 235,128 L 236,138 L 238,148 L 242,156 L 248,162 L 256,166 L 265,168 L 274,168 L 282,165 L 288,160 L 292,154 L 294,148 L 295,142 L 295,136 L 293,128 L 290,120 L 286,113 L 282,107 L 278,102 L 274,98 L 270,95 L 265,93 L 260,91 L 254,90 L 248,88 L 242,85 L 237,80 L 233,74 L 230,68 L 228,62 L 226,56 L 224,50 L 222,46 L 218,42 L 212,40 L 205,38 L 198,38 L 190,40 L 182,44 L 175,50 L 168,56 L 161,60 L 154,62 L 148,62 L 142,60 L 136,57 L 130,54 L 124,52 L 118,52 L 112,54 L 106,57 Z" fill="#f5f0e8" stroke="#c8bfa8" stroke-width="1.5"/>
+        <!-- Florida -->
+        <path d="M 215,142 L 214,150 L 213,158 L 212,166 L 211,174 L 210,182 L 208,190 L 205,198 L 200,205 L 195,210 L 190,213 L 185,214 L 180,213 L 176,210 L 173,205 L 171,198 L 170,190 L 170,182 L 171,174 L 172,166 L 173,158 L 174,150 L 175,142 L 176,148 L 178,155 L 182,160 L 188,164 L 195,166 L 202,166 L 208,163 L 212,158 L 214,150 Z" fill="#f5f0e8" stroke="#c8bfa8" stroke-width="1.5"/>
+        <!-- California -->
+        <path d="M 16,95 L 15,108 L 16,118 L 18,125 L 22,130 L 28,138 L 32,145 L 30,135 L 28,122 L 26,110 L 24,100 L 22,90 Z" fill="#f5f0e8" stroke="#c8bfa8" stroke-width="1.5"/>
+        <!-- Grid lines -->
+        <line x1="175" y1="50" x2="175" y2="142" stroke="#c8bfa8" stroke-width="0.8" stroke-dasharray="3,3" opacity="0.6"/>
+        <line x1="230" y1="62" x2="230" y2="142" stroke="#c8bfa8" stroke-width="0.8" stroke-dasharray="3,3" opacity="0.6"/>
+        <line x1="95" y1="60" x2="95" y2="152" stroke="#c8bfa8" stroke-width="0.8" stroke-dasharray="3,3" opacity="0.6"/>
+        <line x1="15" y1="108" x2="295" y2="108" stroke="#c8bfa8" stroke-width="0.8" stroke-dasharray="3,3" opacity="0.6"/>
+        <!-- Labels -->
+        <text x="155" y="100" fill="#aaa8a0" font-size="11" font-family="Inter,sans-serif" font-weight="500" opacity="0.8">UNITED STATES</text>
+        <text x="22" y="115" fill="#aaa8a0" font-size="9" font-family="Inter,sans-serif" opacity="0.7">CA</text>
+        <text x="185" y="185" fill="#aaa8a0" font-size="9" font-family="Inter,sans-serif" opacity="0.7">FL</text>
+        <text x="272" y="58" fill="#aaa8a0" font-size="9" font-family="Inter,sans-serif" opacity="0.7">NC</text>
+        <!-- Pins -->
+        <g class="map-pin" data-name="Fort Myers, FL" data-x="435" data-y="338"><circle cx="435" cy="338" r="5" fill="#1A6B9A" stroke="white" stroke-width="1.5"/><circle cx="435" cy="338" r="2" fill="white" opacity="0.7"/></g>
+        <g class="map-pin" data-name="Naples, FL" data-x="429" data-y="346"><circle cx="429" cy="346" r="5" fill="#1A6B9A" stroke="white" stroke-width="1.5"/><circle cx="429" cy="346" r="2" fill="white" opacity="0.7"/></g>
+        <g class="map-pin" data-name="Cape Coral, FL" data-x="426" data-y="340"><circle cx="426" cy="340" r="5" fill="#1A6B9A" stroke="white" stroke-width="1.5"/><circle cx="426" cy="340" r="2" fill="white" opacity="0.7"/></g>
+        <g class="map-pin" data-name="Punta Gorda, FL" data-x="432" data-y="332"><circle cx="432" cy="332" r="5" fill="#1A6B9A" stroke="white" stroke-width="1.5"/><circle cx="432" cy="332" r="2" fill="white" opacity="0.7"/></g>
+        <g class="map-pin" data-name="Sarasota, FL" data-x="423" data-y="323"><circle cx="423" cy="323" r="5" fill="#1A6B9A" stroke="white" stroke-width="1.5"/><circle cx="423" cy="323" r="2" fill="white" opacity="0.7"/></g>
+        <g class="map-pin" data-name="Orlando, FL" data-x="444" data-y="311"><circle cx="444" cy="311" r="5" fill="#1A6B9A" stroke="white" stroke-width="1.5"/><circle cx="444" cy="311" r="2" fill="white" opacity="0.7"/></g>
+        <g class="map-pin" data-name="Gainesville, FL" data-x="426" data-y="296"><circle cx="426" cy="296" r="5" fill="#1A6B9A" stroke="white" stroke-width="1.5"/><circle cx="426" cy="296" r="2" fill="white" opacity="0.7"/></g>
+        <g class="map-pin" data-name="Pensacola, FL" data-x="372" data-y="277"><circle cx="372" cy="277" r="5" fill="#1A6B9A" stroke="white" stroke-width="1.5"/><circle cx="372" cy="277" r="2" fill="white" opacity="0.7"/></g>
+        <g class="map-pin" data-name="Tallahassee, FL" data-x="396" data-y="285"><circle cx="396" cy="285" r="5" fill="#1A6B9A" stroke="white" stroke-width="1.5"/><circle cx="396" cy="285" r="2" fill="white" opacity="0.7"/></g>
+        <g class="map-pin" data-name="Key West, FL" data-x="414" data-y="369"><circle cx="414" cy="369" r="5" fill="#1A6B9A" stroke="white" stroke-width="1.5"/><circle cx="414" cy="369" r="2" fill="white" opacity="0.7"/></g>
+        <g class="map-pin" data-name="Palm Beach, FL" data-x="465" data-y="330"><circle cx="465" cy="330" r="5" fill="#1A6B9A" stroke="white" stroke-width="1.5"/><circle cx="465" cy="330" r="2" fill="white" opacity="0.7"/></g>
+        <g class="map-pin" data-name="Miami, FL" data-x="456" data-y="346"><circle cx="456" cy="346" r="5" fill="#1A6B9A" stroke="white" stroke-width="1.5"/><circle cx="456" cy="346" r="2" fill="white" opacity="0.7"/></g>
+        <g class="map-pin" data-name="St. Augustine, FL" data-x="456" data-y="293"><circle cx="456" cy="293" r="5" fill="#1A6B9A" stroke="white" stroke-width="1.5"/><circle cx="456" cy="293" r="2" fill="white" opacity="0.7"/></g>
+        <g class="map-pin" data-name="Titusville, FL" data-x="453" data-y="307"><circle cx="453" cy="307" r="5" fill="#1A6B9A" stroke="white" stroke-width="1.5"/><circle cx="453" cy="307" r="2" fill="white" opacity="0.7"/></g>
+        <g class="map-pin" data-name="Panama City, FL" data-x="384" data-y="281"><circle cx="384" cy="281" r="5" fill="#1A6B9A" stroke="white" stroke-width="1.5"/><circle cx="384" cy="281" r="2" fill="white" opacity="0.7"/></g>
+        <g class="map-pin" data-name="Tampa, FL" data-x="420" data-y="315"><circle cx="420" cy="315" r="5" fill="#1A6B9A" stroke="white" stroke-width="1.5"/><circle cx="420" cy="315" r="2" fill="white" opacity="0.7"/></g>
+        <g class="map-pin" data-name="Lake Mary, FL" data-x="447" data-y="307"><circle cx="447" cy="307" r="5" fill="#1A6B9A" stroke="white" stroke-width="1.5"/><circle cx="447" cy="307" r="2" fill="white" opacity="0.7"/></g>
+        <g class="map-pin" data-name="Deltona, FL" data-x="444" data-y="304"><circle cx="444" cy="304" r="5" fill="#1A6B9A" stroke="white" stroke-width="1.5"/><circle cx="444" cy="304" r="2" fill="white" opacity="0.7"/></g>
+        <g class="map-pin" data-name="Port Charlotte, FL" data-x="432" data-y="326"><circle cx="432" cy="326" r="5" fill="#1A6B9A" stroke="white" stroke-width="1.5"/><circle cx="432" cy="326" r="2" fill="white" opacity="0.7"/></g>
+        <g class="map-pin" data-name="Gulf Shores, AL" data-x="369" data-y="273"><circle cx="369" cy="273" r="5" fill="#1A6B9A" stroke="white" stroke-width="1.5"/><circle cx="369" cy="273" r="2" fill="white" opacity="0.7"/></g>
+        <g class="map-pin" data-name="Greenville, NC" data-x="474" data-y="198"><circle cx="474" cy="198" r="5" fill="#1A6B9A" stroke="white" stroke-width="1.5"/><circle cx="474" cy="198" r="2" fill="white" opacity="0.7"/></g>
+        <g class="map-pin" data-name="Morehead City, NC" data-x="480" data-y="201"><circle cx="480" cy="201" r="5" fill="#1A6B9A" stroke="white" stroke-width="1.5"/><circle cx="480" cy="201" r="2" fill="white" opacity="0.7"/></g>
+        <g class="map-pin" data-name="Temecula, CA" data-x="51" data-y="273"><circle cx="51" cy="273" r="5" fill="#1A6B9A" stroke="white" stroke-width="1.5"/><circle cx="51" cy="273" r="2" fill="white" opacity="0.7"/></g>
+        <g class="map-pin" data-name="Hemet, CA" data-x="48" data-y="266"><circle cx="48" cy="266" r="5" fill="#1A6B9A" stroke="white" stroke-width="1.5"/><circle cx="48" cy="266" r="2" fill="white" opacity="0.7"/></g>
+        <!-- Tooltip -->
+        <g id="map-tooltip" style="display:none;">
+          <rect id="map-tooltip-bg" rx="4" fill="rgba(10,30,50,0.88)"/>
+          <text id="map-tooltip-text" fill="white" font-size="11" font-family="Inter,sans-serif" font-weight="600"/>
+        </g>
+      </svg>
+    </div>
+    <div style="display:flex;align-items:center;justify-content:center;gap:1.5rem;margin-top:1rem;flex-wrap:wrap;">
+      <div style="display:flex;align-items:center;gap:6px;">
+        <div style="width:10px;height:10px;border-radius:50%;background:#1A6B9A;border:1.5px solid white;"></div>
+        <span style="font-size:12px;color:var(--text-light);">BF Sighting — hover to reveal</span>
+      </div>
+      <span style="font-size:12px;color:var(--text-light);">25 locations and counting</span>
     </div>
   </div>
-  <div style="height:0.75rem;"></div>
-  <div class="cities-scroll">
-    <div class="marquee-track cities-track cities-track2">
-      <span class="city-tag">Temecula, CA</span><span class="city-tag">Hemet, CA</span><span class="city-tag">North Carolina</span><span class="city-tag">The Bahamas</span><span class="city-tag">Altamonte, FL</span><span class="city-tag">LaBelle, FL</span><span class="city-tag">Lehigh Acres, FL</span><span class="city-tag">Palmetto, FL</span><span class="city-tag">Lady Lake, FL</span><span class="city-tag">Port St. Joe, FL</span><span class="city-tag">Rockledge, FL</span><span class="city-tag">Osceola County, FL</span><span class="city-tag">Lake Wales, FL</span><span class="city-tag">St. Cloud, FL</span><span class="city-tag">Ponce de Leon, FL</span><span class="city-tag">FIU Miami</span><span class="city-tag">University of Florida</span><span class="city-tag">Port Charlotte, FL</span>
-      <span class="city-tag">Temecula, CA</span><span class="city-tag">Hemet, CA</span><span class="city-tag">North Carolina</span><span class="city-tag">The Bahamas</span><span class="city-tag">Altamonte, FL</span><span class="city-tag">LaBelle, FL</span><span class="city-tag">Lehigh Acres, FL</span><span class="city-tag">Palmetto, FL</span>
-    </div>
-  </div>
-  <div style="height:4rem;"></div>
 </section>
 
 <!-- WORK WITH US -->
@@ -750,6 +796,40 @@
 </footer>
 
 <script>
+  // Map tooltip
+  document.querySelectorAll('.map-pin').forEach(pin => {
+    const name = pin.getAttribute('data-name');
+    const px = parseFloat(pin.getAttribute('data-x'));
+    const py = parseFloat(pin.getAttribute('data-y'));
+    const svg = document.getElementById('bf-map');
+    const tooltip = document.getElementById('map-tooltip');
+    const tooltipBg = document.getElementById('map-tooltip-bg');
+    const tooltipText = document.getElementById('map-tooltip-text');
+    const circle = pin.querySelector('circle');
+
+    pin.addEventListener('mouseenter', () => {
+      circle.setAttribute('r', '7');
+      circle.setAttribute('fill', '#FFD700');
+      tooltipText.textContent = name;
+      const tw = name.length * 6.5;
+      const tx = Math.min(Math.max(px - tw/2, 4), 596 - tw);
+      const ty = py - 14;
+      tooltipBg.setAttribute('x', tx - 6);
+      tooltipBg.setAttribute('y', ty - 14);
+      tooltipBg.setAttribute('width', tw + 12);
+      tooltipBg.setAttribute('height', 20);
+      tooltipText.setAttribute('x', tx);
+      tooltipText.setAttribute('y', ty);
+      tooltip.style.display = 'block';
+      tooltip.parentNode.appendChild(tooltip);
+    });
+    pin.addEventListener('mouseleave', () => {
+      circle.setAttribute('r', '5');
+      circle.setAttribute('fill', '#1A6B9A');
+      tooltip.style.display = 'none';
+    });
+  });
+
   function toggleEventField(select) {
     document.getElementById('eventNameGroup').style.display = select.value === 'Yes' ? 'flex' : 'none';
   }
