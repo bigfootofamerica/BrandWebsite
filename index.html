@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Bigfoot of America</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&display=swap');
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --gold: #C9A84C;
+    --gold-light: #F0D080;
+    --black: #0A0A0A;
+    --white: #FFFFFF;
+    --gray: #1A1A1A;
+    --gray-mid: #2A2A2A;
+    --gray-text: #999;
+    --font: 'Inter', sans-serif;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: var(--font);
+    background: var(--black);
+    color: var(--white);
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.25rem 2.5rem;
+    border-bottom: 0.5px solid rgba(201,168,76,0.15);
+    background: rgba(10,10,10,0.92);
+    backdrop-filter: blur(8px);
+  }
+
+  .nav-logo {
+    font-size: 15px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    color: var(--white);
+    text-transform: uppercase;
+  }
+
+  .nav-logo span { color: var(--gold); }
+
+  .nav-links {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+  }
+
+  .nav-links a {
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    color: var(--gray-text);
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: color 0.2s;
+  }
+
+  .nav-links a:hover { color: var(--gold); }
+
+  .nav-cta {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--black);
+    background: var(--gold);
+    border: none;
+    padding: 0.6rem 1.4rem;
+    border-radius: 2px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background 0.2s;
+  }
+
+  .nav-cta:hover { background: var(--gold-light); }
+
+  /* HERO */
+  .hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    padding: 8rem 2rem 4rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero-bg-line {
+    position: absolute;
+    top: 0; left: 50%;
+    transform: translateX(-50%);
+    width: 1px;
+    height: 100%;
+    background: linear-gradient(to bottom, transparent, rgba(201,168,76,0.12), transparent);
+    pointer-events: none;
+  }
+
+  .hero-eyebrow {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 1.5rem;
+  }
+
+  .hero-title {
+    font-size: clamp(3rem, 8vw, 6.5rem);
+    font-weight: 900;
+    line-height: 0.95;
+    letter-spacing: -0.02em;
+    text-transform: uppercase;
+    margin-bottom: 1.5rem;
+  }
+
+  .hero-title .line-gold { color: var(--gold); display: block; }
+
+  .hero-subtitle {
+    font-size: clamp(1rem, 2vw, 1.2rem);
+    font-weight: 400;
+    color: var(--gray-text);
+    max-width: 500px;
+    line-height: 1.65;
+    margin-bottom: 3rem;
+  }
+
+  .hero-image-slot {
+    width: 280px;
+    height: 360px;
+    border: 1.5px dashed rgba(201,168,76,0.35);
+    border-radius: 4px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 3rem;
+    gap: 0.75rem;
+    color: rgba(201,168,76,0.5);
+    font-size: 12px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    background: rgba(201,168,76,0.03);
+  }
+
+  .hero-image-slot svg { opacity: 0.4; }
+
+  .hero-actions {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .btn-primary {
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--black);
+    background: var(--gold);
+    border: none;
+    padding: 1rem 2.5rem;
+    border-radius: 2px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background 0.2s;
+  }
+
+  .btn-primary:hover { background: var(--gold-light); }
+
+  .btn-secondary {
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--gray-text);
+    background: transparent;
+    border: 0.5px solid rgba(255,255,255,0.15);
+    padding: 1rem 2.5rem;
+    border-radius: 2px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: border-color 0.2s, color 0.2s;
+  }
+
+  .btn-secondary:hover { color: var(--white); border-color: rgba(255,255,255,0.4); }
+
+  /* MARQUEE */
+  .marquee-wrap {
+    overflow: hidden;
+    border-top: 0.5px solid rgba(255,255,255,0.07);
+    border-bottom: 0.5px solid rgba(255,255,255,0.07);
+    padding: 1rem 0;
+    background: var(--gray);
+  }
+
+  .marquee-track {
+    display: flex;
+    gap: 3rem;
+    white-space: nowrap;
+    animation: marquee 22s linear infinite;
+    width: max-content;
+  }
+
+  .marquee-item {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gray-text);
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .marquee-dot { width: 4px; height: 4px; border-radius: 50%; background: var(--gold); }
+
+  @keyframes marquee {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
+
+  /* STATS */
+  .stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    border-bottom: 0.5px solid rgba(255,255,255,0.07);
+  }
+
+  .stat {
+    padding: 3rem 2rem;
+    text-align: center;
+    border-right: 0.5px solid rgba(255,255,255,0.07);
+  }
+
+  .stat:last-child { border-right: none; }
+
+  .stat-number {
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    font-weight: 900;
+    color: var(--gold);
+    letter-spacing: -0.02em;
+    margin-bottom: 0.5rem;
+  }
+
+  .stat-label {
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--gray-text);
+  }
+
+  /* ABOUT */
+  .about {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 6rem 2rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+  }
+
+  .about-image-slot {
+    width: 100%;
+    aspect-ratio: 3/4;
+    border: 1.5px dashed rgba(201,168,76,0.35);
+    border-radius: 4px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    color: rgba(201,168,76,0.5);
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    background: rgba(201,168,76,0.03);
+  }
+
+  .about-text { display: flex; flex-direction: column; gap: 1.5rem; }
+
+  .section-eyebrow {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+  }
+
+  .section-title {
+    font-size: clamp(1.75rem, 4vw, 2.5rem);
+    font-weight: 900;
+    line-height: 1.05;
+    letter-spacing: -0.01em;
+    text-transform: uppercase;
+  }
+
+  .section-body {
+    font-size: 15px;
+    line-height: 1.75;
+    color: var(--gray-text);
+  }
+
+  /* SOCIAL */
+  .social {
+    background: var(--gray);
+    padding: 5rem 2rem;
+    text-align: center;
+    border-top: 0.5px solid rgba(255,255,255,0.07);
+    border-bottom: 0.5px solid rgba(255,255,255,0.07);
+  }
+
+  .social-title {
+    font-size: clamp(1.5rem, 4vw, 2.5rem);
+    font-weight: 900;
+    text-transform: uppercase;
+    margin-bottom: 0.75rem;
+  }
+
+  .social-sub {
+    font-size: 14px;
+    color: var(--gray-text);
+    margin-bottom: 2.5rem;
+  }
+
+  .social-links {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .social-btn {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--white);
+    background: transparent;
+    border: 0.5px solid rgba(255,255,255,0.2);
+    padding: 0.85rem 1.75rem;
+    border-radius: 2px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: border-color 0.2s, color 0.2s;
+  }
+
+  .social-btn:hover { border-color: var(--gold); color: var(--gold); }
+
+  /* SHOP CTA */
+  .shop-cta {
+    padding: 7rem 2rem;
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto;
+  }
+
+  .shop-cta-title {
+    font-size: clamp(2rem, 6vw, 4rem);
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: -0.02em;
+    line-height: 1;
+    margin-bottom: 1.25rem;
+  }
+
+  .shop-cta-title span { color: var(--gold); }
+
+  .shop-cta-sub {
+    font-size: 15px;
+    color: var(--gray-text);
+    margin-bottom: 2.5rem;
+    line-height: 1.65;
+  }
+
+  /* FOOTER */
+  footer {
+    border-top: 0.5px solid rgba(255,255,255,0.07);
+    padding: 2rem 2.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+
+  .footer-logo {
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--white);
+  }
+
+  .footer-logo span { color: var(--gold); }
+
+  .footer-copy {
+    font-size: 12px;
+    color: var(--gray-text);
+  }
+
+  .footer-links {
+    display: flex;
+    gap: 1.5rem;
+    list-style: none;
+  }
+
+  .footer-links a {
+    font-size: 12px;
+    color: var(--gray-text);
+    text-decoration: none;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    transition: color 0.2s;
+  }
+
+  .footer-links a:hover { color: var(--gold); }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-logo">Bigfoot<span>.</span></div>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#social">Follow</a></li>
+    <li><a href="https://shop.bigfootofamerica.com">Merch</a></li>
+  </ul>
+  <a href="https://shop.bigfootofamerica.com" class="nav-cta">Shop Now</a>
+</nav>
+
+<section class="hero">
+  <div class="hero-bg-line"></div>
+  <p class="hero-eyebrow">The Legend is Real</p>
+
+  <div class="hero-image-slot">
+    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+      <rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/>
+    </svg>
+    <span>Drop your hero image here</span>
+  </div>
+
+  <h1 class="hero-title">
+    Bigfoot
+    <span class="line-gold">of America</span>
+  </h1>
+  <p class="hero-subtitle">Your favorite AI influencer reviewing cities, roasting locals, and repping the culture — one sighting at a time.</p>
+  <div class="hero-actions">
+    <a href="https://shop.bigfootofamerica.com" class="btn-primary">Shop the Merch</a>
+    <a href="#about" class="btn-secondary">Who is BF?</a>
+  </div>
+</section>
+
+<div class="marquee-wrap">
+  <div class="marquee-track">
+    <span class="marquee-item">City Reviews <span class="marquee-dot"></span></span>
+    <span class="marquee-item">Restaurant Collabs <span class="marquee-dot"></span></span>
+    <span class="marquee-item">Millions of Views <span class="marquee-dot"></span></span>
+    <span class="marquee-item">TikTok <span class="marquee-dot"></span></span>
+    <span class="marquee-item">Instagram <span class="marquee-dot"></span></span>
+    <span class="marquee-item">Facebook <span class="marquee-dot"></span></span>
+    <span class="marquee-item">Bigfoot of America <span class="marquee-dot"></span></span>
+    <span class="marquee-item">City Reviews <span class="marquee-dot"></span></span>
+    <span class="marquee-item">Restaurant Collabs <span class="marquee-dot"></span></span>
+    <span class="marquee-item">Millions of Views <span class="marquee-dot"></span></span>
+    <span class="marquee-item">TikTok <span class="marquee-dot"></span></span>
+    <span class="marquee-item">Instagram <span class="marquee-dot"></span></span>
+    <span class="marquee-item">Facebook <span class="marquee-dot"></span></span>
+    <span class="marquee-item">Bigfoot of America <span class="marquee-dot"></span></span>
+  </div>
+</div>
+
+<section class="stats">
+  <div class="stat">
+    <div class="stat-number">100K+</div>
+    <div class="stat-label">Followers</div>
+  </div>
+  <div class="stat">
+    <div class="stat-number">Millions</div>
+    <div class="stat-label">of Views</div>
+  </div>
+  <div class="stat">
+    <div class="stat-number">3</div>
+    <div class="stat-label">Platforms</div>
+  </div>
+</section>
+
+<section class="about" id="about">
+  <div class="about-image-slot">
+    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+      <rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/>
+    </svg>
+    <span>BF photo here</span>
+  </div>
+  <div class="about-text">
+    <p class="section-eyebrow">Who is BF?</p>
+    <h2 class="section-title">The Realest Legend in the Game</h2>
+    <p class="section-body">
+      Bigfoot of America is the AI influencer taking the internet by storm — hitting every city, reviewing local restaurants, hyping up businesses, and making everyone laugh along the way.
+    </p>
+    <p class="section-body">
+      Bucket hat. Open button-down. Gold BF chain. You'll know him when you see him.
+    </p>
+    <a href="https://shop.bigfootofamerica.com" class="btn-primary" style="align-self: flex-start;">Shop the Merch</a>
+  </div>
+</section>
+
+<section class="social" id="social">
+  <h2 class="social-title">Follow the Sightings</h2>
+  <p class="social-sub">Catch BF in a city near you — TikTok, Instagram, and Facebook.</p>
+  <div class="social-links">
+    <a href="https://tiktok.com/@bigfootofamerica" class="social-btn">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V8.75a8.17 8.17 0 0 0 4.78 1.52V6.82a4.85 4.85 0 0 1-1.01-.13z"/></svg>
+      TikTok
+    </a>
+    <a href="https://instagram.com/bigfootofamerica" class="social-btn">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+      Instagram
+    </a>
+    <a href="https://facebook.com/bigfootofamerica" class="social-btn">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+      Facebook
+    </a>
+  </div>
+</section>
+
+<section class="shop-cta">
+  <h2 class="shop-cta-title">Rep the <span>Legend</span></h2>
+  <p class="shop-cta-sub">Tees, hoodies, hats, mugs and more. Official Bigfoot of America merch — printed and shipped straight to your door.</p>
+  <a href="https://shop.bigfootofamerica.com" class="btn-primary">Shop Now →</a>
+</section>
+
+<footer>
+  <div class="footer-logo">Bigfoot<span>.</span></div>
+  <ul class="footer-links">
+    <li><a href="https://shop.bigfootofamerica.com">Shop</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#social">Follow</a></li>
+  </ul>
+  <p class="footer-copy">© 2026 Bigfoot of America</p>
+</footer>
+
+</body>
+</html>
