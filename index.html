@@ -239,6 +239,7 @@
   .fade-in{opacity:0;transform:translateY(24px);transition:opacity 0.75s ease,transform 0.75s ease;}
   .fade-in.visible{opacity:1;transform:translateY(0);}
 
+  .mobile-badges{display:none;}
   @media(max-width:768px){
     nav{padding:1rem 1.25rem;}
     .nav-links{display:none;}
@@ -248,6 +249,11 @@
     .hero-banner-overlay{padding:2rem 1.25rem;}
     .hero-banner-title{font-size:clamp(2.8rem,12vw,5rem);}
     .hero-banner-sub{font-size:14px;}
+    .mobile-badges{display:flex;justify-content:center;gap:0.75rem;flex-wrap:wrap;margin-top:0.75rem;}
+    .mobile-badge{display:flex;align-items:center;gap:0.5rem;background:rgba(255,255,255,0.12);border:1px solid rgba(255,255,255,0.25);border-radius:8px;padding:0.45rem 0.85rem;backdrop-filter:blur(6px);}
+    .mobile-badge-num{font-family:var(--font-display);font-size:16px;color:var(--green-light);letter-spacing:0.04em;}
+    .mobile-badge-label{font-size:10px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:rgba(255,255,255,0.75);}
+    .mobile-fox-tag{background:#d00;color:white;font-size:9px;font-weight:900;padding:2px 5px;border-radius:2px;}
     .about-grid,.work-inner{grid-template-columns:1fr;gap:2.5rem;}
     .partners-feature{grid-template-columns:1fr;gap:2rem;}
     .sightings-grid{grid-template-columns:repeat(2,1fr);}
@@ -286,6 +292,16 @@
     <div class="hero-banner-actions">
       <a href="#work" class="btn-lg green">Partner With Us</a>
       <a href="https://bigfootofamerica.myshopify.com/" class="btn-lg outline">Shop Merch</a>
+    </div>
+    <div class="mobile-badges">
+      <div class="mobile-badge">
+        <div class="mobile-badge-num">200K+</div>
+        <div class="mobile-badge-label">Followers</div>
+      </div>
+      <div class="mobile-badge">
+        <div class="mobile-fox-tag">FOX 13</div>
+        <div class="mobile-badge-label">As Seen On Tampa Bay</div>
+      </div>
     </div>
   </div>
   <div class="hero-badge-follow">
