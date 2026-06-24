@@ -6,319 +6,248 @@
 <title>Bigfoot of America — AI Influencer & Brand Partner</title>
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;900&family=Bebas+Neue&display=swap');
-
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-  :root {
-    --green: #1A6B9A;
-    --green-light: #1E7CB8;
-    --green-pale: #E8F4FB;
-    --teal: #3A8C8C;
-    --teal-pale: #E8F4F4;
-    --white: #FFFFFF;
-    --off-white: #F7F7F5;
-    --light-gray: #F0F0ED;
-    --border: #E2E2DE;
-    --text: #1A1A1A;
-    --text-mid: #555555;
-    --text-light: #888888;
-    --font: 'Inter', sans-serif;
-    --font-display: 'Bebas Neue', sans-serif;
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+  :root{
+    --green:#1A6B9A;--green-light:#1E7CB8;--green-pale:#E8F4FB;
+    --white:#FFFFFF;--off-white:#F7F7F5;--light-gray:#F0F0ED;
+    --border:#E2E2DE;--text:#1A1A1A;--text-mid:#555555;--text-light:#888888;
+    --font:'Inter',sans-serif;--font-display:'Bebas Neue',sans-serif;
   }
+  html{scroll-behavior:smooth;}
+  body{font-family:var(--font);background:var(--white);color:var(--text);overflow-x:hidden;}
 
-  html { scroll-behavior: smooth; }
-  body { font-family: var(--font); background: var(--white); color: var(--text); overflow-x: hidden; }
+  /* NAV */
+  nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;align-items:center;justify-content:space-between;padding:1.1rem 3rem;background:rgba(255,255,255,0.97);border-bottom:1px solid var(--border);backdrop-filter:blur(12px);}
+  .nav-logo{font-family:var(--font-display);font-size:22px;letter-spacing:0.08em;color:var(--text);text-decoration:none;}
+  .nav-logo span{color:var(--green);}
+  .nav-links{display:flex;gap:2rem;list-style:none;}
+  .nav-links a{font-size:12px;font-weight:500;letter-spacing:0.1em;color:var(--text-light);text-decoration:none;text-transform:uppercase;transition:color 0.2s;}
+  .nav-links a:hover{color:var(--text);}
+  .nav-actions{display:flex;gap:0.75rem;align-items:center;}
+  .btn-outline{font-size:12px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:var(--green);background:transparent;border:1.5px solid var(--green);padding:0.55rem 1.25rem;border-radius:3px;cursor:pointer;text-decoration:none;transition:all 0.2s;}
+  .btn-outline:hover{background:var(--green);color:var(--white);}
+  .btn-green{font-size:12px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--white);background:var(--green);border:1.5px solid var(--green);padding:0.55rem 1.25rem;border-radius:3px;cursor:pointer;text-decoration:none;transition:all 0.2s;}
+  .btn-green:hover{background:var(--green-light);border-color:var(--green-light);}
 
-  /* ── NAV ── */
-  nav {
-    position: fixed; top: 0; left: 0; right: 0; z-index: 200;
-    display: flex; align-items: center; justify-content: space-between;
-    padding: 1.1rem 3rem;
-    background: rgba(255,255,255,0.97);
-    border-bottom: 1px solid var(--border);
-    backdrop-filter: blur(12px);
-  }
-  .nav-logo { font-family: var(--font-display); font-size: 22px; letter-spacing: 0.08em; color: var(--text); text-decoration: none; }
-  .nav-logo span { color: var(--green); }
-  .nav-links { display: flex; gap: 2rem; list-style: none; }
-  .nav-links a { font-size: 12px; font-weight: 500; letter-spacing: 0.1em; color: var(--text-light); text-decoration: none; text-transform: uppercase; transition: color 0.2s; }
-  .nav-links a:hover { color: var(--text); }
-  .nav-actions { display: flex; gap: 0.75rem; align-items: center; }
-  .btn-outline { font-size: 12px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--green); background: transparent; border: 1.5px solid var(--green); padding: 0.55rem 1.25rem; border-radius: 3px; cursor: pointer; text-decoration: none; transition: all 0.2s; }
-  .btn-outline:hover { background: var(--green); color: var(--white); }
-  .btn-green { font-size: 12px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--white); background: var(--green); border: 1.5px solid var(--green); padding: 0.55rem 1.25rem; border-radius: 3px; cursor: pointer; text-decoration: none; transition: all 0.2s; }
-  .btn-green:hover { background: var(--green-light); border-color: var(--green-light); }
+  /* HERO */
+  .hero-banner{width:100%;height:85vh;min-height:520px;margin-top:64px;overflow:hidden;position:relative;}
+  .hero-banner img{width:100%;height:100%;object-fit:cover;object-position:center top;display:block;}
+  .hero-banner-overlay{position:absolute;inset:0;background:linear-gradient(to bottom,rgba(0,0,0,0.08) 0%,rgba(0,0,0,0.45) 100%);display:flex;flex-direction:column;align-items:center;justify-content:flex-end;padding:3.5rem 2rem;text-align:center;}
+  .hero-banner-badge{display:inline-flex;align-items:center;gap:0.5rem;font-size:11px;font-weight:600;letter-spacing:0.16em;text-transform:uppercase;color:#fff;border:1.5px solid rgba(255,255,255,0.4);padding:0.4rem 1rem;border-radius:100px;background:rgba(255,255,255,0.15);backdrop-filter:blur(6px);margin-bottom:1rem;}
+  .hero-badge-dot{width:6px;height:6px;border-radius:50%;background:#fff;animation:blink 1.5s ease-in-out infinite;}
+  .hero-banner-title{font-family:var(--font-display);font-size:clamp(4rem,10vw,9rem);line-height:0.92;letter-spacing:0.03em;color:#fff;text-shadow:0 2px 30px rgba(0,0,0,0.4);margin-bottom:1rem;}
+  .hero-banner-title .word-of{color:rgba(255,255,255,0.75);}
+  .hero-banner-title .word-america{background:linear-gradient(90deg,#ff6b6b,#fff 33%,#6b8fff 66%);background-size:200% auto;-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;animation:flagwave 4s linear infinite;}
+  .hero-banner-sub{font-size:16px;color:rgba(255,255,255,0.88);max-width:540px;line-height:1.7;margin-bottom:1.75rem;text-shadow:0 1px 8px rgba(0,0,0,0.3);}
+  .hero-banner-actions{display:flex;gap:1rem;flex-wrap:wrap;justify-content:center;}
+  .hero-badge-follow{position:absolute;bottom:2rem;left:2rem;background:rgba(255,255,255,0.95);backdrop-filter:blur(8px);border:1px solid var(--border);border-radius:8px;padding:0.75rem 1.25rem;display:flex;flex-direction:column;gap:0.2rem;}
+  .hero-badge-num{font-family:var(--font-display);font-size:22px;color:var(--green);letter-spacing:0.04em;}
+  .hero-badge-label{font-size:11px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-light);}
+  .fox-badge{position:absolute;bottom:2rem;right:2rem;background:rgba(255,255,255,0.96);backdrop-filter:blur(8px);border:1px solid var(--border);border-radius:8px;padding:0.6rem 1rem;display:flex;align-items:center;gap:0.6rem;box-shadow:0 4px 20px rgba(0,0,0,0.12);}
+  .fox-tag{background:#d00;color:white;font-size:10px;font-weight:900;letter-spacing:0.08em;padding:2px 6px;border-radius:3px;}
+  .fox-info{display:flex;flex-direction:column;gap:1px;}
+  .fox-seen{font-size:10px;font-weight:700;color:var(--text);letter-spacing:0.04em;text-transform:uppercase;}
+  .fox-name{font-size:11px;font-weight:600;color:var(--text-mid);}
 
-  /* ── HERO BANNER IMAGE ── */
-  .hero-banner {
-    width: 100%;
-    height: 85vh;
-    min-height: 520px;
-    margin-top: 64px; /* nav height offset */
-    overflow: hidden;
-    position: relative;
-  }
-  .hero-banner img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center top;
-    display: block;
-  }
-  .hero-banner-overlay {
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(to bottom, rgba(0,0,0,0.08) 0%, rgba(0,0,0,0.45) 100%);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-end;
-    padding: 3.5rem 2rem;
-    text-align: center;
-  }
-  .hero-banner-badge {
-    display: inline-flex; align-items: center; gap: 0.5rem;
-    font-size: 11px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase;
-    color: #fff; border: 1.5px solid rgba(255,255,255,0.4);
-    padding: 0.4rem 1rem; border-radius: 100px;
-    background: rgba(255,255,255,0.15); backdrop-filter: blur(6px);
-    margin-bottom: 1rem;
-  }
-  .hero-banner-badge-dot { width: 6px; height: 6px; border-radius: 50%; background: #fff; animation: blink 1.5s ease-in-out infinite; }
-  .hero-banner-title {
-    font-family: var(--font-display);
-    font-size: clamp(4rem, 10vw, 9rem);
-    line-height: 0.92; letter-spacing: 0.03em;
-    color: #fff;
-    text-shadow: 0 2px 30px rgba(0,0,0,0.4);
-    margin-bottom: 1rem;
-  }
-  .hero-banner-title .word-of { color: rgba(255,255,255,0.75); }
-  .hero-banner-title .word-america {
-    background: linear-gradient(90deg, #ff6b6b, #fff 33%, #6b8fff 66%);
-    background-size: 200% auto;
-    -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
-    animation: flagwave 4s linear infinite;
-  }
-  .hero-banner-sub {
-    font-size: 16px; color: rgba(255,255,255,0.88); max-width: 540px; line-height: 1.7; margin-bottom: 1.75rem;
-    text-shadow: 0 1px 8px rgba(0,0,0,0.3);
-  }
-  .hero-banner-actions { display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center; }
-  .hero-badge-follow {
-    position: absolute; bottom: 2rem; right: 2rem;
-    background: rgba(255,255,255,0.95); backdrop-filter: blur(8px);
-    border: 1px solid var(--border); border-radius: 8px;
-    padding: 0.75rem 1.25rem;
-    display: flex; flex-direction: column; gap: 0.2rem;
-  }
-  .hero-badge-num { font-family: var(--font-display); font-size: 22px; color: var(--green); letter-spacing: 0.04em; }
-  .hero-badge-label { font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-light); }
+  @keyframes blink{0%,100%{opacity:1;}50%{opacity:0.3;}}
+  @keyframes flagwave{0%{background-position:0% center;}100%{background-position:200% center;}}
 
-  @keyframes blink { 0%,100%{opacity:1;} 50%{opacity:0.3;} }
-  @keyframes flagwave { 0%{background-position:0% center;} 100%{background-position:200% center;} }
+  .btn-lg{font-size:13px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;padding:0.95rem 2.25rem;border-radius:3px;cursor:pointer;text-decoration:none;transition:all 0.2s;display:inline-block;}
+  .btn-lg.green{color:var(--white);background:var(--green);border:1.5px solid var(--green);}
+  .btn-lg.green:hover{background:var(--green-light);transform:translateY(-1px);}
+  .btn-lg.outline{color:var(--white);background:transparent;border:1.5px solid rgba(255,255,255,0.6);}
+  .btn-lg.outline:hover{border-color:#fff;background:rgba(255,255,255,0.1);transform:translateY(-1px);}
+  .btn-lg.outline-dark{color:var(--text);background:transparent;border:1.5px solid var(--border);}
+  .btn-lg.outline-dark:hover{border-color:var(--text);transform:translateY(-1px);}
 
-  .btn-lg { font-size: 13px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; padding: 0.95rem 2.25rem; border-radius: 3px; cursor: pointer; text-decoration: none; transition: all 0.2s; display: inline-block; }
-  .btn-lg.green { color: var(--white); background: var(--green); border: 1.5px solid var(--green); }
-  .btn-lg.green:hover { background: var(--green-light); transform: translateY(-1px); }
-  .btn-lg.outline { color: var(--white); background: transparent; border: 1.5px solid rgba(255,255,255,0.6); }
-  .btn-lg.outline:hover { border-color: #fff; background: rgba(255,255,255,0.1); transform: translateY(-1px); }
-  .btn-lg.outline-dark { color: var(--text); background: transparent; border: 1.5px solid var(--border); }
-  .btn-lg.outline-dark:hover { border-color: var(--text); transform: translateY(-1px); }
+  /* MARQUEE */
+  .marquee-wrap{overflow:hidden;padding:0.85rem 0;background:var(--green);}
+  .marquee-track{display:flex;gap:2.5rem;white-space:nowrap;animation:marquee 30s linear infinite;width:max-content;}
+  .marquee-item{font-size:11px;font-weight:600;letter-spacing:0.18em;text-transform:uppercase;color:rgba(255,255,255,0.7);display:flex;align-items:center;gap:1rem;}
+  .marquee-dot{width:3px;height:3px;border-radius:50%;background:rgba(255,255,255,0.5);}
+  @keyframes marquee{from{transform:translateX(0);}to{transform:translateX(-50%);}}
 
-  /* ── MARQUEE ── */
-  .marquee-wrap { overflow: hidden; padding: 0.85rem 0; background: var(--green); }
-  .marquee-track { display: flex; gap: 2.5rem; white-space: nowrap; animation: marquee 30s linear infinite; width: max-content; }
-  .marquee-item { font-size: 11px; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(255,255,255,0.7); display: flex; align-items: center; gap: 1rem; }
-  .marquee-dot { width: 3px; height: 3px; border-radius: 50%; background: rgba(255,255,255,0.5); }
-  @keyframes marquee { from{transform:translateX(0);} to{transform:translateX(-50%);} }
+  /* STATS */
+  .stats{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--border);border-bottom:1px solid var(--border);background:var(--white);}
+  .stat{padding:3rem 2rem;text-align:center;border-right:1px solid var(--border);}
+  .stat:last-child{border-right:none;}
+  .stat-number{font-family:var(--font-display);font-size:clamp(2.5rem,5vw,4rem);color:var(--green);letter-spacing:0.04em;margin-bottom:0.4rem;transition:transform 0.3s;}
+  .stat:hover .stat-number{transform:scale(1.05);}
+  .stat-label{font-size:11px;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:var(--text-light);}
 
-  /* ── STATS ── */
-  .stats { display: grid; grid-template-columns: repeat(3,1fr); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); background: var(--white); }
-  .stat { padding: 3rem 2rem; text-align: center; border-right: 1px solid var(--border); }
-  .stat:last-child { border-right: none; }
-  .stat-number { font-family: var(--font-display); font-size: clamp(2.5rem, 5vw, 4rem); color: var(--green); letter-spacing: 0.04em; margin-bottom: 0.4rem; transition: transform 0.3s; }
-  .stat:hover .stat-number { transform: scale(1.05); }
-  .stat-label { font-size: 11px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--text-light); }
+  /* SHARED */
+  .section-wrap{max-width:1000px;margin:0 auto;padding:6rem 2rem;}
+  .section-eyebrow{font-size:11px;font-weight:700;letter-spacing:0.22em;text-transform:uppercase;color:var(--green);margin-bottom:0.6rem;}
+  .section-title{font-family:var(--font-display);font-size:clamp(2rem,4vw,3.2rem);letter-spacing:0.04em;line-height:1;margin-bottom:1rem;color:var(--text);}
+  .section-body{font-size:15px;line-height:1.8;color:var(--text-mid);}
 
-  /* ── SHARED ── */
-  .section-wrap { max-width: 1000px; margin: 0 auto; padding: 6rem 2rem; }
-  .section-eyebrow { font-size: 11px; font-weight: 700; letter-spacing: 0.22em; text-transform: uppercase; color: var(--green); margin-bottom: 0.6rem; }
-  .section-title { font-family: var(--font-display); font-size: clamp(2rem, 4vw, 3.2rem); letter-spacing: 0.04em; line-height: 1; margin-bottom: 1rem; color: var(--text); }
-  .section-body { font-size: 15px; line-height: 1.8; color: var(--text-mid); }
+  /* PARTNERS */
+  .partners-section{background:var(--white);border-bottom:1px solid var(--border);}
+  .partners-header{text-align:center;margin-bottom:3rem;}
+  .partners-feature{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center;margin-bottom:4rem;}
+  .partners-image{border-radius:12px;overflow:hidden;box-shadow:0 20px 60px rgba(0,0,0,0.12);border:1px solid var(--border);aspect-ratio:1;}
+  .partners-image img{width:100%;height:100%;object-fit:cover;display:block;}
+  .partners-feature-text{display:flex;flex-direction:column;gap:1.25rem;}
+  .partners-feature-text p{font-size:15px;line-height:1.8;color:var(--text-mid);}
+  .partner-cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1rem;}
+  .partner-card{background:var(--off-white);border:1px solid var(--border);border-radius:8px;padding:1.5rem;text-align:center;transition:all 0.2s;}
+  .partner-card:hover{border-color:var(--green);transform:translateY(-3px);box-shadow:0 8px 24px rgba(26,107,154,0.08);}
+  .partner-card-icon{font-size:28px;margin-bottom:0.75rem;}
+  .partner-card-name{font-size:14px;font-weight:700;color:var(--text);margin-bottom:0.3rem;}
+  .partner-card-location{font-size:12px;color:var(--text-light);letter-spacing:0.06em;text-transform:uppercase;}
 
-  /* ── PARTNERS ── */
-  .partners-section { background: var(--white); border-bottom: 1px solid var(--border); }
-  .partners-header { text-align: center; margin-bottom: 3rem; }
-  .partners-feature { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; margin-bottom: 4rem; }
-  .partners-image { border-radius: 12px; overflow: hidden; box-shadow: 0 20px 60px rgba(0,0,0,0.12); border: 1px solid var(--border); aspect-ratio: 1; }
-  .partners-image img { width: 100%; height: 100%; object-fit: cover; display: block; }
-  .partners-feature-text { display: flex; flex-direction: column; gap: 1.25rem; }
-  .partners-feature-text p { font-size: 15px; line-height: 1.8; color: var(--text-mid); }
-  .partner-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; }
-  .partner-card { background: var(--off-white); border: 1px solid var(--border); border-radius: 8px; padding: 1.5rem; text-align: center; transition: all 0.2s; }
-  .partner-card:hover { border-color: var(--green); transform: translateY(-3px); box-shadow: 0 8px 24px rgba(26,107,154,0.08); }
-  .partner-card-icon { font-size: 28px; margin-bottom: 0.75rem; }
-  .partner-card-name { font-size: 14px; font-weight: 700; color: var(--text); margin-bottom: 0.3rem; }
-  .partner-card-location { font-size: 12px; color: var(--text-light); letter-spacing: 0.06em; text-transform: uppercase; }
+  /* ABOUT */
+  .about-section{background:var(--off-white);border-top:1px solid var(--border);border-bottom:1px solid var(--border);}
+  .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center;}
+  .about-image{border-radius:10px;overflow:hidden;aspect-ratio:1;background:var(--light-gray);border:1px solid var(--border);box-shadow:0 8px 30px rgba(0,0,0,0.08);}
+  .about-image img{width:100%;height:100%;object-fit:cover;object-position:center top;display:block;}
+  .about-text{display:flex;flex-direction:column;gap:1.25rem;}
 
-  /* ── ABOUT ── */
-  .about-section { background: var(--off-white); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
-  .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center; }
-  .about-image { border-radius: 10px; overflow: hidden; aspect-ratio: 1; background: var(--light-gray); border: 1px solid var(--border); box-shadow: 0 8px 30px rgba(0,0,0,0.08); }
-  .about-image img { width: 100%; height: 100%; object-fit: cover; object-position: center top; display: block; }
-  .about-text { display: flex; flex-direction: column; gap: 1.25rem; }
+  /* OFFER */
+  .offer-section{background:var(--white);border-bottom:1px solid var(--border);}
+  .offer-header{text-align:center;margin-bottom:3.5rem;}
+  .offer-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:1.25rem;}
+  .offer-card{background:var(--off-white);border:1.5px solid var(--border);border-radius:8px;padding:2rem 1.5rem;transition:all 0.25s;}
+  .offer-card:hover{border-color:var(--green);transform:translateY(-4px);box-shadow:0 12px 30px rgba(26,107,154,0.08);}
+  .offer-icon{font-size:28px;margin-bottom:1rem;}
+  .offer-title{font-size:13px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;margin-bottom:0.6rem;color:var(--text);}
+  .offer-desc{font-size:13px;line-height:1.7;color:var(--text-mid);}
 
-  /* ── OFFER ── */
-  .offer-section { background: var(--white); border-bottom: 1px solid var(--border); }
-  .offer-header { text-align:center; margin-bottom:3.5rem; }
-  .offer-header .section-body { margin:0 auto; max-width:520px; }
-  .offer-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(210px,1fr)); gap:1.25rem; }
-  .offer-card { background: var(--off-white); border:1.5px solid var(--border); border-radius:8px; padding:2rem 1.5rem; transition:all 0.25s; }
-  .offer-card:hover { border-color: var(--green); transform:translateY(-4px); box-shadow:0 12px 30px rgba(26,107,154,0.08); }
-  .offer-icon { font-size:28px; margin-bottom:1rem; }
-  .offer-title { font-size:13px; font-weight:700; letter-spacing:0.06em; text-transform:uppercase; margin-bottom:0.6rem; color:var(--text); }
-  .offer-desc { font-size:13px; line-height:1.7; color:var(--text-mid); }
+  /* CITIES */
+  .cities-section{background:#0a1628;border-bottom:1px solid var(--border);position:relative;overflow:hidden;}
+  .cities-section::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 50% 0%,rgba(26,107,154,0.4) 0%,transparent 70%);pointer-events:none;z-index:0;}
+  .cities-header{text-align:center;padding:5rem 2rem 1.5rem;position:relative;z-index:1;}
+  .cities-header .section-eyebrow{color:rgba(255,255,255,0.5);}
+  .cities-header .section-title{color:#fff;}
+  .cities-header .section-body{color:rgba(255,255,255,0.55);max-width:520px;margin:0 auto;}
+  .cities-scroll{overflow:hidden;position:relative;z-index:1;margin-bottom:0.75rem;}
+  .cities-scroll::before,.cities-scroll::after{content:'';position:absolute;top:0;bottom:0;width:80px;z-index:2;pointer-events:none;}
+  .cities-scroll::before{left:0;background:linear-gradient(to right,#0a1628,transparent);}
+  .cities-scroll::after{right:0;background:linear-gradient(to left,#0a1628,transparent);}
+  .cities-track{display:flex;gap:0.75rem;white-space:nowrap;animation:marquee 40s linear infinite;width:max-content;padding:0.5rem 0;}
+  .cities-track2{animation-direction:reverse;animation-duration:35s;}
+  .city-tag{font-size:12px;font-weight:500;letter-spacing:0.06em;text-transform:uppercase;color:rgba(255,255,255,0.5);border:1px solid rgba(255,255,255,0.12);padding:0.5rem 1rem;border-radius:100px;background:rgba(255,255,255,0.05);transition:all 0.2s;white-space:nowrap;}
+  .city-tag:hover{border-color:var(--green);color:#fff;background:rgba(26,107,154,0.3);}
 
-  /* ── CITIES ── */
-  .cities-section { background:#0a1628; border-bottom:1px solid var(--border); position:relative; overflow:hidden; }
-  .cities-section::before { content:''; position:absolute; inset:0; background:radial-gradient(ellipse at 50% 0%, rgba(26,107,154,0.35) 0%, transparent 70%); pointer-events:none; z-index:0; }
-  .cities-header { text-align:center; margin-bottom:1.5rem; position:relative; z-index:1; }
-  .cities-header .section-eyebrow { color:rgba(255,255,255,0.5); }
-  .cities-header .section-title { color:#fff; }
-  .cities-header .section-body { color:rgba(255,255,255,0.6); }
-  .cities-scroll { overflow:hidden; position:relative; z-index:1; }
-  .cities-scroll::before,.cities-scroll::after { content:''; position:absolute; top:0; bottom:0; width:80px; z-index:2; pointer-events:none; }
-  .cities-scroll::before { left:0; background:linear-gradient(to right,#0a1628,transparent); }
-  .cities-scroll::after { right:0; background:linear-gradient(to left,#0a1628,transparent); }
-  .cities-track { display:flex; gap:0.75rem; white-space:nowrap; animation:marquee 40s linear infinite; width:max-content; padding:0.5rem 0; }
-  .cities-track2 { animation-direction:reverse; animation-duration:35s; }
-  .city-tag { font-size:12px; font-weight:500; letter-spacing:0.06em; text-transform:uppercase; color:rgba(255,255,255,0.5); border:1px solid rgba(255,255,255,0.12); padding:0.5rem 1rem; border-radius:100px; background:rgba(255,255,255,0.05); transition:all 0.2s; white-space:nowrap; }
-  .city-tag:hover { border-color:var(--green); color:#fff; background:rgba(26,107,154,0.3); }
-  .footprint { position:absolute; font-size:1.4rem; opacity:0; animation:floatUp 8s ease-in infinite; pointer-events:none; z-index:0; user-select:none; }
-  @keyframes floatUp { 0%{opacity:0;transform:translateY(0) rotate(0deg);} 10%{opacity:0.18;} 80%{opacity:0.08;} 100%{opacity:0;transform:translateY(-420px) rotate(25deg);} }
-  .city-checker-wrap { position:relative; z-index:1; max-width:560px; margin:0 auto; padding:1.5rem 2rem 4rem; }
-  .city-input-row { display:flex; gap:8px; margin-bottom:1rem; }
-  .city-input { flex:1; font-family:var(--font); font-size:13px; padding:0.5rem 0.9rem; border:1.5px solid rgba(255,255,255,0.15); border-radius:4px; outline:none; background:rgba(255,255,255,0.07); color:#fff; transition:border-color 0.2s; }
-  .city-input::placeholder { color:rgba(255,255,255,0.35); }
-  .city-input:focus { border-color:var(--green); }
-  .city-result-box { border-radius:12px; padding:1.5rem; text-align:center; margin-bottom:1rem; }
-  .city-result-box.hit { background:rgba(26,107,154,0.25); border:2px solid var(--green); }
-  .city-result-box.miss { background:rgba(255,255,255,0.05); border:2px solid rgba(255,255,255,0.15); }
-  .city-result-icon { font-size:40px; margin-bottom:8px; display:block; }
-  .city-result-title { font-family:var(--font-display); font-size:24px; letter-spacing:0.06em; margin-bottom:8px; }
-  .city-result-msg { font-size:13px; line-height:1.7; margin:0; }
-  .city-request-box { background:rgba(255,255,255,0.06); border:1.5px solid rgba(255,255,255,0.15); border-radius:12px; padding:1.25rem; margin-top:0.75rem; }
-  .city-req-title { font-family:var(--font-display); font-size:18px; letter-spacing:0.06em; color:#fff; margin-bottom:0.4rem; }
-  .city-req-sub { font-size:12px; color:rgba(255,255,255,0.55); margin-bottom:0.75rem; line-height:1.6; }
-  .city-req-input { width:100%; font-family:var(--font); font-size:13px; padding:0.5rem 0.9rem; border:1.5px solid rgba(255,255,255,0.15); border-radius:4px; outline:none; background:rgba(255,255,255,0.07); color:#fff; margin-bottom:0.5rem; box-sizing:border-box; }
-  .city-req-input::placeholder { color:rgba(255,255,255,0.3); }
-  .city-req-input:focus { border-color:var(--green); }
-  .city-success-box { background:rgba(26,107,154,0.2); border:2px solid var(--green); border-radius:12px; padding:1.5rem; text-align:center; }
-  .city-success-title { font-family:var(--font-display); font-size:22px; letter-spacing:0.06em; color:var(--green-light); margin-bottom:6px; }
+  /* FOOTPRINTS */
+  .fp{position:absolute;font-size:1.5rem;opacity:0;pointer-events:none;z-index:0;user-select:none;animation:floatUp 9s ease-in infinite;}
+  @keyframes floatUp{0%{opacity:0;transform:translateY(0) rotate(-10deg);}10%{opacity:0.2;}85%{opacity:0.07;}100%{opacity:0;transform:translateY(-500px) rotate(20deg);}}
 
-  /* ── WORK WITH US ── */
-  .work-section { background: var(--green); }
-  .work-inner { display:grid; grid-template-columns:1fr 1fr; gap:5rem; align-items:start; }
-  .work-text { display:flex; flex-direction:column; gap:1.25rem; }
-  .work-text .section-eyebrow { color:rgba(255,255,255,0.6); }
-  .work-text .section-title { color:var(--white); }
-  .work-text .section-body { color:rgba(255,255,255,0.75); }
-  .work-list { list-style:none; display:flex; flex-direction:column; gap:0.75rem; margin-top:0.5rem; }
-  .work-list li { font-size:14px; color:rgba(255,255,255,0.8); display:flex; align-items:center; gap:0.75rem; line-height:1.5; }
-  .work-list li::before { content:''; width:6px; height:6px; border-radius:50%; background:rgba(255,255,255,0.5); flex-shrink:0; }
-  .contact-card { background:var(--white); border-radius:10px; padding:2.5rem; display:flex; flex-direction:column; gap:1.5rem; box-shadow:0 20px 50px rgba(0,0,0,0.15); }
-  .contact-card-title { font-size:17px; font-weight:700; color:var(--text); }
-  .contact-card-sub { font-size:13px; color:var(--text-mid); line-height:1.65; }
-  .contact-email { display:flex; align-items:center; gap:0.75rem; padding:1rem 1.25rem; background:var(--green-pale); border:1.5px solid rgba(26,107,154,0.2); border-radius:6px; font-size:14px; font-weight:600; color:var(--green); text-decoration:none; transition:all 0.2s; }
-  .contact-email:hover { background:rgba(26,107,154,0.12); }
-  .contact-divider { display:flex; align-items:center; gap:1rem; color:var(--text-light); font-size:11px; letter-spacing:0.1em; text-transform:uppercase; }
-  .contact-divider::before,.contact-divider::after { content:''; flex:1; height:1px; background:var(--border); }
-  .contact-social { display:flex; gap:0.75rem; flex-wrap:wrap; }
-  .contact-social-btn { flex:1; text-align:center; font-size:12px; font-weight:600; letter-spacing:0.06em; text-transform:uppercase; color:var(--text); background:transparent; border:1.5px solid var(--border); padding:0.65rem 1rem; border-radius:4px; text-decoration:none; transition:all 0.2s; }
-  .contact-social-btn:hover { border-color:var(--green); color:var(--green); background:var(--green-pale); }
-  .contact-note { font-size:12px; color:var(--text-light); text-align:center; line-height:1.6; }
+  /* CITY CHECKER */
+  .checker-wrap{position:relative;z-index:1;max-width:540px;margin:2rem auto 0;padding:0 1.5rem 5rem;}
+  .checker-input-row{display:flex;gap:8px;margin-bottom:1rem;}
+  .checker-input{flex:1;font-family:var(--font);font-size:13px;padding:0.5rem 0.9rem;border:1.5px solid rgba(255,255,255,0.18);border-radius:4px;outline:none;background:rgba(255,255,255,0.08);color:#fff;transition:border-color 0.2s;}
+  .checker-input::placeholder{color:rgba(255,255,255,0.35);}
+  .checker-input:focus{border-color:var(--green);background:rgba(255,255,255,0.12);}
+  .checker-btn{font-family:var(--font);font-size:12px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:#fff;background:var(--green);border:1.5px solid var(--green);padding:0.5rem 1.1rem;border-radius:3px;cursor:pointer;white-space:nowrap;transition:all 0.2s;}
+  .checker-btn:hover{background:var(--green-light);}
+  .checker-result{border-radius:12px;padding:1.5rem;text-align:center;margin-bottom:0.75rem;animation:popIn 0.3s ease;}
+  .checker-result.hit{background:rgba(26,107,154,0.25);border:2px solid var(--green);}
+  .checker-result.miss{background:rgba(255,255,255,0.05);border:2px solid rgba(255,255,255,0.15);}
+  @keyframes popIn{from{opacity:0;transform:scale(0.93) translateY(8px);}to{opacity:1;transform:scale(1) translateY(0);}}
+  .checker-icon{font-size:38px;display:block;margin-bottom:8px;}
+  .checker-title{font-family:var(--font-display);font-size:22px;letter-spacing:0.06em;margin-bottom:6px;}
+  .checker-msg{font-size:13px;line-height:1.7;margin:0;}
+  .checker-request{background:rgba(255,255,255,0.06);border:1.5px solid rgba(255,255,255,0.15);border-radius:12px;padding:1.25rem;margin-top:0.75rem;}
+  .checker-req-title{font-family:var(--font-display);font-size:18px;letter-spacing:0.06em;color:#fff;margin-bottom:0.35rem;}
+  .checker-req-sub{font-size:12px;color:rgba(255,255,255,0.5);margin-bottom:0.75rem;line-height:1.6;}
+  .checker-req-input{width:100%;font-family:var(--font);font-size:13px;padding:0.5rem 0.85rem;border:1.5px solid rgba(255,255,255,0.15);border-radius:4px;outline:none;background:rgba(255,255,255,0.07);color:#fff;margin-bottom:0.5rem;box-sizing:border-box;}
+  .checker-req-input::placeholder{color:rgba(255,255,255,0.3);}
+  .checker-req-input:focus{border-color:var(--green);}
+  .checker-success{background:rgba(26,107,154,0.2);border:2px solid var(--green);border-radius:12px;padding:1.5rem;text-align:center;animation:popIn 0.3s ease;}
+  .checker-success-title{font-family:var(--font-display);font-size:22px;letter-spacing:0.06em;color:var(--green-light);margin-bottom:6px;}
 
-  /* ── FORM ── */
-  .contact-form { display:flex; flex-direction:column; gap:1rem; }
-  .form-row { display:grid; grid-template-columns:1fr 1fr; gap:1rem; }
-  .form-group { display:flex; flex-direction:column; gap:0.4rem; }
-  .form-label { font-size:11px; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:var(--text-mid); }
-  .form-input { font-family:var(--font); font-size:13px; color:var(--text); background:var(--off-white); border:1.5px solid var(--border); border-radius:4px; padding:0.7rem 0.9rem; outline:none; transition:border-color 0.2s; width:100%; }
-  .form-input:focus { border-color:var(--green); background:var(--white); }
-  .form-textarea { min-height:90px; resize:vertical; }
-  select.form-input { cursor:pointer; }
-  .checkbox-grid { display:grid; grid-template-columns:1fr 1fr; gap:0.6rem; }
-  .checkbox-item { display:flex; align-items:center; gap:0.6rem; font-size:13px; color:var(--text-mid); cursor:pointer; padding:0.6rem 0.8rem; border:1.5px solid var(--border); border-radius:4px; transition:all 0.2s; background:var(--off-white); }
-  .checkbox-item:hover { border-color:var(--green); background:var(--green-pale); color:var(--green); }
-  .checkbox-item input[type="checkbox"] { accent-color:var(--green); width:15px; height:15px; cursor:pointer; flex-shrink:0; }
-  .checkbox-item input[type="checkbox"]:checked + span { color:var(--green); font-weight:600; }
-  .checkbox-item:has(input:checked) { border-color:var(--green); background:var(--green-pale); }
-  .calendly-btn { display:flex; align-items:center; justify-content:center; gap:0.75rem; padding:0.9rem 1.5rem; background:var(--green-pale); border:1.5px solid rgba(26,107,154,0.25); border-radius:4px; font-size:13px; font-weight:700; letter-spacing:0.06em; text-transform:uppercase; color:var(--green); text-decoration:none; transition:all 0.2s; }
-  .calendly-btn:hover { background:rgba(26,107,154,0.12); border-color:var(--green); }
+  /* WORK */
+  .work-section{background:var(--green);}
+  .work-inner{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:start;}
+  .work-text{display:flex;flex-direction:column;gap:1.25rem;}
+  .work-text .section-eyebrow{color:rgba(255,255,255,0.6);}
+  .work-text .section-title{color:var(--white);}
+  .work-text .section-body{color:rgba(255,255,255,0.75);}
+  .work-list{list-style:none;display:flex;flex-direction:column;gap:0.75rem;margin-top:0.5rem;}
+  .work-list li{font-size:14px;color:rgba(255,255,255,0.8);display:flex;align-items:center;gap:0.75rem;line-height:1.5;}
+  .work-list li::before{content:'';width:6px;height:6px;border-radius:50%;background:rgba(255,255,255,0.5);flex-shrink:0;}
+  .contact-card{background:var(--white);border-radius:10px;padding:2.5rem;display:flex;flex-direction:column;gap:1.5rem;box-shadow:0 20px 50px rgba(0,0,0,0.15);}
+  .contact-card-title{font-size:17px;font-weight:700;color:var(--text);}
+  .contact-card-sub{font-size:13px;color:var(--text-mid);line-height:1.65;}
+  .contact-divider{display:flex;align-items:center;gap:1rem;color:var(--text-light);font-size:11px;letter-spacing:0.1em;text-transform:uppercase;}
+  .contact-divider::before,.contact-divider::after{content:'';flex:1;height:1px;background:var(--border);}
+  .contact-note{font-size:12px;color:var(--text-light);text-align:center;line-height:1.6;}
+  .contact-form{display:flex;flex-direction:column;gap:1rem;}
+  .form-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem;}
+  .form-group{display:flex;flex-direction:column;gap:0.4rem;}
+  .form-label{font-size:11px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-mid);}
+  .form-input{font-family:var(--font);font-size:13px;color:var(--text);background:var(--off-white);border:1.5px solid var(--border);border-radius:4px;padding:0.7rem 0.9rem;outline:none;transition:border-color 0.2s;width:100%;}
+  .form-input:focus{border-color:var(--green);background:var(--white);}
+  .form-textarea{min-height:90px;resize:vertical;}
+  select.form-input{cursor:pointer;}
+  .checkbox-grid{display:grid;grid-template-columns:1fr 1fr;gap:0.6rem;}
+  .checkbox-item{display:flex;align-items:center;gap:0.6rem;font-size:13px;color:var(--text-mid);cursor:pointer;padding:0.6rem 0.8rem;border:1.5px solid var(--border);border-radius:4px;transition:all 0.2s;background:var(--off-white);}
+  .checkbox-item:hover{border-color:var(--green);background:var(--green-pale);color:var(--green);}
+  .checkbox-item input[type="checkbox"]{accent-color:var(--green);width:15px;height:15px;cursor:pointer;flex-shrink:0;}
+  .checkbox-item:has(input:checked){border-color:var(--green);background:var(--green-pale);}
+  .calendly-btn{display:flex;align-items:center;justify-content:center;gap:0.75rem;padding:0.9rem 1.5rem;background:var(--green-pale);border:1.5px solid rgba(26,107,154,0.25);border-radius:4px;font-size:13px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;color:var(--green);text-decoration:none;transition:all 0.2s;}
+  .calendly-btn:hover{background:rgba(26,107,154,0.12);border-color:var(--green);}
 
-  /* ── SIGHTINGS ── */
-  .sightings-section { background:var(--white); border-bottom:1px solid var(--border); }
-  .sightings-header { text-align:center; margin-bottom:3rem; }
-  .sightings-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:1rem; margin-bottom:2.5rem; }
-  .sighting-slot { aspect-ratio:1; border:1.5px dashed var(--border); border-radius:8px; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:0.5rem; color:var(--text-light); font-size:11px; letter-spacing:0.08em; text-transform:uppercase; background:var(--off-white); transition:all 0.2s; cursor:pointer; }
-  .sighting-slot:hover { border-color:var(--green); background:var(--green-pale); color:var(--green); transform:scale(1.02); }
-  .sightings-cta { text-align:center; display:flex; flex-direction:column; align-items:center; gap:0.75rem; }
-  .sightings-note { font-size:13px; color:var(--text-light); max-width:400px; line-height:1.6; }
+  /* SIGHTINGS */
+  .sightings-section{background:var(--white);border-bottom:1px solid var(--border);}
+  .sightings-header{text-align:center;margin-bottom:3rem;}
+  .sightings-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin-bottom:2.5rem;}
+  .sighting-slot{aspect-ratio:1;border:1.5px dashed var(--border);border-radius:8px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:0.5rem;color:var(--text-light);font-size:11px;letter-spacing:0.08em;text-transform:uppercase;background:var(--off-white);transition:all 0.2s;cursor:pointer;overflow:hidden;}
+  .sighting-slot:hover{border-color:var(--green);background:var(--green-pale);color:var(--green);transform:scale(1.02);}
+  .sightings-cta{text-align:center;display:flex;flex-direction:column;align-items:center;gap:0.75rem;}
+  .sightings-note{font-size:13px;color:var(--text-light);max-width:400px;line-height:1.6;}
 
-  /* ── TESTIMONIALS ── */
-  .testimonials-section { background:var(--off-white); border-bottom:1px solid var(--border); }
-  .testimonials-header { text-align:center; margin-bottom:3rem; }
-  .testimonials-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:1.25rem; margin-bottom:2.5rem; }
-  .testimonial-card { background:var(--white); border:1px solid var(--border); border-radius:8px; padding:1.75rem; display:flex; flex-direction:column; gap:1rem; transition:all 0.2s; }
-  .testimonial-card:hover { border-color:var(--green); transform:translateY(-3px); box-shadow:0 8px 24px rgba(26,107,154,0.08); }
-  .testimonial-stars { color:var(--green); font-size:13px; letter-spacing:3px; }
-  .testimonial-text { font-size:14px; line-height:1.75; color:var(--text-mid); font-style:italic; }
-  .testimonial-author { font-size:12px; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:var(--text); }
-  .testimonial-city { font-size:11px; color:var(--green); margin-top:2px; }
-  .testimonials-cta { text-align:center; }
+  /* TESTIMONIALS */
+  .testimonials-section{background:var(--off-white);border-bottom:1px solid var(--border);}
+  .testimonials-header{text-align:center;margin-bottom:3rem;}
+  .testimonials-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1.25rem;margin-bottom:2.5rem;}
+  .testimonial-card{background:var(--white);border:1px solid var(--border);border-radius:8px;padding:1.75rem;display:flex;flex-direction:column;gap:1rem;transition:all 0.2s;}
+  .testimonial-card:hover{border-color:var(--green);transform:translateY(-3px);box-shadow:0 8px 24px rgba(26,107,154,0.08);}
+  .testimonial-stars{color:var(--green);font-size:13px;letter-spacing:3px;}
+  .testimonial-text{font-size:14px;line-height:1.75;color:var(--text-mid);font-style:italic;}
+  .testimonial-author{font-size:12px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--text);}
+  .testimonial-city{font-size:11px;color:var(--green);margin-top:2px;}
 
-  /* ── SOCIAL ── */
-  .social-section { background:var(--white); border-bottom:1px solid var(--border); }
-  .social-header { text-align:center; margin-bottom:3.5rem; }
-  .platform-group { margin-bottom:2.5rem; }
-  .platform-label { font-size:11px; font-weight:700; letter-spacing:0.18em; text-transform:uppercase; color:var(--green); border-bottom:1px solid var(--border); padding-bottom:0.75rem; margin-bottom:1rem; display:flex; align-items:center; gap:0.5rem; }
-  .accounts-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:0.75rem; }
-  .account-card { display:flex; align-items:center; gap:0.75rem; padding:0.9rem 1.1rem; border:1px solid var(--border); border-radius:6px; text-decoration:none; color:var(--text); transition:all 0.2s; background:var(--off-white); }
-  .account-card:hover { border-color:var(--green); color:var(--green); transform:translateY(-2px); background:var(--green-pale); }
-  .account-info { display:flex; flex-direction:column; }
-  .account-name { font-size:13px; font-weight:600; }
-  .account-handle { font-size:11px; color:var(--text-light); margin-top:1px; }
+  /* SOCIAL */
+  .social-section{background:var(--white);border-bottom:1px solid var(--border);}
+  .social-header{text-align:center;margin-bottom:3.5rem;}
+  .platform-group{margin-bottom:2.5rem;}
+  .platform-label{font-size:11px;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:var(--green);border-bottom:1px solid var(--border);padding-bottom:0.75rem;margin-bottom:1rem;display:flex;align-items:center;gap:0.5rem;}
+  .accounts-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:0.75rem;}
+  .account-card{display:flex;align-items:center;gap:0.75rem;padding:0.9rem 1.1rem;border:1px solid var(--border);border-radius:6px;text-decoration:none;color:var(--text);transition:all 0.2s;background:var(--off-white);}
+  .account-card:hover{border-color:var(--green);color:var(--green);transform:translateY(-2px);background:var(--green-pale);}
+  .account-info{display:flex;flex-direction:column;}
+  .account-name{font-size:13px;font-weight:600;}
+  .account-handle{font-size:11px;color:var(--text-light);margin-top:1px;}
 
-  /* ── MERCH CTA ── */
-  .merch-cta { background:var(--off-white); border-top:1px solid var(--border); padding:7rem 2rem; text-align:center; }
-  .merch-cta-title { font-family:var(--font-display); font-size:clamp(3rem,7vw,5.5rem); letter-spacing:0.04em; line-height:0.95; margin-bottom:1.25rem; color:var(--text); }
-  .merch-cta-title span { color:var(--green); }
-  .merch-cta-sub { font-size:15px; color:var(--text-mid); margin-bottom:2.5rem; line-height:1.7; max-width:480px; margin-left:auto; margin-right:auto; }
+  /* MERCH */
+  .merch-cta{background:var(--off-white);border-top:1px solid var(--border);padding:7rem 2rem;text-align:center;}
+  .merch-cta-title{font-family:var(--font-display);font-size:clamp(3rem,7vw,5.5rem);letter-spacing:0.04em;line-height:0.95;margin-bottom:1.25rem;color:var(--text);}
+  .merch-cta-title span{color:var(--green);}
+  .merch-cta-sub{font-size:15px;color:var(--text-mid);margin-bottom:2.5rem;line-height:1.7;max-width:480px;margin-left:auto;margin-right:auto;}
 
-  /* ── FOOTER ── */
-  footer { background:var(--text); padding:2.5rem 3rem; display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:1rem; }
-  .footer-logo { font-family:var(--font-display); font-size:20px; letter-spacing:0.06em; color:var(--white); text-decoration:none; }
-  .footer-logo span { color:var(--green-light); }
-  .footer-links { display:flex; gap:1.5rem; list-style:none; }
-  .footer-links a { font-size:12px; color:rgba(255,255,255,0.5); text-decoration:none; letter-spacing:0.08em; text-transform:uppercase; transition:color 0.2s; }
-  .footer-links a:hover { color:var(--white); }
-  .footer-copy { font-size:12px; color:rgba(255,255,255,0.4); }
+  /* FOOTER */
+  footer{background:var(--text);padding:2.5rem 3rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;}
+  .footer-logo{font-family:var(--font-display);font-size:20px;letter-spacing:0.06em;color:var(--white);text-decoration:none;}
+  .footer-logo span{color:var(--green-light);}
+  .footer-links{display:flex;gap:1.5rem;list-style:none;}
+  .footer-links a{font-size:12px;color:rgba(255,255,255,0.5);text-decoration:none;letter-spacing:0.08em;text-transform:uppercase;transition:color 0.2s;}
+  .footer-links a:hover{color:var(--white);}
+  .footer-copy{font-size:12px;color:rgba(255,255,255,0.4);}
 
-  /* ── ANIMATIONS ── */
-  .fade-in { opacity:0; transform:translateY(24px); transition:opacity 0.75s ease, transform 0.75s ease; }
-  .fade-in.visible { opacity:1; transform:translateY(0); }
+  .fade-in{opacity:0;transform:translateY(24px);transition:opacity 0.75s ease,transform 0.75s ease;}
+  .fade-in.visible{opacity:1;transform:translateY(0);}
 
-  @media(max-width:768px) {
-    nav { padding:1rem 1.25rem; }
-    .nav-links { display:none; }
-    .hero-banner { height: 60vh; }
-    .hero-banner-title { font-size: clamp(3rem, 12vw, 5rem); }
-    .about-grid,.work-inner { grid-template-columns:1fr; gap:2.5rem; }
-    .partners-feature { grid-template-columns:1fr; gap:2rem; }
-    .sightings-grid { grid-template-columns:repeat(2,1fr); }
-    .stats { grid-template-columns:1fr; }
-    .stat { border-right:none; border-bottom:1px solid var(--border); }
+  @media(max-width:768px){
+    nav{padding:1rem 1.25rem;}
+    .nav-links{display:none;}
+    .hero-banner{height:60vh;}
+    .about-grid,.work-inner{grid-template-columns:1fr;gap:2.5rem;}
+    .partners-feature{grid-template-columns:1fr;gap:2rem;}
+    .sightings-grid{grid-template-columns:repeat(2,1fr);}
+    .stats{grid-template-columns:1fr;}
+    .stat{border-right:none;border-bottom:1px solid var(--border);}
   }
 </style>
 </head>
@@ -342,14 +271,12 @@
   </div>
 </nav>
 
-<!-- HERO BANNER -->
+<!-- HERO -->
 <div class="hero-banner">
-  <img src="Images/hero.jpg" alt="Bigfoot of America holding a bald eagle in front of the American flag" />
+  <img src="Images/hero.jpg" alt="Bigfoot of America with bald eagle and American flag" />
   <div class="hero-banner-overlay">
     <div class="hero-banner-badge"><span class="hero-badge-dot"></span> AI Influencer & Brand Partner</div>
-    <h1 class="hero-banner-title">
-      BIGFOOT <span class="word-of">OF</span> <span class="word-america">AMERICA</span>
-    </h1>
+    <h1 class="hero-banner-title">BIGFOOT <span class="word-of">OF</span> <span class="word-america">AMERICA</span></h1>
     <p class="hero-banner-sub">The AI influencer taking cities by storm — reviewing restaurants, hyping local businesses, and making millions laugh across TikTok, Instagram & Facebook.</p>
     <div class="hero-banner-actions">
       <a href="#work" class="btn-lg green">Partner With Us</a>
@@ -359,6 +286,13 @@
   <div class="hero-badge-follow">
     <div class="hero-badge-num">200K+</div>
     <div class="hero-badge-label">Followers</div>
+  </div>
+  <div class="fox-badge">
+    <div class="fox-tag">FOX 13</div>
+    <div class="fox-info">
+      <div class="fox-seen">As Seen On</div>
+      <div class="fox-name">FOX 13 Tampa Bay</div>
+    </div>
   </div>
 </div>
 
@@ -390,21 +324,12 @@
 
 <!-- STATS -->
 <section class="stats">
-  <div class="stat">
-    <div class="stat-number" id="stat-followers">200K+</div>
-    <div class="stat-label">Total Followers</div>
-  </div>
-  <div class="stat">
-    <div class="stat-number" id="stat-businesses">100+</div>
-    <div class="stat-label">Businesses Worked With</div>
-  </div>
-  <div class="stat">
-    <div class="stat-number" id="stat-views">Millions</div>
-    <div class="stat-label">of Views</div>
-  </div>
+  <div class="stat"><div class="stat-number" id="stat-followers">200K+</div><div class="stat-label">Total Followers</div></div>
+  <div class="stat"><div class="stat-number" id="stat-businesses">100+</div><div class="stat-label">Businesses Worked With</div></div>
+  <div class="stat"><div class="stat-number" id="stat-views">Millions</div><div class="stat-label">of Views</div></div>
 </section>
 
-<!-- FEATURED PARTNERS -->
+<!-- PARTNERS -->
 <section class="partners-section" id="partners">
   <div class="section-wrap">
     <div class="partners-header">
@@ -413,9 +338,7 @@
       <p class="section-body" style="margin:0 auto;max-width:520px;">From national attractions to local legends — BF has partnered with businesses of all sizes and delivered real results.</p>
     </div>
     <div class="partners-feature">
-      <div class="partners-image">
-        <img src="Images/ripleys-museum.jpg" alt="Bigfoot of America at Ripley's Believe It or Not in St. Augustine" />
-      </div>
+      <div class="partners-image"><img src="Images/ripleys-museum.jpg" alt="Bigfoot at Ripley's Believe It or Not" /></div>
       <div class="partners-feature-text">
         <p class="section-eyebrow">Featured Partnership</p>
         <h3 class="section-title" style="font-size:clamp(1.5rem,3vw,2.5rem);">Ripley's Believe It or Not</h3>
@@ -425,31 +348,11 @@
       </div>
     </div>
     <div class="partner-cards">
-      <div class="partner-card">
-        <div class="partner-card-icon">🎪</div>
-        <div class="partner-card-name">Ripley's Believe It or Not</div>
-        <div class="partner-card-location">St. Augustine, FL</div>
-      </div>
-      <div class="partner-card">
-        <div class="partner-card-icon">🌭</div>
-        <div class="partner-card-name">SupDogs</div>
-        <div class="partner-card-location">Greenville, NC</div>
-      </div>
-      <div class="partner-card">
-        <div class="partner-card-icon">⚾</div>
-        <div class="partner-card-name">Morehead Marlins</div>
-        <div class="partner-card-location">North Carolina</div>
-      </div>
-      <div class="partner-card">
-        <div class="partner-card-icon">🦷</div>
-        <div class="partner-card-name">Gladwell Orthodontics</div>
-        <div class="partner-card-location">North Carolina</div>
-      </div>
-      <div class="partner-card">
-        <div class="partner-card-icon">🤝</div>
-        <div class="partner-card-name">100+ More Businesses</div>
-        <div class="partner-card-location">Nationwide</div>
-      </div>
+      <div class="partner-card"><div class="partner-card-icon">🎪</div><div class="partner-card-name">Ripley's Believe It or Not</div><div class="partner-card-location">St. Augustine, FL</div></div>
+      <div class="partner-card"><div class="partner-card-icon">🌭</div><div class="partner-card-name">SupDogs</div><div class="partner-card-location">Greenville, NC</div></div>
+      <div class="partner-card"><div class="partner-card-icon">⚾</div><div class="partner-card-name">Morehead Marlins</div><div class="partner-card-location">North Carolina</div></div>
+      <div class="partner-card"><div class="partner-card-icon">🦷</div><div class="partner-card-name">Gladwell Orthodontics</div><div class="partner-card-location">North Carolina</div></div>
+      <div class="partner-card"><div class="partner-card-icon">🤝</div><div class="partner-card-name">100+ More Businesses</div><div class="partner-card-location">Nationwide</div></div>
     </div>
   </div>
 </section>
@@ -458,9 +361,7 @@
 <section class="about-section" id="about">
   <div class="section-wrap">
     <div class="about-grid">
-      <div class="about-image">
-        <img src="Images/Marlins.jpeg" alt="Bigfoot of America with the Morehead Marlins mascot" />
-      </div>
+      <div class="about-image"><img src="Images/Marlins.jpeg" alt="Bigfoot with Morehead Marlins mascot" /></div>
       <div class="about-text">
         <p class="section-eyebrow">Who is Bigfoot of America?</p>
         <h2 class="section-title">The Legend That Brands Trust</h2>
@@ -475,7 +376,7 @@
   </div>
 </section>
 
-<!-- AS SEEN ON -->
+<!-- AS SEEN ON FOX 13 -->
 <section style="background:var(--white);border-bottom:1px solid var(--border);">
   <div class="section-wrap">
     <div style="display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center;">
@@ -503,65 +404,69 @@
     <div class="offer-header">
       <p class="section-eyebrow">What We Offer</p>
       <h2 class="section-title">Content That Converts</h2>
-      <p class="section-body">From restaurants to retail, BF brings authentic engagement that gets people through the door and talking online.</p>
+      <p class="section-body" style="margin:0 auto;max-width:520px;">From restaurants to retail, BF brings authentic engagement that gets people through the door and talking online.</p>
     </div>
     <div class="offer-grid">
-      <div class="offer-card">
-        <div class="offer-icon">🍽️</div>
-        <div class="offer-title">Restaurant Reviews</div>
-        <div class="offer-desc">BF visits your restaurant, creates an entertaining review, and shares it to hundreds of thousands of followers. Real food, real reactions, real traffic.</div>
-      </div>
-      <div class="offer-card">
-        <div class="offer-icon">🏙️</div>
-        <div class="offer-title">City Features</div>
-        <div class="offer-desc">We cover cities, neighborhoods, and local culture. Perfect for tourism boards, city events, and local businesses wanting exposure to a wider audience.</div>
-      </div>
-      <div class="offer-card">
-        <div class="offer-icon">📱</div>
-        <div class="offer-title">Social Media Promos</div>
-        <div class="offer-desc">Dedicated posts, stories, and reels across TikTok, Instagram, and Facebook promoting your brand to an engaged, loyal following.</div>
-      </div>
-      <div class="offer-card">
-        <div class="offer-icon">🤝</div>
-        <div class="offer-title">Brand Partnerships</div>
-        <div class="offer-desc">Long-term partnerships for products and services. BF integrates your brand naturally into content that performs and audiences actually enjoy watching.</div>
-      </div>
+      <div class="offer-card"><div class="offer-icon">🍽️</div><div class="offer-title">Restaurant Reviews</div><div class="offer-desc">BF visits your restaurant, creates an entertaining review, and shares it to hundreds of thousands of followers. Real food, real reactions, real traffic.</div></div>
+      <div class="offer-card"><div class="offer-icon">🏙️</div><div class="offer-title">City Features</div><div class="offer-desc">We cover cities, neighborhoods, and local culture. Perfect for tourism boards, city events, and local businesses wanting exposure to a wider audience.</div></div>
+      <div class="offer-card"><div class="offer-icon">📱</div><div class="offer-title">Social Media Promos</div><div class="offer-desc">Dedicated posts, stories, and reels across TikTok, Instagram, and Facebook promoting your brand to an engaged, loyal following.</div></div>
+      <div class="offer-card"><div class="offer-icon">🤝</div><div class="offer-title">Brand Partnerships</div><div class="offer-desc">Long-term partnerships for products and services. BF integrates your brand naturally into content that performs and audiences actually enjoy watching.</div></div>
     </div>
   </div>
 </section>
 
 <!-- CITIES -->
 <section class="cities-section" id="cities">
-  <div class="section-wrap">
-    <div class="cities-header">
-      <p class="section-eyebrow">Geographic Reach</p>
-      <h2 class="section-title">Cities We've Hit</h2>
-      <p class="section-body" style="margin:0 auto;max-width:520px;">From Florida to California, North Carolina to the Bahamas — BF has covered the country and keeps expanding.</p>
+  <!-- Floating footprints -->
+  <div class="fp" style="left:5%;top:90%;animation-delay:0s;">🦶</div>
+  <div class="fp" style="left:14%;top:85%;animation-delay:1.4s;">👣</div>
+  <div class="fp" style="left:25%;top:92%;animation-delay:2.8s;">🦶</div>
+  <div class="fp" style="left:37%;top:88%;animation-delay:0.6s;">👣</div>
+  <div class="fp" style="left:50%;top:91%;animation-delay:3.5s;">🦶</div>
+  <div class="fp" style="left:62%;top:86%;animation-delay:1.9s;">👣</div>
+  <div class="fp" style="left:74%;top:93%;animation-delay:4.2s;">🦶</div>
+  <div class="fp" style="left:86%;top:87%;animation-delay:2.3s;">👣</div>
+  <div class="fp" style="left:94%;top:90%;animation-delay:0.9s;">🦶</div>
+
+  <div class="cities-header">
+    <p class="section-eyebrow">Geographic Reach</p>
+    <h2 class="section-title">Cities We've Hit</h2>
+    <p class="section-body">From Florida to California, North Carolina to the Bahamas — BF has covered the country and keeps expanding.</p>
+  </div>
+
+  <div class="cities-scroll">
+    <div class="marquee-track cities-track">
+      <span class="city-tag">Fort Myers, FL</span><span class="city-tag">Naples, FL</span><span class="city-tag">Cape Coral, FL</span><span class="city-tag">Punta Gorda, FL</span><span class="city-tag">Sarasota, FL</span><span class="city-tag">Orlando, FL</span><span class="city-tag">Gainesville, FL</span><span class="city-tag">Pensacola, FL</span><span class="city-tag">Tallahassee, FL</span><span class="city-tag">Key West, FL</span><span class="city-tag">Palm Beach, FL</span><span class="city-tag">Palm Bay, FL</span><span class="city-tag">St. Augustine, FL</span><span class="city-tag">Titusville, FL</span><span class="city-tag">Oviedo, FL</span><span class="city-tag">Largo, FL</span><span class="city-tag">Lake Mary, FL</span><span class="city-tag">Deltona, FL</span><span class="city-tag">Apopka, FL</span><span class="city-tag">Leesburg, FL</span><span class="city-tag">Margate, FL</span><span class="city-tag">Davie, FL</span><span class="city-tag">Edgewater, FL</span><span class="city-tag">Gulf Shores, AL</span><span class="city-tag">Panama City, FL</span><span class="city-tag">Mexico Beach, FL</span>
+      <span class="city-tag">Fort Myers, FL</span><span class="city-tag">Naples, FL</span><span class="city-tag">Cape Coral, FL</span><span class="city-tag">Punta Gorda, FL</span><span class="city-tag">Sarasota, FL</span><span class="city-tag">Orlando, FL</span><span class="city-tag">Gainesville, FL</span><span class="city-tag">Pensacola, FL</span><span class="city-tag">Tallahassee, FL</span><span class="city-tag">Key West, FL</span>
     </div>
   </div>
-  <div style="max-width:600px;margin:0 auto;padding:0 2rem 3rem;">
-    <div style="display:flex;gap:8px;margin-bottom:1.5rem;">
-      <input id="city-input" type="text" placeholder="Enter your city..." style="flex:1;font-family:var(--font);font-size:14px;padding:0.75rem 1rem;border:1.5px solid var(--border);border-radius:4px;outline:none;background:var(--off-white);color:var(--text);" />
-      <button id="city-check-btn" class="btn-lg green" style="white-space:nowrap;">Check It</button>
+  <div class="cities-scroll">
+    <div class="marquee-track cities-track" style="animation-direction:reverse;animation-duration:35s;">
+      <span class="city-tag">Temecula, CA</span><span class="city-tag">Hemet, CA</span><span class="city-tag">North Carolina</span><span class="city-tag">The Bahamas</span><span class="city-tag">Altamonte, FL</span><span class="city-tag">LaBelle, FL</span><span class="city-tag">Lehigh Acres, FL</span><span class="city-tag">Palmetto, FL</span><span class="city-tag">Lady Lake, FL</span><span class="city-tag">Rockledge, FL</span><span class="city-tag">Lake Wales, FL</span><span class="city-tag">St. Cloud, FL</span><span class="city-tag">Atlanta, GA</span><span class="city-tag">Durham, NC</span><span class="city-tag">Raleigh, NC</span><span class="city-tag">Charlotte, NC</span><span class="city-tag">Savannah, GA</span><span class="city-tag">Port Charlotte, FL</span><span class="city-tag">Zephyrhills, FL</span><span class="city-tag">Hialeah, FL</span><span class="city-tag">Greenville, NC</span><span class="city-tag">Wilmington, NC</span>
+      <span class="city-tag">Temecula, CA</span><span class="city-tag">Hemet, CA</span><span class="city-tag">North Carolina</span><span class="city-tag">The Bahamas</span><span class="city-tag">Altamonte, FL</span><span class="city-tag">LaBelle, FL</span><span class="city-tag">Lehigh Acres, FL</span><span class="city-tag">Palmetto, FL</span>
     </div>
-    <div id="city-result" style="display:none;border-radius:10px;border:2px solid var(--border);background:var(--off-white);padding:1.5rem;text-align:center;margin-bottom:1rem;">
-      <div id="city-result-icon" style="font-size:40px;margin-bottom:8px;"></div>
-      <div id="city-result-title" style="font-family:var(--font-display);font-size:22px;letter-spacing:0.06em;margin-bottom:8px;"></div>
-      <p id="city-result-msg" style="font-size:14px;color:var(--text-mid);line-height:1.65;margin:0;"></p>
+  </div>
+
+  <!-- CITY CHECKER -->
+  <div class="checker-wrap">
+    <div class="checker-input-row">
+      <input id="city-input" type="text" class="checker-input" placeholder="Type your city and find out..." />
+      <button id="city-btn" class="checker-btn">Check It 🦶</button>
     </div>
-    <div id="city-request" style="display:none;background:var(--white);border:1.5px solid var(--border);border-radius:10px;padding:1.5rem;">
-      <div style="font-family:var(--font-display);font-size:20px;letter-spacing:0.06em;color:var(--text);margin-bottom:0.5rem;">📍 Request Bigfoot in <span id="request-city-name"></span></div>
-      <p style="font-size:13px;color:var(--text-mid);margin-bottom:1rem;line-height:1.6;">Drop your info and we'll put your city on Bigfoot's radar. The more requests, the sooner he shows up.</p>
-      <form id="request-form" style="display:flex;flex-direction:column;gap:0.75rem;">
-        <input id="req-name" type="text" placeholder="Your name" required style="font-family:var(--font);font-size:13px;padding:0.65rem 0.9rem;border:1.5px solid var(--border);border-radius:4px;outline:none;background:var(--off-white);color:var(--text);" />
-        <input id="req-email" type="email" placeholder="Email (optional — we'll notify you when Bigfoot lands)" style="font-family:var(--font);font-size:13px;padding:0.65rem 0.9rem;border:1.5px solid var(--border);border-radius:4px;outline:none;background:var(--off-white);color:var(--text);" />
-        <button id="request-btn" type="submit" class="btn-lg green" style="width:100%;text-align:center;">🦶 Request Bigfoot</button>
+    <div id="city-result"></div>
+    <div id="city-request" style="display:none;" class="checker-request">
+      <div class="checker-req-title">📍 Put <span id="req-city-label"></span> on the Map</div>
+      <p class="checker-req-sub">Drop your info and Bigfoot will know your city wants him. The more requests, the sooner those big feet show up.</p>
+      <form id="req-form">
+        <input id="req-name" type="text" class="checker-req-input" placeholder="Your name" required />
+        <input id="req-email" type="email" class="checker-req-input" placeholder="Email (optional — we'll alert you when BF lands)" />
+        <button type="submit" class="checker-btn" style="width:100%;padding:0.65rem;font-size:13px;" id="req-submit-btn">🦶 Send the Request</button>
       </form>
     </div>
-    <div id="city-success" style="display:none;background:var(--green-pale);border:2px solid var(--green);border-radius:10px;padding:1.5rem;text-align:center;">
+    <div id="city-success" style="display:none;" class="checker-success">
       <div style="font-size:36px;margin-bottom:8px;">🦶</div>
-      <div style="font-family:var(--font-display);font-size:22px;letter-spacing:0.06em;color:var(--green);margin-bottom:6px;">Request Received!</div>
-      <p style="font-size:13px;color:var(--text-mid);margin:0;line-height:1.6;">Bigfoot has been notified. Your city is officially on the radar. Stay tuned.</p>
+      <div class="checker-success-title">Request Received!</div>
+      <p style="font-size:13px;color:rgba(255,255,255,0.65);margin:0;line-height:1.6;">Bigfoot has been notified. Your city is officially on the radar. Stay tuned.</p>
     </div>
   </div>
 </section>
@@ -583,50 +488,27 @@
           <li>Packages available for any budget</li>
         </ul>
         <div style="margin-top:1rem;">
-          <img src="Images/supdogs-greenville.jpg" alt="Bigfoot of America at SupDogs in Greenville NC" style="width:100%;border-radius:10px;border:1px solid rgba(255,255,255,0.15);box-shadow:0 8px 30px rgba(0,0,0,0.2);" />
+          <img src="Images/supdogs-greenville.jpg" alt="Bigfoot at SupDogs Greenville NC" style="width:100%;border-radius:10px;border:1px solid rgba(255,255,255,0.15);box-shadow:0 8px 30px rgba(0,0,0,0.2);" />
         </div>
       </div>
       <div class="contact-card">
         <div class="contact-card-title">Let's Work Together</div>
         <div class="contact-card-sub">Fill out the form below and we'll get back to you within 24 hours. Or skip ahead and book a call directly.</div>
-        <form action="https://formspree.io/f/xdarkwzl" method="POST" class="contact-form" id="partnerForm">
+        <form action="https://formspree.io/f/xdarkwzl" method="POST" class="contact-form">
           <div class="form-row">
-            <div class="form-group">
-              <label class="form-label">Your Name</label>
-              <input type="text" name="name" class="form-input" placeholder="John Smith" required />
-            </div>
-            <div class="form-group">
-              <label class="form-label">Business Name</label>
-              <input type="text" name="business" class="form-input" placeholder="Joe's Pizza" required />
-            </div>
+            <div class="form-group"><label class="form-label">Your Name</label><input type="text" name="name" class="form-input" placeholder="John Smith" required /></div>
+            <div class="form-group"><label class="form-label">Business Name</label><input type="text" name="business" class="form-input" placeholder="Joe's Pizza" required /></div>
           </div>
           <div class="form-row">
-            <div class="form-group">
-              <label class="form-label">Email Address</label>
-              <input type="email" name="email" class="form-input" placeholder="you@yourbusiness.com" required />
-            </div>
-            <div class="form-group">
-              <label class="form-label">Phone Number</label>
-              <input type="tel" name="phone" class="form-input" placeholder="(555) 000-0000" />
-            </div>
+            <div class="form-group"><label class="form-label">Email Address</label><input type="email" name="email" class="form-input" placeholder="you@yourbusiness.com" required /></div>
+            <div class="form-group"><label class="form-label">Phone Number</label><input type="tel" name="phone" class="form-input" placeholder="(555) 000-0000" /></div>
           </div>
           <div class="form-row">
-            <div class="form-group">
-              <label class="form-label">City / Location</label>
-              <input type="text" name="city" class="form-input" placeholder="Orlando, FL" />
-            </div>
-            <div class="form-group">
-              <label class="form-label">Type of Business</label>
+            <div class="form-group"><label class="form-label">City / Location</label><input type="text" name="city" class="form-input" placeholder="Orlando, FL" /></div>
+            <div class="form-group"><label class="form-label">Type of Business</label>
               <select name="business_type" class="form-input">
                 <option value="">Select one...</option>
-                <option>Restaurant / Food & Drink</option>
-                <option>Retail Shop</option>
-                <option>City / Tourism Board</option>
-                <option>Brand / Product</option>
-                <option>University / School</option>
-                <option>Entertainment / Events</option>
-                <option>Health & Wellness</option>
-                <option>Other</option>
+                <option>Restaurant / Food & Drink</option><option>Retail Shop</option><option>City / Tourism Board</option><option>Brand / Product</option><option>University / School</option><option>Entertainment / Events</option><option>Health & Wellness</option><option>Other</option>
               </select>
             </div>
           </div>
@@ -643,38 +525,18 @@
           </div>
           <div class="form-group">
             <label class="form-label">Is This for a Special Event?</label>
-            <select name="special_event" class="form-input" id="eventSelect" onchange="toggleEventField(this)">
+            <select name="special_event" class="form-input" id="eventSelect" onchange="document.getElementById('eventNameGroup').style.display=this.value==='Yes'?'flex':'none'">
               <option value="No">No — general promotion</option>
               <option value="Yes">Yes — it's for a specific event</option>
             </select>
           </div>
-          <div class="form-group" id="eventNameGroup" style="display:none;">
-            <label class="form-label">What's the Event?</label>
-            <input type="text" name="event_name" class="form-input" placeholder="Grand opening, anniversary, festival..." />
+          <div class="form-group" id="eventNameGroup" style="display:none;"><label class="form-label">What's the Event?</label><input type="text" name="event_name" class="form-input" placeholder="Grand opening, anniversary, festival..." /></div>
+          <div class="form-group"><label class="form-label">How Soon Do You Need This?</label>
+            <select name="timeline" class="form-input"><option value="">Select a timeframe...</option><option>ASAP — within 1 week</option><option>2–4 weeks</option><option>1–2 months</option><option>3+ months</option><option>Just exploring for now</option></select>
           </div>
-          <div class="form-group">
-            <label class="form-label">How Soon Do You Need This?</label>
-            <select name="timeline" class="form-input">
-              <option value="">Select a timeframe...</option>
-              <option>ASAP — within 1 week</option>
-              <option>2–4 weeks</option>
-              <option>1–2 months</option>
-              <option>3+ months</option>
-              <option>Just exploring for now</option>
-            </select>
-          </div>
-          <div class="form-group">
-            <label class="form-label">What Do You Want BF to Do?</label>
-            <textarea name="what_you_want" class="form-input form-textarea" placeholder="Describe what you're looking for — visit, video, shoutout, full feature, etc..." required></textarea>
-          </div>
-          <div class="form-group">
-            <label class="form-label">Your Specific Needs</label>
-            <textarea name="specific_needs" class="form-input form-textarea" placeholder="Any specific requirements, talking points, things to highlight or avoid..."></textarea>
-          </div>
-          <div class="form-group">
-            <label class="form-label">What Does Success Look Like for You?</label>
-            <textarea name="expectations" class="form-input form-textarea" placeholder="More foot traffic, brand awareness, viral video, event turnout..." required></textarea>
-          </div>
+          <div class="form-group"><label class="form-label">What Do You Want BF to Do?</label><textarea name="what_you_want" class="form-input form-textarea" placeholder="Describe what you're looking for — visit, video, shoutout, full feature, etc..." required></textarea></div>
+          <div class="form-group"><label class="form-label">Your Specific Needs</label><textarea name="specific_needs" class="form-input form-textarea" placeholder="Any specific requirements, talking points, things to highlight or avoid..."></textarea></div>
+          <div class="form-group"><label class="form-label">What Does Success Look Like for You?</label><textarea name="expectations" class="form-input form-textarea" placeholder="More foot traffic, brand awareness, viral video, event turnout..." required></textarea></div>
           <input type="hidden" name="_subject" value="🦶 New Partnership Request — Bigfoot of America" />
           <button type="submit" class="btn-lg green" style="width:100%;text-align:center;margin-top:0.5rem;">Send My Request →</button>
         </form>
@@ -698,9 +560,7 @@
       <p class="section-body" style="margin:0 auto;max-width:480px;">Caught wearing the merch? Submit your photo and you might just be the next confirmed sighting.</p>
     </div>
     <div class="sightings-grid">
-      <div class="sighting-slot" style="padding:0;overflow:hidden;border:1.5px solid var(--border);">
-        <img src="Images/sighting-canes.jpg" alt="Bigfoot of America celebrating the Carolina Hurricanes win with the Stanley Cup" style="width:100%;height:100%;object-fit:cover;display:block;" />
-      </div>
+      <div class="sighting-slot" style="border:1.5px solid var(--border);"><img src="Images/sighting-canes.jpg" alt="Bigfoot with Stanley Cup" style="width:100%;height:100%;object-fit:cover;display:block;" /></div>
       <div class="sighting-slot"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg><span>Sighting #2</span></div>
       <div class="sighting-slot"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg><span>Sighting #3</span></div>
       <div class="sighting-slot"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg><span>Sighting #4</span></div>
@@ -722,25 +582,11 @@
       <h2 class="section-title">The Reviews Are In</h2>
     </div>
     <div class="testimonials-grid">
-      <div class="testimonial-card">
-        <div class="testimonial-stars">★★★★★</div>
-        <p class="testimonial-text">"BF came through our restaurant and the video went crazy. We had people coming in all week saying they saw it on TikTok."</p>
-        <div><div class="testimonial-author">— Restaurant Owner</div><div class="testimonial-city">Southwest Florida</div></div>
-      </div>
-      <div class="testimonial-card">
-        <div class="testimonial-stars">★★★★★</div>
-        <p class="testimonial-text">"Honestly the best marketing we've done. Real people, real reactions — not some polished ad nobody watches."</p>
-        <div><div class="testimonial-author">— Local Business</div><div class="testimonial-city">North Carolina</div></div>
-      </div>
-      <div class="testimonial-card">
-        <div class="testimonial-stars">★★★★★</div>
-        <p class="testimonial-text">"I laughed out loud at every video. BF knows my city better than I do and keeps it 100% real."</p>
-        <div><div class="testimonial-author">— Fan</div><div class="testimonial-city">Orlando, FL</div></div>
-      </div>
+      <div class="testimonial-card"><div class="testimonial-stars">★★★★★</div><p class="testimonial-text">"BF came through our restaurant and the video went crazy. We had people coming in all week saying they saw it on TikTok."</p><div><div class="testimonial-author">— Restaurant Owner</div><div class="testimonial-city">Southwest Florida</div></div></div>
+      <div class="testimonial-card"><div class="testimonial-stars">★★★★★</div><p class="testimonial-text">"Honestly the best marketing we've done. Real people, real reactions — not some polished ad nobody watches."</p><div><div class="testimonial-author">— Local Business</div><div class="testimonial-city">North Carolina</div></div></div>
+      <div class="testimonial-card"><div class="testimonial-stars">★★★★★</div><p class="testimonial-text">"I laughed out loud at every video. BF knows my city better than I do and keeps it 100% real."</p><div><div class="testimonial-author">— Fan</div><div class="testimonial-city">Orlando, FL</div></div></div>
     </div>
-    <div class="testimonials-cta">
-      <a href="mailto:bigfootofamerica@gmail.com?subject=Review" class="btn-lg outline-dark">Leave a Review</a>
-    </div>
+    <div class="testimonials-cta"><a href="mailto:bigfootofamerica@gmail.com?subject=Review" class="btn-lg outline-dark">Leave a Review</a></div>
   </div>
 </section>
 
@@ -787,7 +633,7 @@
   </div>
 </section>
 
-<!-- MERCH CTA -->
+<!-- MERCH -->
 <section class="merch-cta">
   <h2 class="merch-cta-title">Rep the <span>Legend</span></h2>
   <p class="merch-cta-sub">Tees, hoodies, hats, mugs and more. Official Bigfoot of America merch — printed and shipped straight to your door.</p>
@@ -810,74 +656,118 @@
 </footer>
 
 <script>
+(function() {
+  /* ── CITY CHECKER ── */
+  var cities = {
+    "fort myers":"🌴|CONFIRMED SIGHTING!|Fort Myers was ground zero for BF. Southwest Florida didn't know what hit 'em — and they've been talking about it ever since.",
+    "naples":"🦞|CONFIRMED SIGHTING!|Fancy restaurants, fancy people, and then Bigfoot walked in. Naples has never been the same level of bougie.",
+    "cape coral":"🌊|CONFIRMED SIGHTING!|Cape Coral got the full BF experience. The canals saw those big feet and the internet went crazy.",
+    "punta gorda":"⚓|CONFIRMED SIGHTING!|Punta Gorda? More like Punta GRANDE — BF showed up and made it legendary.",
+    "sarasota":"🎭|CONFIRMED SIGHTING!|The arts capital of Florida got a taste of something truly rare. BF hit Sarasota and left footprints on the beach.",
+    "orlando":"🎢|CONFIRMED SIGHTING!|Disney who? Universal what? The real attraction in Orlando is Bigfoot — and the lines were long.",
+    "tampa":"⚡|CONFIRMED SIGHTING!|Tampa Bay — BF approved. FOX 13 couldn't believe it. The city couldn't stop talking. The legend was here.",
+    "gainesville":"🎓|CONFIRMED SIGHTING!|Go Gators! BF rolled through Gainesville and the University of Florida had no idea how to handle it.",
+    "tallahassee":"🏛️|CONFIRMED SIGHTING!|The capital of Florida got a visit from the real governor — Bigfoot.",
+    "pensacola":"🏄|CONFIRMED SIGHTING!|White sand beaches, emerald water, and one giant Bigfoot. Pensacola's beach trip just got way more interesting.",
+    "key west":"🐓|CONFIRMED SIGHTING!|Key West has seen some wild things — but nothing wilder than BF strolling down Duval Street. The roosters ran.",
+    "miami":"🌆|CONFIRMED SIGHTING!|305 in the house! BF hit Miami and the city matched his energy.",
+    "hialeah":"🎺|CONFIRMED SIGHTING!|Hialeah represent! BF came through and the whole block knew about it. Loud, proud, and legendary.",
+    "st augustine":"🎪|CONFIRMED SIGHTING!|The oldest city in America got a visit from its biggest legend. Ripley's Believe It or Not still can't believe it.",
+    "saint augustine":"🎪|CONFIRMED SIGHTING!|The oldest city in America got a visit from its biggest legend. Ripley's Believe It or Not still can't believe it.",
+    "jacksonville":"🏈|CONFIRMED SIGHTING!|Duuuval! BF hit Jacksonville and Jags fans went absolutely feral.",
+    "st cloud":"☁️|CONFIRMED SIGHTING!|St. Cloud, Florida — BF rolled through and the locals were shook. Small town, big legend energy.",
+    "temecula":"🍷|CONFIRMED SIGHTING!|Wine country meets Bigfoot. Temecula, California got a visit they didn't know they needed.",
+    "hemet":"🌵|CONFIRMED SIGHTING!|Hemet, CA — BF went west and California confirmed the legend is real.",
+    "greenville":"🌭|CONFIRMED SIGHTING!|SupDogs + Bigfoot = the most unhinged collab North Carolina has ever seen. Greenville will never be the same.",
+    "durham":"🏀|CONFIRMED SIGHTING!|Bull City! BF pulled up to Durham and nobody — not Duke fans, not Carolina fans — knew how to react.",
+    "raleigh":"🔺|CONFIRMED SIGHTING!|The City of Oaks got a visit from the legend of the woods. Raleigh, you've been officially BF'd.",
+    "charlotte":"🏙️|CONFIRMED SIGHTING!|Queen City met the King of the woods. Charlotte got the BF treatment and the Carolinas took notice.",
+    "greensboro":"🏫|CONFIRMED SIGHTING!|Greensboro, NC — home of NC A&T and confirmed BF territory.",
+    "wilmington":"🎬|CONFIRMED SIGHTING!|Hollywood of the East! Wilmington, NC — where movies get made and Bigfoot gets spotted.",
+    "chapel hill":"🐏|CONFIRMED SIGHTING!|Tar Heel territory! BF hit Chapel Hill. Carolina blue meets BF brown.",
+    "atlanta":"🍑|CONFIRMED SIGHTING!|ATL! BF hit Buckhead and the whole city felt it. Atlanta knows who the real legend is.",
+    "buckhead":"💎|CONFIRMED SIGHTING!|Buckhead, Atlanta — where the fancy people live. BF showed up and absolutely nobody was ready.",
+    "savannah":"👻|CONFIRMED SIGHTING!|Savannah's haunted — and now it's got Bigfoot too. Most interesting city in Georgia just got more interesting.",
+    "athens":"🐾|CONFIRMED SIGHTING!|Go Dawgs! BF hit Athens, Georgia and the energy was electric.",
+    "augusta":"⛳|CONFIRMED SIGHTING!|Augusta, Georgia — home of The Masters. BF showed up and the gallery had never seen anything like it.",
+    "bahamas":"🌺|CONFIRMED SIGHTING!|BF went INTERNATIONAL. The Bahamas confirmed — the legend has no borders. Nassau, you're on the map.",
+    "nassau":"🌺|CONFIRMED SIGHTING!|BF went INTERNATIONAL. Nassau, Bahamas confirmed — the legend has no borders.",
+    "gulf shores":"🦀|CONFIRMED SIGHTING!|Gulf Shores, Alabama — BF crossed state lines and the Gulf welcomed him. White sand, big feet, zero chill.",
+    "panama city":"🎉|CONFIRMED SIGHTING!|PCB! Spring Break energy meets Bigfoot energy. Panama City Beach was not ready but loved every second.",
+    "duke":"😈|CONFIRMED SIGHTING!|BF at Duke! Cameron Indoor would never recover. The Blue Devils met a real monster.",
+    "fox13":"📺|CONFIRMED SIGHTING!|FOX 13 Tampa Bay! BF was on live television and the internet exploded. As seen on TV — literally."
+  };
+  var visited = ["fort myers","naples","cape coral","punta gorda","sarasota","orlando","gainesville","pensacola","tallahassee","key west","palm beach","palm bay","st augustine","saint augustine","titusville","oviedo","largo","lake mary","deltona","apopka","leesburg","margate","davie","edgewater","gulf shores","panama city","mexico beach","morehead city","altamonte","labelle","lehigh acres","palmetto","lady lake","port st joe","rockledge","lake wales","st cloud","saint cloud","ponce de leon","miami","fiu","hialeah","port charlotte","tampa","jacksonville","ocala","zephyrhills","niceville","wewahitchka","tamarac","century","bartow","debary","sanford","navarre","spring hill","lantana","daytona","jupiter","crestview","clewiston","fort lauderdale","clearwater","durham","greenville","greensboro","wilmington","raleigh","chapel hill","asheboro","goldsboro","roxboro","wilson","elizabeth city","lumberton","wrightsville beach","charlotte","rocky mount","fuquay varina","athens","atlanta","buckhead","garner","augusta","savannah","temecula","hemet","bahamas","nassau","gulf shores","brier creek","north platte","university of florida","duke","brassfield","milton","cantonment","pace","oxford","deland","ponte vedra","fox13","fox 13"];
+  var miss = [
+    ["🧐","NO SIGHTING... YET","Bigfoot hasn't confirmed {city} on the radar yet — but legends don't stay in one place. Request it below!"],
+    ["👀","BIGFOOT IS WATCHING","No confirmed sighting in {city}. But BF has his eye everywhere. Drop a request and move to the top of the list."],
+    ["🗺️","NOT ON THE MAP... YET","{city} isn't confirmed BF territory — but every legend has to start somewhere. Put your city on the radar below."],
+    ["😤","BF HASN'T HIT {CITY} YET","{city} clearly has great taste for searching this. Bigfoot agrees. Request the visit and make it happen."],
+    ["🦶","THE FOOTPRINTS STOP SHORT OF {CITY}","Big feet haven't touched {city} soil — yet. BF is always on the move. Request below and get on the list."]
+  ];
 
-    const name = pin.getAttribute('data-name');
-    const px = parseFloat(pin.getAttribute('data-x'));
-    const py = parseFloat(pin.getAttribute('data-y'));
-    const svg = document.getElementById('bf-map');
-    const tooltip = document.getElementById('map-tooltip');
-    const tooltipBg = document.getElementById('map-tooltip-bg');
-    const tooltipText = document.getElementById('map-tooltip-text');
-    const circle = pin.querySelector('circle');
+  function norm(s){ return s.toLowerCase().replace(/[^a-z0-9 ]/g,'').trim(); }
+  function isHit(s){ var n=norm(s); return visited.some(function(v){ return n===v||n.indexOf(v)>-1||v.indexOf(n)>-1; }); }
+  function getData(s){ var n=norm(s); for(var k in cities){ if(n===k||n.indexOf(k)>-1||k.indexOf(n)>-1) return cities[k].split('|'); } return null; }
+  function rand(a){ return a[Math.floor(Math.random()*a.length)]; }
 
-    pin.addEventListener('mouseenter', () => {
-      circle.setAttribute('r', '7');
-      circle.setAttribute('fill', '#FFD700');
-      tooltipText.textContent = name;
-      const tw = name.length * 6.5;
-      const tx = Math.min(Math.max(px - tw/2, 4), 596 - tw);
-      const ty = py - 14;
-      tooltipBg.setAttribute('x', tx - 6);
-      tooltipBg.setAttribute('y', ty - 14);
-      tooltipBg.setAttribute('width', tw + 12);
-      tooltipBg.setAttribute('height', 20);
-      tooltipText.setAttribute('x', tx);
-      tooltipText.setAttribute('y', ty);
-      tooltip.style.display = 'block';
-      tooltip.parentNode.appendChild(tooltip);
-    });
-    pin.addEventListener('mouseleave', () => {
-      circle.setAttribute('r', '5');
-      circle.setAttribute('fill', '#1A6B9A');
-      tooltip.style.display = 'none';
-    });
-  });
-
-  function toggleEventField(select) {
-    document.getElementById('eventNameGroup').style.display = select.value === 'Yes' ? 'flex' : 'none';
+  function check(){
+    var val = document.getElementById('city-input').value.trim();
+    if(!val) return;
+    var res = document.getElementById('city-result');
+    var req = document.getElementById('city-request');
+    var suc = document.getElementById('city-success');
+    suc.style.display='none'; req.style.display='none';
+    if(isHit(val)){
+      var d = getData(val)||['✅','CONFIRMED SIGHTING!','Bigfoot was in '+val+' and the city has never been the same.'];
+      res.innerHTML='<div class="checker-result hit"><span class="checker-icon">'+d[0]+'</span><div class="checker-title" style="color:var(--green-light);">'+d[1]+'</div><p class="checker-msg" style="color:rgba(255,255,255,0.82);">'+d[2]+'</p></div>';
+    } else {
+      var j=rand(miss);
+      res.innerHTML='<div class="checker-result miss"><span class="checker-icon">'+j[0]+'</span><div class="checker-title" style="color:#fff;">'+j[1].replace('{CITY}',val.toUpperCase())+'</div><p class="checker-msg" style="color:rgba(255,255,255,0.6);">'+j[2].replace(/\{city\}/g,val)+'</p></div>';
+      document.getElementById('req-city-label').textContent=val;
+      req.style.display='block';
+    }
+    res.style.display='block';
   }
 
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('visible'); });
-  }, { threshold: 0.08 });
-  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+  document.getElementById('city-btn').onclick=check;
+  document.getElementById('city-input').onkeydown=function(e){ if(e.key==='Enter') check(); };
+  document.getElementById('req-form').onsubmit=function(e){
+    e.preventDefault();
+    var city=document.getElementById('city-input').value.trim();
+    var btn=document.getElementById('req-submit-btn');
+    btn.textContent='Sending...'; btn.disabled=true;
+    fetch('https://formspree.io/f/xdarkwzl',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({_subject:'🦶 City Request — '+city,city:city,name:document.getElementById('req-name').value,email:document.getElementById('req-email').value})}).catch(function(){});
+    setTimeout(function(){
+      document.getElementById('city-request').style.display='none';
+      document.getElementById('city-result').style.display='none';
+      document.getElementById('city-success').style.display='block';
+    },600);
+  };
 
-  function easeOutQuart(t) { return 1 - Math.pow(1-t,4); }
-  function animateCount(duration, onUpdate, onComplete) {
-    const start = performance.now();
-    function step(now) {
-      const p = Math.min((now - start) / duration, 1);
-      onUpdate(easeOutQuart(p));
-      if(p < 1) requestAnimationFrame(step); else onComplete();
-    }
+  /* ── STATS COUNTER ── */
+  function ease(t){ return 1-Math.pow(1-t,4); }
+  function count(el,dur,upd,done){
+    var s=performance.now();
+    function step(n){ var p=Math.min((n-s)/dur,1); upd(ease(p)); if(p<1) requestAnimationFrame(step); else done(); }
     requestAnimationFrame(step);
   }
-
-  const statObserver = new IntersectionObserver((entries) => {
-    entries.forEach(e => {
+  var so=new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
       if(!e.isIntersecting) return;
-      const idx = [...document.querySelectorAll('.stat-number')].indexOf(e.target);
-      if(idx === 0) animateCount(3500, p => { e.target.textContent = Math.round(p*200)+'K+'; }, () => { e.target.textContent='200K+'; });
-      if(idx === 1) animateCount(3500, p => { e.target.textContent = Math.round(p*100)+'+'; }, () => { e.target.textContent='100+'; });
-      if(idx === 2) animateCount(3000, p => { e.target.textContent = (p*100).toFixed(0)+'M'; }, () => {
-        e.target.style.transition = 'opacity 0.6s ease';
-        e.target.style.opacity = '0';
-        setTimeout(() => { e.target.textContent='Millions'; e.target.style.opacity='1'; }, 300);
-      });
-      statObserver.unobserve(e.target);
+      var i=[].indexOf.call(document.querySelectorAll('.stat-number'),e.target);
+      if(i===0) count(e.target,3500,function(p){e.target.textContent=Math.round(p*200)+'K+';},function(){e.target.textContent='200K+';});
+      if(i===1) count(e.target,3500,function(p){e.target.textContent=Math.round(p*100)+'+';},function(){e.target.textContent='100+';});
+      if(i===2) count(e.target,3000,function(p){e.target.textContent=(p*100).toFixed(0)+'M';},function(){ e.target.style.opacity='0'; setTimeout(function(){e.target.textContent='Millions';e.target.style.opacity='1';},300); });
+      so.unobserve(e.target);
     });
-  }, { threshold: 0.5 });
-  document.querySelectorAll('.stat-number').forEach(el => statObserver.observe(el));
+  },{threshold:0.5});
+  document.querySelectorAll('.stat-number').forEach(function(el){ so.observe(el); });
+
+  /* ── FADE IN ── */
+  var fo=new IntersectionObserver(function(entries){ entries.forEach(function(e){ if(e.isIntersecting) e.target.classList.add('visible'); }); },{threshold:0.08});
+  document.querySelectorAll('.fade-in').forEach(function(el){ fo.observe(el); });
+})();
 </script>
 </body>
 </html>
