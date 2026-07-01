@@ -208,6 +208,9 @@
   .testimonial-text{font-size:14px;line-height:1.75;color:var(--text-mid);font-style:italic;}
   .testimonial-author{font-size:12px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--text);}
   .testimonial-city{font-size:11px;color:var(--green);margin-top:2px;}
+  .testimonial-video-featured{display:flex;justify-content:center;margin-bottom:2.5rem;}
+  .testimonial-video-wrap{width:100%;max-width:340px;border-radius:10px;overflow:hidden;border:1px solid var(--border);box-shadow:0 8px 24px rgba(26,107,154,0.1);background:#000;}
+  .testimonial-video-wrap video{width:100%;display:block;aspect-ratio:9/16;object-fit:cover;}
 
   /* SOCIAL */
   .social-section{background:var(--white);border-bottom:1px solid var(--border);}
@@ -601,6 +604,14 @@
     <div class="testimonials-header">
       <p class="section-eyebrow">What People Say</p>
       <h2 class="section-title">The Reviews Are In</h2>
+    </div>
+    <div class="testimonial-video-featured">
+      <div class="testimonial-video-wrap">
+        <video controls playsinline preload="metadata" poster="Images/bfoa-testimonial-poster.jpg">
+          <source src="Images/bfoa-testimonial.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+      </div>
     </div>
     <div class="testimonials-grid">
       <div class="testimonial-card"><div class="testimonial-stars">★★★★★</div><p class="testimonial-text">"BF came through our restaurant and the video went crazy. We had people coming in all week saying they saw it on TikTok."</p><div><div class="testimonial-author">— Restaurant Owner</div><div class="testimonial-city">Southwest Florida</div></div></div>
