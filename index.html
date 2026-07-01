@@ -208,9 +208,10 @@
   .testimonial-text{font-size:14px;line-height:1.75;color:var(--text-mid);font-style:italic;}
   .testimonial-author{font-size:12px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--text);}
   .testimonial-city{font-size:11px;color:var(--green);margin-top:2px;}
-  .testimonial-video-featured{display:flex;justify-content:center;margin-bottom:2.5rem;}
-  .testimonial-video-wrap{width:100%;max-width:340px;border-radius:10px;overflow:hidden;border:1px solid var(--border);box-shadow:0 8px 24px rgba(26,107,154,0.1);background:#000;}
+  .testimonial-video-featured{display:grid;grid-template-columns:minmax(260px,340px) 1fr;gap:3.5rem;align-items:center;margin-bottom:3rem;}
+  .testimonial-video-wrap{width:100%;border-radius:10px;overflow:hidden;border:1px solid var(--border);box-shadow:0 8px 24px rgba(26,107,154,0.1);background:#000;}
   .testimonial-video-wrap video{width:100%;display:block;aspect-ratio:9/16;object-fit:cover;}
+  .testimonial-video-text{display:flex;flex-direction:column;gap:1rem;}
 
   /* SOCIAL */
   .social-section{background:var(--white);border-bottom:1px solid var(--border);}
@@ -258,6 +259,8 @@
     .mobile-badge-label{font-size:10px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:rgba(255,255,255,0.75);}
     .mobile-fox-tag{background:#d00;color:white;font-size:9px;font-weight:900;padding:2px 5px;border-radius:2px;}
     .about-grid,.work-inner{grid-template-columns:1fr;gap:2.5rem;}
+    .testimonial-video-featured{grid-template-columns:1fr;gap:1.75rem;text-align:center;}
+    .testimonial-video-wrap{max-width:340px;margin:0 auto;}
     .partners-feature{grid-template-columns:1fr;gap:2rem;}
     .sightings-grid{grid-template-columns:repeat(2,1fr);}
     .stats{grid-template-columns:1fr;}
@@ -575,6 +578,35 @@
   </div>
 </section>
 
+<!-- TESTIMONIALS -->
+<section class="testimonials-section" id="testimonials">
+  <div class="section-wrap">
+    <div class="testimonials-header">
+      <p class="section-eyebrow">What People Say</p>
+      <h2 class="section-title">The Reviews Are In</h2>
+    </div>
+    <div class="testimonial-video-featured">
+      <div class="testimonial-video-wrap">
+        <video controls playsinline preload="metadata" poster="Images/bfoa-testimonial-poster.jpg">
+          <source src="Images/bfoa-testimonial.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+      </div>
+      <div class="testimonial-video-text">
+        <p class="section-eyebrow">Featured Partner</p>
+        <div class="testimonial-stars">★★★★★</div>
+        <p class="section-body">Straight from a client BF partnered with — real reactions, real results, no script.</p>
+      </div>
+    </div>
+    <div class="testimonials-grid">
+      <div class="testimonial-card"><div class="testimonial-stars">★★★★★</div><p class="testimonial-text">"BF came through our restaurant and the video went crazy. We had people coming in all week saying they saw it on TikTok."</p><div><div class="testimonial-author">— Restaurant Owner</div><div class="testimonial-city">Southwest Florida</div></div></div>
+      <div class="testimonial-card"><div class="testimonial-stars">★★★★★</div><p class="testimonial-text">"Honestly the best marketing we've done. Real people, real reactions — not some polished ad nobody watches."</p><div><div class="testimonial-author">— Local Business</div><div class="testimonial-city">North Carolina</div></div></div>
+      <div class="testimonial-card"><div class="testimonial-stars">★★★★★</div><p class="testimonial-text">"I laughed out loud at every video. BF knows my city better than I do and keeps it 100% real."</p><div><div class="testimonial-author">— Fan</div><div class="testimonial-city">Orlando, FL</div></div></div>
+    </div>
+    <div class="testimonials-cta"><a href="mailto:bigfootofamerica@gmail.com?subject=Review" class="btn-lg outline-dark">Leave a Review</a></div>
+  </div>
+</section>
+
 <!-- SIGHTINGS -->
 <section class="sightings-section" id="sightings">
   <div class="section-wrap">
@@ -595,30 +627,6 @@
       <a href="mailto:bigfootofamerica@gmail.com?subject=Bigfoot Sighting Submission" class="btn-lg green">Submit Your Sighting</a>
       <p class="sightings-note">Email your photo in BF merch with your city. Best sightings get featured right here.</p>
     </div>
-  </div>
-</section>
-
-<!-- TESTIMONIALS -->
-<section class="testimonials-section" id="testimonials">
-  <div class="section-wrap">
-    <div class="testimonials-header">
-      <p class="section-eyebrow">What People Say</p>
-      <h2 class="section-title">The Reviews Are In</h2>
-    </div>
-    <div class="testimonial-video-featured">
-      <div class="testimonial-video-wrap">
-        <video controls playsinline preload="metadata" poster="Images/bfoa-testimonial-poster.jpg">
-          <source src="Images/bfoa-testimonial.mp4" type="video/mp4">
-          Your browser does not support the video tag.
-        </video>
-      </div>
-    </div>
-    <div class="testimonials-grid">
-      <div class="testimonial-card"><div class="testimonial-stars">★★★★★</div><p class="testimonial-text">"BF came through our restaurant and the video went crazy. We had people coming in all week saying they saw it on TikTok."</p><div><div class="testimonial-author">— Restaurant Owner</div><div class="testimonial-city">Southwest Florida</div></div></div>
-      <div class="testimonial-card"><div class="testimonial-stars">★★★★★</div><p class="testimonial-text">"Honestly the best marketing we've done. Real people, real reactions — not some polished ad nobody watches."</p><div><div class="testimonial-author">— Local Business</div><div class="testimonial-city">North Carolina</div></div></div>
-      <div class="testimonial-card"><div class="testimonial-stars">★★★★★</div><p class="testimonial-text">"I laughed out loud at every video. BF knows my city better than I do and keeps it 100% real."</p><div><div class="testimonial-author">— Fan</div><div class="testimonial-city">Orlando, FL</div></div></div>
-    </div>
-    <div class="testimonials-cta"><a href="mailto:bigfootofamerica@gmail.com?subject=Review" class="btn-lg outline-dark">Leave a Review</a></div>
   </div>
 </section>
 
