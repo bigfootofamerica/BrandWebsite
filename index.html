@@ -38,6 +38,7 @@
   .nav-links{display:flex;gap:2rem;list-style:none;}
   .nav-links a{font-size:12px;font-weight:500;letter-spacing:0.1em;color:var(--text-light);text-decoration:none;text-transform:uppercase;transition:color 0.2s;}
   .nav-links a:hover{color:var(--text);}
+  .nav-links a.active{color:var(--green);}
   .nav-actions{display:flex;gap:0.75rem;align-items:center;}
   .btn-outline{font-size:12px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:var(--green);background:transparent;border:1.5px solid var(--green);padding:0.55rem 1.25rem;border-radius:3px;cursor:pointer;text-decoration:none;transition:all 0.2s;}
   .btn-outline:hover{background:var(--green);color:var(--white);}
@@ -213,6 +214,14 @@
   .sightings-cta{text-align:center;display:flex;flex-direction:column;align-items:center;gap:0.75rem;}
   .sightings-note{font-size:13px;color:var(--text-light);max-width:400px;line-height:1.6;}
 
+  /* LIGHTBOX */
+  .lightbox{position:fixed;inset:0;background:rgba(10,10,10,0.92);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1rem;padding:3rem 2rem;z-index:500;opacity:0;pointer-events:none;transition:opacity 0.25s ease;}
+  .lightbox.active{opacity:1;pointer-events:auto;}
+  .lightbox img{max-width:min(90vw,600px);max-height:80vh;border-radius:10px;box-shadow:0 30px 80px rgba(0,0,0,0.5);}
+  .lightbox-caption{color:rgba(255,255,255,0.8);font-size:13px;letter-spacing:0.04em;}
+  .lightbox-close{position:absolute;top:1.5rem;right:1.5rem;width:40px;height:40px;border-radius:50%;background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.25);color:#fff;font-size:16px;cursor:pointer;transition:background 0.2s;}
+  .lightbox-close:hover{background:rgba(255,255,255,0.2);}
+
   /* TESTIMONIALS */
   .testimonials-section{background:var(--off-white);border-bottom:1px solid var(--border);position:relative;overflow:hidden;}
   .testimonials-header{text-align:center;margin-bottom:3rem;}
@@ -257,10 +266,14 @@
   .account-handle{font-size:11px;color:var(--text-light);margin-top:1px;}
 
   /* MERCH */
-  .merch-cta{background:var(--off-white);border-top:1px solid var(--border);padding:7rem 2rem;text-align:center;}
-  .merch-cta-title{font-family:var(--font-display);font-size:clamp(3rem,7vw,5.5rem);letter-spacing:0.04em;line-height:0.95;margin-bottom:1.25rem;color:var(--text);}
-  .merch-cta-title span{color:var(--green);}
-  .merch-cta-sub{font-size:15px;color:var(--text-mid);margin-bottom:2.5rem;line-height:1.7;max-width:480px;margin-left:auto;margin-right:auto;}
+  .merch-cta{position:relative;background:#0a1628;border-top:1px solid var(--border);padding:8rem 2rem;text-align:center;overflow:hidden;}
+  .merch-cta-bg{position:absolute;inset:0;z-index:0;}
+  .merch-cta-bg img{width:100%;height:100%;object-fit:cover;object-position:center 15%;display:block;}
+  .merch-cta-overlay{position:absolute;inset:0;z-index:1;background:linear-gradient(180deg,rgba(10,22,40,0.65) 0%,rgba(10,22,40,0.88) 100%);}
+  .merch-cta-content{position:relative;z-index:2;}
+  .merch-cta-title{font-family:var(--font-display);font-size:clamp(3rem,7vw,5.5rem);letter-spacing:0.04em;line-height:0.95;margin-bottom:1.25rem;color:#fff;text-shadow:0 2px 20px rgba(0,0,0,0.3);}
+  .merch-cta-title span{color:var(--green-light);}
+  .merch-cta-sub{font-size:15px;color:rgba(255,255,255,0.8);margin-bottom:2.5rem;line-height:1.7;max-width:480px;margin-left:auto;margin-right:auto;}
 
   /* FOOTER */
   footer{background:var(--text);padding:2.5rem 3rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;}
@@ -321,7 +334,7 @@
 
 <!-- HERO -->
 <div class="hero-banner">
-  <img src="Images/hero.jpg" alt="Bigfoot of America with bald eagle and American flag" />
+  <img src="Images/hero.jpg" alt="Bigfoot of America with bald eagle and American flag" fetchpriority="high" />
   <div class="hero-banner-overlay">
     <div class="hero-banner-badge"><span class="hero-badge-dot"></span> AI Influencer & Brand Partner</div>
     <h1 class="hero-banner-title">BIGFOOT <span class="word-of">OF</span> <span class="word-america">AMERICA</span></h1>
@@ -396,7 +409,7 @@
       <p class="section-body" style="margin:0 auto;max-width:520px;">From national attractions to local legends — BF has partnered with businesses of all sizes and delivered real results.</p>
     </div>
     <div class="partners-feature">
-      <div class="partners-image fade-in"><img src="Images/ripleys-museum.jpg" alt="Bigfoot at Ripley's Believe It or Not" /></div>
+      <div class="partners-image fade-in"><img src="Images/ripleys-museum.jpg" alt="Bigfoot at Ripley's Believe It or Not" loading="lazy" /></div>
       <div class="partners-feature-text fade-in">
         <p class="section-eyebrow">Featured Partnership</p>
         <h3 class="section-title" style="font-size:clamp(1.5rem,3vw,2.5rem);">Ripley's Believe It or Not</h3>
@@ -405,7 +418,7 @@
         <a href="#work" class="btn-lg green" style="align-self:flex-start;">Partner Like Ripley's</a>
       </div>
     </div>
-    <div class="partner-cards">
+    <div class="partner-cards fade-in">
       <div class="partner-card"><div class="partner-card-icon">🎪</div><div class="partner-card-name">Ripley's Believe It or Not</div><div class="partner-card-location">St. Augustine, FL</div></div>
       <div class="partner-card"><div class="partner-card-icon">🌭</div><div class="partner-card-name">SupDogs</div><div class="partner-card-location">Greenville, NC</div></div>
       <div class="partner-card"><div class="partner-card-icon">⚾</div><div class="partner-card-name">Morehead Marlins</div><div class="partner-card-location">North Carolina</div></div>
@@ -450,7 +463,7 @@
 <section class="about-section" id="about">
   <div class="section-wrap">
     <div class="about-grid">
-      <div class="about-image fade-in"><img src="Images/Marlins.jpeg" alt="Bigfoot with Morehead Marlins mascot" /></div>
+      <div class="about-image fade-in"><img src="Images/Marlins.jpeg" alt="Bigfoot with Morehead Marlins mascot" loading="lazy" /></div>
       <div class="about-text fade-in">
         <p class="section-eyebrow">Who is Bigfoot of America?</p>
         <h2 class="section-title">The Legend That Brands Trust</h2>
@@ -469,10 +482,10 @@
 <section style="background:var(--white);border-bottom:1px solid var(--border);">
   <div class="section-wrap">
     <div style="display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center;">
-      <div style="border-radius:12px;overflow:hidden;box-shadow:0 20px 60px rgba(0,0,0,0.12);border:1px solid var(--border);aspect-ratio:3/4;">
-        <img src="Images/fox13-news.jpg" alt="Bigfoot of America on FOX 13 News Tampa Bay" style="width:100%;height:100%;object-fit:cover;object-position:center top;display:block;" />
+      <div class="fade-in" style="border-radius:12px;overflow:hidden;box-shadow:0 20px 60px rgba(0,0,0,0.12);border:1px solid var(--border);aspect-ratio:3/4;">
+        <img src="Images/fox13-news.jpg" alt="Bigfoot of America on FOX 13 News Tampa Bay" loading="lazy" style="width:100%;height:100%;object-fit:cover;object-position:center top;display:block;" />
       </div>
-      <div style="display:flex;flex-direction:column;gap:1.25rem;">
+      <div class="fade-in" style="display:flex;flex-direction:column;gap:1.25rem;">
         <div style="display:inline-flex;align-items:center;gap:0.6rem;width:fit-content;">
           <div style="background:#d00;color:white;font-size:12px;font-weight:900;letter-spacing:0.06em;padding:4px 10px;border-radius:3px;">FOX 13</div>
           <span style="font-size:11px;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:var(--text-light);">Tampa Bay</span>
@@ -495,7 +508,7 @@
       <h2 class="section-title">Content That Converts</h2>
       <p class="section-body" style="margin:0 auto;max-width:520px;">From restaurants to retail, BF brings authentic engagement that gets people through the door and talking online.</p>
     </div>
-    <div class="offer-grid">
+    <div class="offer-grid fade-in">
       <div class="offer-card"><div class="offer-icon">🍽️</div><div class="offer-title">Restaurant Reviews</div><div class="offer-desc">BF visits your restaurant, creates an entertaining review, and shares it to hundreds of thousands of followers. Real food, real reactions, real traffic.</div></div>
       <div class="offer-card"><div class="offer-icon">🏙️</div><div class="offer-title">City Features</div><div class="offer-desc">We cover cities, neighborhoods, and local culture. Perfect for tourism boards, city events, and local businesses wanting exposure to a wider audience.</div></div>
       <div class="offer-card"><div class="offer-icon">📱</div><div class="offer-title">Social Media Promos</div><div class="offer-desc">Dedicated posts, stories, and reels across TikTok, Instagram, and Facebook promoting your brand to an engaged, loyal following.</div></div>
@@ -577,10 +590,10 @@
           <li>Packages available for any budget</li>
         </ul>
         <div style="margin-top:1rem;">
-          <img src="Images/supdogs-greenville.jpg" alt="Bigfoot at SupDogs Greenville NC" style="width:100%;border-radius:10px;border:1px solid rgba(255,255,255,0.15);box-shadow:0 8px 30px rgba(0,0,0,0.2);" />
+          <img src="Images/supdogs-greenville.jpg" alt="Bigfoot at SupDogs Greenville NC" loading="lazy" style="width:100%;border-radius:10px;border:1px solid rgba(255,255,255,0.15);box-shadow:0 8px 30px rgba(0,0,0,0.2);" />
         </div>
       </div>
-      <div class="contact-card">
+      <div class="contact-card fade-in">
         <div class="contact-card-title">Let's Work Together</div>
         <div class="contact-card-sub">Fill out the form below and we'll get back to you within 24 hours. Or skip ahead and book a call directly.</div>
         <form action="https://formspree.io/f/xdarkwzl" method="POST" class="contact-form">
@@ -647,7 +660,7 @@
       <p class="section-eyebrow">What People Say</p>
       <h2 class="section-title">The Reviews Are In</h2>
     </div>
-    <div class="testimonials-grid">
+    <div class="testimonials-grid fade-in">
       <div class="testimonial-card"><div class="testimonial-stars">★★★★★</div><p class="testimonial-text">"BF came through our restaurant and the video went crazy. We had people coming in all week saying they saw it on TikTok."</p><div><div class="testimonial-author">— Restaurant Owner</div><div class="testimonial-city">Southwest Florida</div></div></div>
       <div class="testimonial-card"><div class="testimonial-stars">★★★★★</div><p class="testimonial-text">"Honestly the best marketing we've done. Real people, real reactions — not some polished ad nobody watches."</p><div><div class="testimonial-author">— Local Business</div><div class="testimonial-city">North Carolina</div></div></div>
       <div class="testimonial-card"><div class="testimonial-stars">★★★★★</div><p class="testimonial-text">"I laughed out loud at every video. BF knows my city better than I do and keeps it 100% real."</p><div><div class="testimonial-author">— Fan</div><div class="testimonial-city">Orlando, FL</div></div></div>
@@ -659,18 +672,18 @@
 <!-- SIGHTINGS -->
 <section class="sightings-section" id="sightings">
   <div class="section-wrap">
-    <div class="sightings-header">
+    <div class="sightings-header fade-in">
       <p class="section-eyebrow">Fan Gallery</p>
       <h2 class="section-title">Bigfoot Sightings</h2>
       <p class="section-body" style="margin:0 auto;max-width:480px;">Caught wearing the merch? Submit your photo and you might just be the next confirmed sighting.</p>
     </div>
-    <div class="sightings-grid">
-      <div class="sighting-slot" style="border:1.5px solid var(--border);"><img src="Images/sighting-canes.jpg" alt="Bigfoot with Stanley Cup" style="width:100%;height:100%;object-fit:cover;display:block;" /></div>
-      <div class="sighting-slot" style="border:1.5px solid var(--border);"><img src="Images/sightings-unc.jpg" alt="Bigfoot at UNC Tar Heels football game" style="width:100%;height:100%;object-fit:cover;object-position:center top;display:block;" /></div>
-      <div class="sighting-slot" style="border:1.5px solid var(--border);"><img src="Images/taylorswift.jpg" alt="Bigfoot with Taylor Swift" style="width:100%;height:100%;object-fit:cover;object-position:center top;display:block;" /></div>
-      <div class="sighting-slot" style="border:1.5px solid var(--border);"><img src="Images/gators.jpg" alt="Bigfoot with UF Gators mascots" style="width:100%;height:100%;object-fit:cover;display:block;" /></div>
-      <div class="sighting-slot" style="border:1.5px solid var(--border);"><img src="Images/autograph.jpg" alt="Bigfoot signing autographs for fans" style="width:100%;height:100%;object-fit:cover;display:block;" /></div>
-      <div class="sighting-slot" style="border:1.5px solid var(--border);"><img src="Images/drake.jpg" alt="Bigfoot with Drake" style="width:100%;height:100%;object-fit:cover;display:block;" /></div>
+    <div class="sightings-grid fade-in">
+      <div class="sighting-slot" style="border:1.5px solid var(--border);" onclick="openLightbox('Images/sighting-canes.jpg','Bigfoot with Stanley Cup')"><img src="Images/sighting-canes.jpg" alt="Bigfoot with Stanley Cup" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block;" /></div>
+      <div class="sighting-slot" style="border:1.5px solid var(--border);" onclick="openLightbox('Images/sightings-unc.jpg','Bigfoot at UNC Tar Heels football game')"><img src="Images/sightings-unc.jpg" alt="Bigfoot at UNC Tar Heels football game" loading="lazy" style="width:100%;height:100%;object-fit:cover;object-position:center top;display:block;" /></div>
+      <div class="sighting-slot" style="border:1.5px solid var(--border);" onclick="openLightbox('Images/taylorswift.jpg','Bigfoot with Taylor Swift')"><img src="Images/taylorswift.jpg" alt="Bigfoot with Taylor Swift" loading="lazy" style="width:100%;height:100%;object-fit:cover;object-position:center top;display:block;" /></div>
+      <div class="sighting-slot" style="border:1.5px solid var(--border);" onclick="openLightbox('Images/gators.jpg','Bigfoot with UF Gators mascots')"><img src="Images/gators.jpg" alt="Bigfoot with UF Gators mascots" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block;" /></div>
+      <div class="sighting-slot" style="border:1.5px solid var(--border);" onclick="openLightbox('Images/autograph.jpg','Bigfoot signing autographs for fans')"><img src="Images/autograph.jpg" alt="Bigfoot signing autographs for fans" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block;" /></div>
+      <div class="sighting-slot" style="border:1.5px solid var(--border);" onclick="openLightbox('Images/drake.jpg','Bigfoot with Drake')"><img src="Images/drake.jpg" alt="Bigfoot with Drake" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block;" /></div>
     </div>
     <div class="sightings-cta">
       <a href="mailto:bigfootofamerica@gmail.com?subject=Bigfoot Sighting Submission" class="btn-lg green">Submit Your Sighting</a>
@@ -679,10 +692,17 @@
   </div>
 </section>
 
+<!-- LIGHTBOX -->
+<div id="lightbox" class="lightbox" onclick="closeLightbox()">
+  <button class="lightbox-close" onclick="closeLightbox()" aria-label="Close">✕</button>
+  <img id="lightbox-img" src="" alt="" />
+  <p id="lightbox-caption" class="lightbox-caption"></p>
+</div>
+
 <!-- FOLLOW -->
 <section class="social-section" id="follow">
   <div class="section-wrap">
-    <div class="social-header">
+    <div class="social-header fade-in">
       <p class="section-eyebrow">Find the Legend</p>
       <h2 class="section-title">Follow the Sightings</h2>
       <p class="section-body" style="margin:0 auto;max-width:480px;">BF is everywhere. Find your region and follow along.</p>
@@ -724,9 +744,13 @@
 
 <!-- MERCH -->
 <section class="merch-cta">
-  <h2 class="merch-cta-title">Rep the <span>Legend</span></h2>
-  <p class="merch-cta-sub">Tees, hoodies, hats, mugs and more. Official Bigfoot of America merch — printed and shipped straight to your door.</p>
-  <a href="https://bigfootofamerica.myshopify.com/" class="btn-lg green">Shop Now →</a>
+  <div class="merch-cta-bg"><img src="Images/autograph.jpg" alt="Bigfoot of America signing autographs in the official BF bucket hat" loading="lazy" /></div>
+  <div class="merch-cta-overlay"></div>
+  <div class="merch-cta-content fade-in">
+    <h2 class="merch-cta-title">Rep the <span>Legend</span></h2>
+    <p class="merch-cta-sub">Tees, hoodies, hats, mugs and more. Official Bigfoot of America merch — printed and shipped straight to your door.</p>
+    <a href="https://bigfootofamerica.myshopify.com/" class="btn-lg green">Shop Now →</a>
+  </div>
 </section>
 
 <!-- FOOTER -->
@@ -858,6 +882,35 @@
   /* ── FADE IN ── */
   var fo=new IntersectionObserver(function(entries){ entries.forEach(function(e){ if(e.isIntersecting) e.target.classList.add('visible'); }); },{threshold:0.08});
   document.querySelectorAll('.fade-in').forEach(function(el){ fo.observe(el); });
+
+  /* ── LIGHTBOX ── */
+  window.openLightbox = function(src, caption){
+    document.getElementById('lightbox-img').src = src;
+    document.getElementById('lightbox-img').alt = caption || '';
+    document.getElementById('lightbox-caption').textContent = caption || '';
+    document.getElementById('lightbox').classList.add('active');
+  };
+  window.closeLightbox = function(){
+    document.getElementById('lightbox').classList.remove('active');
+  };
+  document.getElementById('lightbox-img').addEventListener('click', function(e){ e.stopPropagation(); });
+  document.addEventListener('keydown', function(e){ if(e.key === 'Escape') closeLightbox(); });
+
+  /* ── NAV ACTIVE STATE ── */
+  var navLinks = [].slice.call(document.querySelectorAll('.nav-links a'));
+  var navSections = navLinks.map(function(a){
+    var id = a.getAttribute('href').slice(1);
+    return { link: a, el: document.getElementById(id) };
+  }).filter(function(s){ return s.el; });
+  var navObserver = new IntersectionObserver(function(entries){
+    entries.forEach(function(entry){
+      var match = navSections.filter(function(s){ return s.el === entry.target; })[0];
+      if(!match || !entry.isIntersecting) return;
+      navLinks.forEach(function(a){ a.classList.remove('active'); });
+      match.link.classList.add('active');
+    });
+  }, { rootMargin: '-40% 0px -55% 0px', threshold: 0 });
+  navSections.forEach(function(s){ navObserver.observe(s.el); });
 })();
 </script>
 </body>
