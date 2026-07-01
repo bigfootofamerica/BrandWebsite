@@ -222,6 +222,13 @@
   .testimonial-video-text{display:flex;flex-direction:column;gap:1rem;}
   .testimonial-video-tagline{font-family:var(--font-display);font-size:clamp(1.5rem,2.6vw,2.1rem);letter-spacing:0.02em;line-height:1.25;color:var(--text);}
 
+  /* CLIENT SPOTLIGHT */
+  .client-spotlight-section{background:var(--green-pale);border-bottom:1px solid var(--border);position:relative;overflow:hidden;}
+  .spotlight-header{text-align:center;margin-bottom:3rem;}
+  .spotlight-lg{grid-template-columns:minmax(300px,400px) 1fr;gap:4rem;}
+  .spotlight-lg .testimonial-video-glow{width:155%;height:155%;}
+  .spotlight-lg .testimonial-video-wrap{animation-duration:2.2s;}
+
   /* SOCIAL */
   .social-section{background:var(--white);border-bottom:1px solid var(--border);}
   .social-header{text-align:center;margin-bottom:3.5rem;}
@@ -389,6 +396,37 @@
       <div class="partner-card"><div class="partner-card-icon">⚾</div><div class="partner-card-name">Morehead Marlins</div><div class="partner-card-location">North Carolina</div></div>
       <div class="partner-card"><div class="partner-card-icon">🦷</div><div class="partner-card-name">Gladwell Orthodontics</div><div class="partner-card-location">North Carolina</div></div>
       <div class="partner-card"><div class="partner-card-icon">🤝</div><div class="partner-card-name">100+ More Businesses</div><div class="partner-card-location">Nationwide</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- CLIENT SPOTLIGHT -->
+<section class="client-spotlight-section" id="client-spotlight">
+  <div class="section-wrap">
+    <div class="spotlight-header">
+      <p class="section-eyebrow">Hear It From Them</p>
+      <h2 class="section-title">Real Clients. Real Reviews. Real Impact.</h2>
+    </div>
+    <div class="testimonial-video-featured fade-in spotlight-lg">
+      <div class="testimonial-video-col">
+        <div class="testimonial-video-glow"></div>
+        <div class="testimonial-sparkle" style="left:8%;top:80%;animation-delay:0s;">✨</div>
+        <div class="testimonial-sparkle" style="left:20%;top:88%;animation-delay:2.2s;">⭐</div>
+        <div class="testimonial-sparkle" style="left:30%;top:75%;animation-delay:4.4s;">✨</div>
+        <div class="testimonial-video-wrap">
+          <div class="testimonial-video-badge"><span class="testimonial-video-dot"></span><span>Real Client</span></div>
+          <video controls playsinline preload="metadata" poster="Images/bfoa-testimonial-poster.jpg">
+            <source src="Images/bfoa-testimonial.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+        </div>
+      </div>
+      <div class="testimonial-video-text">
+        <p class="section-eyebrow">Featured Partner</p>
+        <div class="testimonial-stars">★★★★★</div>
+        <p class="section-body">Watch it straight from the source — real reactions from a business BF partnered with, no script, no actors.</p>
+        <a href="#work" class="btn-lg green" style="align-self:flex-start;">Be Our Next Success Story</a>
+      </div>
     </div>
   </div>
 </section>
@@ -593,26 +631,6 @@
     <div class="testimonials-header">
       <p class="section-eyebrow">What People Say</p>
       <h2 class="section-title">The Reviews Are In</h2>
-    </div>
-    <div class="testimonial-video-featured fade-in">
-      <div class="testimonial-video-col">
-        <div class="testimonial-video-glow"></div>
-        <div class="testimonial-sparkle" style="left:8%;top:80%;animation-delay:0s;">✨</div>
-        <div class="testimonial-sparkle" style="left:20%;top:88%;animation-delay:2.2s;">⭐</div>
-        <div class="testimonial-sparkle" style="left:30%;top:75%;animation-delay:4.4s;">✨</div>
-        <div class="testimonial-video-wrap">
-          <div class="testimonial-video-badge"><span class="testimonial-video-dot"></span><span>Real Client</span></div>
-          <video controls playsinline preload="metadata" poster="Images/bfoa-testimonial-poster.jpg">
-            <source src="Images/bfoa-testimonial.mp4" type="video/mp4">
-            Your browser does not support the video tag.
-          </video>
-        </div>
-      </div>
-      <div class="testimonial-video-text">
-        <p class="section-eyebrow">Featured Partner</p>
-        <div class="testimonial-stars">★★★★★</div>
-        <p class="testimonial-video-tagline">Real Clients. Real Reviews. Real Impact.</p>
-      </div>
     </div>
     <div class="testimonials-grid">
       <div class="testimonial-card"><div class="testimonial-stars">★★★★★</div><p class="testimonial-text">"BF came through our restaurant and the video went crazy. We had people coming in all week saying they saw it on TikTok."</p><div><div class="testimonial-author">— Restaurant Owner</div><div class="testimonial-city">Southwest Florida</div></div></div>
