@@ -209,15 +209,18 @@
   .testimonial-author{font-size:12px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--text);}
   .testimonial-city{font-size:11px;color:var(--green);margin-top:2px;}
   .testimonial-video-featured{position:relative;display:grid;grid-template-columns:minmax(260px,340px) 1fr;gap:3.5rem;align-items:center;margin-bottom:3rem;}
-  .testimonial-video-glow{position:absolute;width:440px;height:440px;left:0;top:50%;background:radial-gradient(circle,rgba(26,107,154,0.30) 0%,rgba(26,107,154,0) 70%);transform:translate(-15%,-50%);animation:glowPulse 6s ease-in-out infinite;z-index:0;pointer-events:none;}
-  @keyframes glowPulse{0%,100%{transform:translate(-15%,-50%) scale(1);opacity:0.65;}50%{transform:translate(-15%,-50%) scale(1.18);opacity:1;}}
-  .testimonial-video-wrap{position:relative;z-index:1;width:100%;border-radius:10px;overflow:hidden;border:1px solid var(--border);box-shadow:0 8px 24px rgba(26,107,154,0.1);background:#000;}
+  .testimonial-video-col{position:relative;}
+  .testimonial-video-glow{position:absolute;width:135%;height:135%;left:50%;top:50%;background:radial-gradient(circle,rgba(26,107,154,0.5) 0%,rgba(30,124,184,0.22) 45%,rgba(26,107,154,0) 72%);transform:translate(-50%,-50%) scale(0.95);animation:glowPulse 3s ease-in-out infinite;z-index:0;pointer-events:none;filter:blur(3px);}
+  @keyframes glowPulse{0%,100%{transform:translate(-50%,-50%) scale(0.92);opacity:0.55;}50%{transform:translate(-50%,-50%) scale(1.15);opacity:1;}}
+  .testimonial-video-wrap{position:relative;z-index:1;width:100%;border-radius:10px;overflow:hidden;border:1px solid var(--border);background:#000;animation:videoSpotlight 3s ease-in-out infinite;}
+  @keyframes videoSpotlight{0%,100%{box-shadow:0 8px 24px rgba(26,107,154,0.15),0 0 0 0 rgba(30,124,184,0);}50%{box-shadow:0 8px 24px rgba(26,107,154,0.15),0 0 50px 14px rgba(30,124,184,0.6);}}
   .testimonial-video-wrap video{width:100%;display:block;aspect-ratio:9/16;object-fit:cover;}
   .testimonial-video-badge{position:absolute;top:0.85rem;left:0.85rem;z-index:2;display:flex;align-items:center;gap:0.4rem;background:rgba(0,0,0,0.55);backdrop-filter:blur(4px);border-radius:20px;padding:0.35rem 0.7rem 0.35rem 0.55rem;}
   .testimonial-video-dot{width:7px;height:7px;border-radius:50%;background:#ff4d4d;animation:blink 1.4s ease-in-out infinite;}
   .testimonial-video-badge span{font-size:10px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:#fff;}
   .testimonial-sparkle{position:absolute;font-size:1.1rem;opacity:0;pointer-events:none;z-index:0;user-select:none;animation:floatUp 8s ease-in infinite;}
   .testimonial-video-text{display:flex;flex-direction:column;gap:1rem;}
+  .testimonial-video-tagline{font-family:var(--font-display);font-size:clamp(1.5rem,2.6vw,2.1rem);letter-spacing:0.02em;line-height:1.25;color:var(--text);}
 
   /* SOCIAL */
   .social-section{background:var(--white);border-bottom:1px solid var(--border);}
@@ -266,9 +269,7 @@
     .mobile-fox-tag{background:#d00;color:white;font-size:9px;font-weight:900;padding:2px 5px;border-radius:2px;}
     .about-grid,.work-inner{grid-template-columns:1fr;gap:2.5rem;}
     .testimonial-video-featured{grid-template-columns:1fr;gap:1.75rem;text-align:center;}
-    .testimonial-video-wrap{max-width:340px;margin:0 auto;}
-    .testimonial-video-glow{left:50%;transform:translate(-50%,-50%);}
-    @keyframes glowPulse{0%,100%{transform:translate(-50%,-50%) scale(1);opacity:0.65;}50%{transform:translate(-50%,-50%) scale(1.18);opacity:1;}}
+    .testimonial-video-col{max-width:340px;margin:0 auto;}
     .partners-feature{grid-template-columns:1fr;gap:2rem;}
     .sightings-grid{grid-template-columns:repeat(2,1fr);}
     .stats{grid-template-columns:1fr;}
@@ -594,21 +595,23 @@
       <h2 class="section-title">The Reviews Are In</h2>
     </div>
     <div class="testimonial-video-featured fade-in">
-      <div class="testimonial-video-glow"></div>
-      <div class="testimonial-sparkle" style="left:8%;top:80%;animation-delay:0s;">✨</div>
-      <div class="testimonial-sparkle" style="left:20%;top:88%;animation-delay:2.2s;">⭐</div>
-      <div class="testimonial-sparkle" style="left:30%;top:75%;animation-delay:4.4s;">✨</div>
-      <div class="testimonial-video-wrap">
-        <div class="testimonial-video-badge"><span class="testimonial-video-dot"></span><span>Real Client</span></div>
-        <video controls playsinline preload="metadata" poster="Images/bfoa-testimonial-poster.jpg">
-          <source src="Images/bfoa-testimonial.mp4" type="video/mp4">
-          Your browser does not support the video tag.
-        </video>
+      <div class="testimonial-video-col">
+        <div class="testimonial-video-glow"></div>
+        <div class="testimonial-sparkle" style="left:8%;top:80%;animation-delay:0s;">✨</div>
+        <div class="testimonial-sparkle" style="left:20%;top:88%;animation-delay:2.2s;">⭐</div>
+        <div class="testimonial-sparkle" style="left:30%;top:75%;animation-delay:4.4s;">✨</div>
+        <div class="testimonial-video-wrap">
+          <div class="testimonial-video-badge"><span class="testimonial-video-dot"></span><span>Real Client</span></div>
+          <video controls playsinline preload="metadata" poster="Images/bfoa-testimonial-poster.jpg">
+            <source src="Images/bfoa-testimonial.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+        </div>
       </div>
       <div class="testimonial-video-text">
         <p class="section-eyebrow">Featured Partner</p>
         <div class="testimonial-stars">★★★★★</div>
-        <p class="section-body">Straight from a client BF partnered with — real reactions, real results, no script.</p>
+        <p class="testimonial-video-tagline">Real Clients. Real Reviews. Real Impact.</p>
       </div>
     </div>
     <div class="testimonials-grid">
